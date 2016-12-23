@@ -1,0 +1,20 @@
+{
+  "name": "rdarricau/mgd",
+  "description": "Librairie PHP pour interagir avec l'api de MonsieurGourmand.com",
+  "authors": [
+    {
+      "name": "Rémi Darricau",
+      "email": "remi@monsieurgourmand.com"
+    }
+  ],
+  "minimum-stability": "dev",
+  "require": {
+    "php": ">=5.5.9",
+    "mashape/unirest-php": "3.*"
+  },
+    "autoload": {
+        "psr-0": {
+            "Mgd": "src/"
+        }
+    }
+}
