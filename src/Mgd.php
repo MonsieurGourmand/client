@@ -1,42 +1,51 @@
 <?php
 
+require_once "OAuth2/Apikey.php";
 require_once "Mgd/Suppliers.php";
-require_once 'OAuth2/Client.php';
-require_once 'OAuth2/GrantType/IGrantType.php';
-require_once 'OAuth2/GrantType/AuthorizationCode.php';
+
 
 class Mgd {
-    const AUTHORIZATION_ENDPOINT = 'https://api.monsieurgourmand.com/oauth/v2/auth';
-    const TOKEN_ENDPOINT         = 'https://api.monsieurgourmand.com/oauth/v2/token';
+    const PROD_TOKEN_ENDPOINT = '/oauth/v2/token';
+    const SANDBOX_TOKEN_ENDPOINT = '/oauth/v2/token';
+    const PROD_ROOT = 'https://sandbox-api.monsieurgourmand.com';
+    const SANDBOX_ROOT = 'https://sandbox-api.monsieurgourmand.com';
 
-    public $root = 'https://api.monsieurgourmand.com/cantine/fourneaux';
+    public $accessToken;
+    public $refreshToken;
+    public $apiUrl;
+    public $sandbox;
 
-    public function __construct($clientId,$clientSecret,$redirectUri) {
+    public function __construct($clientId,$clientSecret,$apiKey,$sandbox=false) {
         if(!$clientId) throw new Error('You must provide a clientId');
         if(!$clientSecret) throw new Error('You must provide a clientSecret');
-        if(!$redirectUri) throw new Error('You must provide a redirectUri');
+        if(!$apiKey) throw new Error('You must provide an apiKey');
 
-        $client = new OAuth2\Client($clientId,$clientSecret);
-        if (!isset($_GET['code']))
+        // Gestion de la sandbox
+        $this->sandbox = $sandbox;
+        if($sandbox)
         {
-            $auth_url = $client->getAuthenticationUrl(AUTHORIZATION_ENDPOINT, $redirectUri);
-            header('Location: ' . $auth_url);
-            die('Redirect');
+            $tokenUrl = self::SANDBOX_ROOT.self::SANDBOX_TOKEN_ENDPOINT;
+            $this->apiUrl = self::SANDBOX_ROOT."/cantine";
         }
         else
         {
-            $params = array('code' => $_GET['code'], 'redirect_uri' => $redirectUri);
-            $response = $client->getAccessToken(TOKEN_ENDPOINT, 'authorization_code', $params);
-            parse_str($response['result'], $info);
-            dump($info);exit;
+            $tokenUrl = self::PROD_ROOT.self::PROD_TOKEN_ENDPOINT;
+            $this->apiUrl = self::PROD_ROOT."/cantine";            
         }
+
+        // Gestion de la récupération des crédentials
+        $client = new OAuth2\Client($clientId,$clientSecret);
+        $params = array('apikey' => $apiKey);
+        $response = $client->getAccessToken($tokenUrl, 'apikey', $params);
+        $this->accessToken = $response['result']['access_token']; 
+        $this->refreshToken = $response['result']['refresh_token']; 
 
         $this->suppliers = new Mgd_Suppliers($this);
     }
 
     public function getAll($url, $params=array()) {
         $params['access_token'] = $this->accessToken;
-        $response = Unirest\Request::get($this->root . $url . '.json',array(),$params);
+        $response = Unirest\Request::get($this->apiUrl . $url . '.json',array(),$params);
         if(floor($response->code / 100) >= 4) {
             throw new Error($response->body->errors->error[0]);
         }

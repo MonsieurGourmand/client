@@ -1,14 +1,14 @@
 <?php
 class Mgd_Suppliers 
 {
-    public function __construct(FacturationPro $master) 
+    public function __construct(Mgd $master) 
     {
         $this->master = $master;
     }
 
     public function getAll()
     {
-    	return $this->master->get('fournisseurs');
+    	return $this->master->getAll('fournisseurs');
     }    
 }
 ?>
