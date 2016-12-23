@@ -8,7 +8,7 @@ class Mgd {
     public $root = 'https://api.monsieurgourmand.com/cantine/fourneaux';
 
     public function __construct($accessToken) {
-        if(!$apiKey) throw new Error('You must provide an apiKey');
+        if(!$accessToken) throw new Error('You must provide an apiKey');
 
         $this->accessToken = $accessToken;
 
