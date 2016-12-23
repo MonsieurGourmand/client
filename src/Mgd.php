@@ -7,8 +7,8 @@ require_once "Mgd/Suppliers.php";
 class Mgd {
     const PROD_TOKEN_ENDPOINT = '/oauth/v2/token';
     const SANDBOX_TOKEN_ENDPOINT = '/oauth/v2/token';
-    const PROD_ROOT = 'https://sandbox-api.monsieurgourmand.com';
-    const SANDBOX_ROOT = 'https://sandbox-api.monsieurgourmand.com';
+    const PROD_ROOT = 'https://api.monsieurgourmand.com';
+    const SANDBOX_ROOT = 'http://api.monsieurgourmand.dev/app_dev.php';
 
     public $accessToken;
     public $refreshToken;
