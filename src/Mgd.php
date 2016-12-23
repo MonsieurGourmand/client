@@ -52,7 +52,6 @@ class Mgd {
         if(floor($response['code'] / 100) >= 4) {
             throw new Error("[".$response['result']['error']."] ".$response['result']['error_description']);
         }
-
-        return $response->body;
+        return $response['result'];
     }
 }
