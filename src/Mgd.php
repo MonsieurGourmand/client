@@ -37,6 +37,9 @@ class Mgd {
         $client = new OAuth2\Client($clientId,$clientSecret);
         $params = array('apikey' => $apiKey);
         $response = $client->getAccessToken($tokenUrl, 'apikey', $params);
+        if(floor($response->code / 100) >= 4) {
+            throw new Error("[".$response->result->error."] ".$response->result->error_description);
+        }
         $this->accessToken = $response['result']['access_token']; 
         $this->refreshToken = $response['result']['refresh_token']; 
 
