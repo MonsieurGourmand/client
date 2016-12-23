@@ -49,8 +49,8 @@ class Mgd {
 
     public function getAll($url, $params=array()) {
         $response = $this->client->fetch($this->apiUrl . $url . '.json');
-        if(floor($response->code / 100) >= 4) {
-            throw new Error($response->body->errors->error[0]);
+        if(floor($response['code'] / 100) >= 4) {
+            throw new Error("[".$response['result']['error']."] ".$response['result']['error_description']);
         }
 
         return $response->body;
