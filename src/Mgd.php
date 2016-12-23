@@ -42,7 +42,6 @@ class Mgd {
             throw new Error("[".$response['result']['error']."] ".$response['result']['error_description']);
         }
         $client->setAccessToken($response['result']['access_token']);
-        $client->setRefreshToken($response['result']['refresh_token']);
         $this->client = $client;
 
         $this->suppliers = new Mgd_Suppliers($this);
