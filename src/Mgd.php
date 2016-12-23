@@ -14,6 +14,7 @@ class Mgd {
     public $refreshToken;
     public $apiUrl;
     public $sandbox;
+    public $client;
 
     public function __construct($clientId,$clientSecret,$apiKey,$sandbox=false) {
         if(!$clientId) throw new Error('You must provide a clientId');
@@ -25,30 +26,30 @@ class Mgd {
         if($sandbox)
         {
             $tokenUrl = self::SANDBOX_ROOT.self::SANDBOX_TOKEN_ENDPOINT;
-            $this->apiUrl = self::SANDBOX_ROOT."/cantine";
+            $this->apiUrl = self::SANDBOX_ROOT."/cantine/";
         }
         else
         {
             $tokenUrl = self::PROD_ROOT.self::PROD_TOKEN_ENDPOINT;
-            $this->apiUrl = self::PROD_ROOT."/cantine";            
+            $this->apiUrl = self::PROD_ROOT."/cantine/";            
         }
 
         // Gestion de la récupération des crédentials
         $client = new OAuth2\Client($clientId,$clientSecret);
         $params = array('apikey' => $apiKey);
         $response = $client->getAccessToken($tokenUrl, 'apikey', $params);
-        if(floor($response->code / 100) >= 4) {
-            throw new Error("[".$response->result->error."] ".$response->result->error_description);
+        if(floor($response['code'] / 100) >= 4) {
+            throw new Error("[".$response['result']['error']."] ".$response['result']['error_description']);
         }
-        $this->accessToken = $response['result']['access_token']; 
-        $this->refreshToken = $response['result']['refresh_token']; 
+        $client->setAccessToken($info['access_token']);
+        $client->setRefreshToken($info['refresh_token']);
+        $this->client = $client;
 
         $this->suppliers = new Mgd_Suppliers($this);
     }
 
     public function getAll($url, $params=array()) {
-        $params['access_token'] = $this->accessToken;
-        $response = Unirest\Request::get($this->apiUrl . $url . '.json',array(),$params);
+        $response = $this->client->fetch($this->apiUrl . $url . '.json');
         if(floor($response->code / 100) >= 4) {
             throw new Error($response->body->errors->error[0]);
         }
