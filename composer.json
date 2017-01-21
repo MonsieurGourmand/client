@@ -10,12 +10,14 @@
   "minimum-stability": "dev",
   "require": {
     "php": ">=5.5.9",
-    "adoy/oauth2": "*",
-    "mashape/unirest-php": "3.*"
+    "adoy/oauth2": "*"
+  },
+  "require-dev":{
+    "symfony/var-dumper":"*"
   },
     "autoload": {
-        "psr-0": {
-            "Mgd": "src/"
+        "psr-4": {
+            "Mgd\\": "src/"
         }
     }
 }
