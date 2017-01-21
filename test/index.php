@@ -11,7 +11,5 @@ const APIKEY = "sandbox_c2FuZGJveF83YzhkYzZiNmJmZDg5ZTRmZjI5NzUxZDk4YzM4MWEwYQ";
 //const APIKEY = "prod_cHJvZF83YzhkYzZiNmJmZDg5ZTRmZjI5NzUxZDk4YzM4MWEwYQ";
 
 $mgd = new \Mgd\Mgd(CLIENT_ID,CLIENT_SECRET,APIKEY);
-$suppliers = $mgd->suppliers->getAll();
-dump($suppliers);
-$supplier = $mgd->suppliers->get(1);
-dump($supplier);
+$supplierProducts = $mgd->supplierProduct->getAll();
+dump($supplierProducts);

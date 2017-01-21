@@ -22,6 +22,7 @@ class Parser
     }
 
     public function object($arraySource, $destination) {
+        if(!isset($arraySource)) return;
         $destination = new $destination();
         $destinationReflection = new \ReflectionObject($destination);
         foreach ($arraySource as $key => $value) {

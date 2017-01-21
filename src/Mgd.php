@@ -45,7 +45,7 @@ class Mgd {
         $this->subcategory = new \Mgd\Route\Subcategory($this);
         $this->supplier = new \Mgd\Route\Supplier($this);
         $this->supplierContact = new \Mgd\Route\SupplierContact($this);
-        $this->supplierProduct = new \Mgd\Route\SupplierProduct$this);
+        $this->supplierProduct = new \Mgd\Route\SupplierProduct($this);
         $this->teammate = new \Mgd\Route\Teammate($this);
         $this->zone = new \Mgd\Route\Zone($this);
     }
