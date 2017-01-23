@@ -2,45 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="91eb8cbc-c7fa-4638-be1b-77c03912f161" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Serializer.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Entity/Category.php" afterPath="$PROJECT_DIR$/src/Entity/Category.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Entity/Contact.php" afterPath="$PROJECT_DIR$/src/Entity/Contact.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Entity/Customer.php" afterPath="$PROJECT_DIR$/src/Entity/Customer.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Entity/CustomerEntity.php" afterPath="$PROJECT_DIR$/src/Entity/CustomerEntity.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Entity/CustomerProduct.php" afterPath="$PROJECT_DIR$/src/Entity/CustomerProduct.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Entity/Document.php" afterPath="$PROJECT_DIR$/src/Entity/Document.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Entity/Flux.php" afterPath="$PROJECT_DIR$/src/Entity/Flux.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Entity/Forwarder.php" afterPath="$PROJECT_DIR$/src/Entity/Forwarder.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Entity/Movement.php" afterPath="$PROJECT_DIR$/src/Entity/Movement.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Entity/Package.php" afterPath="$PROJECT_DIR$/src/Entity/Package.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Entity/PackageProduct.php" afterPath="$PROJECT_DIR$/src/Entity/PackageProduct.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Entity/Product.php" afterPath="$PROJECT_DIR$/src/Entity/Product.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Entity/ProductFood.php" afterPath="$PROJECT_DIR$/src/Entity/ProductFood.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Entity/Purchase.php" afterPath="$PROJECT_DIR$/src/Entity/Purchase.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Entity/PurchaseSupplierProduct.php" afterPath="$PROJECT_DIR$/src/Entity/PurchaseSupplierProduct.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Entity/Sale.php" afterPath="$PROJECT_DIR$/src/Entity/Sale.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Entity/SaleProduct.php" afterPath="$PROJECT_DIR$/src/Entity/SaleProduct.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Entity/Stock.php" afterPath="$PROJECT_DIR$/src/Entity/Stock.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Entity/StockZone.php" afterPath="$PROJECT_DIR$/src/Entity/StockZone.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Entity/Subcategory.php" afterPath="$PROJECT_DIR$/src/Entity/Subcategory.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Entity/Supplier.php" afterPath="$PROJECT_DIR$/src/Entity/Supplier.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Entity/SupplierContact.php" afterPath="$PROJECT_DIR$/src/Entity/SupplierContact.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Entity/SupplierProduct.php" afterPath="$PROJECT_DIR$/src/Entity/SupplierProduct.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Entity/Teammate.php" afterPath="$PROJECT_DIR$/src/Entity/Teammate.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Entity/Zone.php" afterPath="$PROJECT_DIR$/src/Entity/Zone.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Mgd.php" afterPath="$PROJECT_DIR$/src/Mgd.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Route/Category.php" afterPath="$PROJECT_DIR$/src/Route/Category.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Route/Product.php" afterPath="$PROJECT_DIR$/src/Route/Product.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Route/Purchase.php" afterPath="$PROJECT_DIR$/src/Route/Purchase.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Route/Stock.php" afterPath="$PROJECT_DIR$/src/Route/Stock.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Route/Subcategory.php" afterPath="$PROJECT_DIR$/src/Route/Subcategory.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Route/Supplier.php" afterPath="$PROJECT_DIR$/src/Route/Supplier.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Route/SupplierContact.php" afterPath="$PROJECT_DIR$/src/Route/SupplierContact.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Route/SupplierProduct.php" afterPath="$PROJECT_DIR$/src/Route/SupplierProduct.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Route/Teammate.php" afterPath="$PROJECT_DIR$/src/Route/Teammate.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Route/Zone.php" afterPath="$PROJECT_DIR$/src/Route/Zone.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/index.php" afterPath="$PROJECT_DIR$/test/index.php" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -300,7 +262,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../monsieurgourmand" />
     <property name="nodejs_interpreter_path" value="/usr/bin/node" />
     <property name="js.eslint.eslintPackage" value="" />
     <property name="js-jscs-nodeInterpreter" value="/usr/bin/node" />
@@ -382,12 +344,12 @@
       <workItem from="1485027525761" duration="3415000" />
       <workItem from="1485110929175" duration="582000" />
       <workItem from="1485157362012" duration="99000" />
-      <workItem from="1485158862561" duration="3688000" />
+      <workItem from="1485158862561" duration="4283000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="29758000" />
+    <option name="totallyTimeSpent" value="30353000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="65" y="24" width="1855" height="1056" extended-state="6" />

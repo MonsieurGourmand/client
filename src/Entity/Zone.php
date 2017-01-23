@@ -5,7 +5,7 @@ namespace Mgd\Entity;
 class Zone
 {
     /**
-     * @var Stock
+     * @var Zone
      */
     private $parent;
 
@@ -25,7 +25,7 @@ class Zone
     private $idzone;
 
     /**
-     * @return Stock
+     * @return Zone
      */
     public function getParent()
     {
@@ -57,7 +57,7 @@ class Zone
     }
 
     /**
-     * @param Stock $parent
+     * @param Zone $parent
      */
     public function setParent($parent)
     {
