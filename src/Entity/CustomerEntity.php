@@ -55,4 +55,36 @@ class CustomerEntity
     {
         return $this->idcustomer;
     }
+
+    /**
+     * @param int $idcustomerentity
+     */
+    public function setIdcustomerentity($idcustomerentity)
+    {
+        $this->idcustomerentity = $idcustomerentity;
+    }
+
+    /**
+     * @param string $name
+     */
+    public function setName($name)
+    {
+        $this->name = $name;
+    }
+
+    /**
+     * @param Customer $customer
+     */
+    public function setCustomer($customer)
+    {
+        $this->customer = $customer;
+    }
+
+    /**
+     * @param int $idcustomer
+     */
+    public function setIdcustomer($idcustomer)
+    {
+        $this->idcustomer = $idcustomer;
+    }
 }

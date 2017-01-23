@@ -29,4 +29,20 @@ class Teammate
     {
         return $this->contact;
     }
+
+    /**
+     * @param Contact $contact
+     */
+    public function setContact($contact)
+    {
+        $this->contact = $contact;
+    }
+
+    /**
+     * @param int $idteammate
+     */
+    public function setIdteammate($idteammate)
+    {
+        $this->idteammate = $idteammate;
+    }
 }

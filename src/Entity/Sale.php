@@ -185,4 +185,116 @@ class Sale
     {
         return $this->idsale;
     }
+
+    /**
+     * @param Customer $customer
+     */
+    public function setCustomer($customer)
+    {
+        $this->customer = $customer;
+    }
+
+    /**
+     * @param int $idcustomer
+     */
+    public function setIdcustomer($idcustomer)
+    {
+        $this->idcustomer = $idcustomer;
+    }
+
+    /**
+     * @param Teammate $commercial
+     */
+    public function setCommercial($commercial)
+    {
+        $this->commercial = $commercial;
+    }
+
+    /**
+     * @param int $idcommercialteammate
+     */
+    public function setIdcommercialteammate($idcommercialteammate)
+    {
+        $this->idcommercialteammate = $idcommercialteammate;
+    }
+
+    /**
+     * @param Teammate $projet
+     */
+    public function setProjet($projet)
+    {
+        $this->projet = $projet;
+    }
+
+    /**
+     * @param int $idprojetteammate
+     */
+    public function setIdprojetteammate($idprojetteammate)
+    {
+        $this->idprojetteammate = $idprojetteammate;
+    }
+
+    /**
+     * @param string $place
+     */
+    public function setPlace($place)
+    {
+        $this->place = $place;
+    }
+
+    /**
+     * @param \DateTime $orderdate
+     */
+    public function setOrderdate($orderdate)
+    {
+        $this->orderdate = $orderdate;
+    }
+
+    /**
+     * @param \DateTime $customerorderdate
+     */
+    public function setCustomerorderdate($customerorderdate)
+    {
+        $this->customerorderdate = $customerorderdate;
+    }
+
+    /**
+     * @param \DateTime $preparationdate
+     */
+    public function setPreparationdate($preparationdate)
+    {
+        $this->preparationdate = $preparationdate;
+    }
+
+    /**
+     * @param \DateTime $deliverydate
+     */
+    public function setDeliverydate($deliverydate)
+    {
+        $this->deliverydate = $deliverydate;
+    }
+
+    /**
+     * @param int $status
+     */
+    public function setStatus($status)
+    {
+        $this->status = $status;
+    }
+
+    /**
+     * @param SaleProduct[] $products
+     */
+    public function setProducts($products)
+    {
+        $this->products = $products;
+    }
+
+    /**
+     * @param int $idsale
+     */
+    public function setIdsale($idsale)
+    {
+        $this->idsale = $idsale;
+    }
 }

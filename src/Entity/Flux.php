@@ -159,4 +159,100 @@ class Flux
     {
         return $this->idflux;
     }
+
+    /**
+     * @param Stock $stock
+     */
+    public function setStock($stock)
+    {
+        $this->stock = $stock;
+    }
+
+    /**
+     * @param int $idstock
+     */
+    public function setIdstock($idstock)
+    {
+        $this->idstock = $idstock;
+    }
+
+    /**
+     * @param int $incoming
+     */
+    public function setIncoming($incoming)
+    {
+        $this->incoming = $incoming;
+    }
+
+    /**
+     * @param int $outcoming
+     */
+    public function setOutcoming($outcoming)
+    {
+        $this->outcoming = $outcoming;
+    }
+
+    /**
+     * @param \DateTime $created
+     */
+    public function setCreated($created)
+    {
+        $this->created = $created;
+    }
+
+    /**
+     * @param Package $package
+     */
+    public function setPackage($package)
+    {
+        $this->package = $package;
+    }
+
+    /**
+     * @param int $idpackage
+     */
+    public function setIdpackage($idpackage)
+    {
+        $this->idpackage = $idpackage;
+    }
+
+    /**
+     * @param Purchase $purchase
+     */
+    public function setPurchase($purchase)
+    {
+        $this->purchase = $purchase;
+    }
+
+    /**
+     * @param int $idpurchase
+     */
+    public function setIdpurchase($idpurchase)
+    {
+        $this->idpurchase = $idpurchase;
+    }
+
+    /**
+     * @param Movement $movement
+     */
+    public function setMovement($movement)
+    {
+        $this->movement = $movement;
+    }
+
+    /**
+     * @param int $idmovement
+     */
+    public function setIdmovement($idmovement)
+    {
+        $this->idmovement = $idmovement;
+    }
+
+    /**
+     * @param int $idflux
+     */
+    public function setIdflux($idflux)
+    {
+        $this->idflux = $idflux;
+    }
 }

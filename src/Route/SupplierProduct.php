@@ -42,11 +42,11 @@ class SupplierProduct
         return $this->master->put($this->url,$supplierProduct,$this->entity,$params);
     }
 
-    public function delete(\Mgd\Entity\SupplierProduct $supplierProduct)
+    public function remove(\Mgd\Entity\SupplierProduct $supplierProduct)
     {
         $params = array();
 
-        return $this->master->delete($this->url,$supplierProduct,$this->entity,$params);
+        return $this->master->remove($this->url,$supplierProduct,$this->entity,$params);
     }
 }
 ?>

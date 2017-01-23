@@ -18,11 +18,12 @@ class Mgd {
     public $parser;
 
     public function __construct($clientId,$clientSecret,$apiKey) {
-        if(!$clientId) throw new Error('You must provide a clientId');
-        if(!$clientSecret) throw new Error('You must provide a clientSecret');
-        if(!$apiKey) throw new Error('You must provide an apiKey');
+        if(!$clientId) throw new \Error('You must provide a clientId');
+        if(!$clientSecret) throw new \Error('You must provide a clientSecret');
+        if(!$apiKey) throw new \Error('You must provide an apiKey');
 
         $this->parser = new Parser();
+        $this->serializer = new Serializer();
 
         $tokenUrl = self::APIROOT.self::TOKEN_ENDPOINT;
         $this->apiUrl = self::APIROOT."/cantine/";
@@ -66,5 +67,31 @@ class Mgd {
             throw new \Error("[".$response['result']['error']."] ".$response['result']['error_description']);
         }
         return $this->parser->do($response['result'],$entityClass);
+    }
+
+    public function post($url, $object) {
+        $response = $this->client->fetch($this->apiUrl . $url .'/'.$id. '.json',$this->serializer->do($object),\OAuth2\Client::HTTP_METHOD_POST);
+
+        if(floor($response['code'] / 100) >= 4) {
+            throw new \Error("[".$response['result']['error']."] ".$response['result']['error_description']);
+        }
+        return $this->parser->do($response['result'],$entityClass);
+    }
+
+    public function put($url, $object, $params=null) {
+        $response = $this->client->fetch($this->apiUrl . $url .'/'.$id. '.json',array(),\OAuth2\Client::HTTP_METHOD_PUT);
+
+        if(floor($response['code'] / 100) >= 4) {
+            throw new \Error("[".$response['result']['error']."] ".$response['result']['error_description']);
+        }
+        return $this->parser->do($response['result'],$entityClass);
+    }
+
+    public function remove($url, $id) {
+        $response = $this->client->fetch($this->apiUrl . $url .'/'.$id. '.json',array(),\OAuth2\Client::HTTP_METHOD_DELETE);
+        if(floor($response['code'] / 100) >= 4) {
+            throw new \Error("[".$response['result']['error']."] ".$response['result']['error_description']);
+        }
+        return $response;
     }
 }

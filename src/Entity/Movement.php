@@ -29,4 +29,20 @@ class Movement
     {
         return $this->idmovement;
     }
+
+    /**
+     * @param int $name
+     */
+    public function setName($name)
+    {
+        $this->name = $name;
+    }
+
+    /**
+     * @param int $idmovement
+     */
+    public function setIdmovement($idmovement)
+    {
+        $this->idmovement = $idmovement;
+    }
 }

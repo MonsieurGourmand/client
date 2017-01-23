@@ -48,10 +48,10 @@ class Category
         return $this->master->put($this->url,$category,$this->entity,$params);
     }
 
-    public function delete(\Mgd\Entity\Category $category)
+    public function remove(\Mgd\Entity\Category $category)
     {
         $params = array();
 
-        return $this->master->delete($this->url,$category,$this->entity,$params);
+        return $this->master->remove($this->url,$category,$this->entity,$params);
     }
 }

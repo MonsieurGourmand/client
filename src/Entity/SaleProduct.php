@@ -81,4 +81,52 @@ class SaleProduct
     {
         return $this->idsaleproduct;
     }
+
+    /**
+     * @param Sale $sale
+     */
+    public function setSale($sale)
+    {
+        $this->sale = $sale;
+    }
+
+    /**
+     * @param int $idsale
+     */
+    public function setIdsale($idsale)
+    {
+        $this->idsale = $idsale;
+    }
+
+    /**
+     * @param Product $product
+     */
+    public function setProduct($product)
+    {
+        $this->product = $product;
+    }
+
+    /**
+     * @param int $idproduct
+     */
+    public function setIdproduct($idproduct)
+    {
+        $this->idproduct = $idproduct;
+    }
+
+    /**
+     * @param int $quantity
+     */
+    public function setQuantity($quantity)
+    {
+        $this->quantity = $quantity;
+    }
+
+    /**
+     * @param int $idsaleproduct
+     */
+    public function setIdsaleproduct($idsaleproduct)
+    {
+        $this->idsaleproduct = $idsaleproduct;
+    }
 }

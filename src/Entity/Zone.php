@@ -55,4 +55,36 @@ class Zone
     {
         return $this->idzone;
     }
+
+    /**
+     * @param Stock $parent
+     */
+    public function setParent($parent)
+    {
+        $this->parent = $parent;
+    }
+
+    /**
+     * @param int $idparent
+     */
+    public function setIdparent($idparent)
+    {
+        $this->idparent = $idparent;
+    }
+
+    /**
+     * @param string $name
+     */
+    public function setName($name)
+    {
+        $this->name = $name;
+    }
+
+    /**
+     * @param int $idzone
+     */
+    public function setIdzone($idzone)
+    {
+        $this->idzone = $idzone;
+    }
 }

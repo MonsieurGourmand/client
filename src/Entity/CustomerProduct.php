@@ -81,4 +81,52 @@ class CustomerProduct
     {
         return $this->idcustomerproduct;
     }
+
+    /**
+     * @param Customer $customer
+     */
+    public function setCustomer($customer)
+    {
+        $this->customer = $customer;
+    }
+
+    /**
+     * @param int $idcustomer
+     */
+    public function setIdcustomer($idcustomer)
+    {
+        $this->idcustomer = $idcustomer;
+    }
+
+    /**
+     * @param Product $product
+     */
+    public function setProduct($product)
+    {
+        $this->product = $product;
+    }
+
+    /**
+     * @param int $idproduct
+     */
+    public function setIdproduct($idproduct)
+    {
+        $this->idproduct = $idproduct;
+    }
+
+    /**
+     * @param int $pricing
+     */
+    public function setPricing($pricing)
+    {
+        $this->pricing = $pricing;
+    }
+
+    /**
+     * @param int $idcustomerproduct
+     */
+    public function setIdcustomerproduct($idcustomerproduct)
+    {
+        $this->idcustomerproduct = $idcustomerproduct;
+    }
 }

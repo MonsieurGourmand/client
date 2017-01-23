@@ -102,4 +102,60 @@ class Contact
         return $this->mobile;
     }
 
+    /**
+     * @param int $idcontact
+     */
+    public function setIdcontact($idcontact)
+    {
+        $this->idcontact = $idcontact;
+    }
+
+    /**
+     * @param string $firstname
+     */
+    public function setFirstname($firstname)
+    {
+        $this->firstname = $firstname;
+    }
+
+    /**
+     * @param string $lastname
+     */
+    public function setLastname($lastname)
+    {
+        $this->lastname = $lastname;
+    }
+
+    /**
+     * @param string $address
+     */
+    public function setAddress($address)
+    {
+        $this->address = $address;
+    }
+
+    /**
+     * @param string $mail
+     */
+    public function setMail($mail)
+    {
+        $this->mail = $mail;
+    }
+
+    /**
+     * @param string $phone
+     */
+    public function setPhone($phone)
+    {
+        $this->phone = $phone;
+    }
+
+    /**
+     * @param string $mobile
+     */
+    public function setMobile($mobile)
+    {
+        $this->mobile = $mobile;
+    }
+
 }

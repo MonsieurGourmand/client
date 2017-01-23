@@ -81,4 +81,52 @@ class PackageProduct
     {
         return $this->idpackageproduct;
     }
+
+    /**
+     * @param Package $package
+     */
+    public function setPackage($package)
+    {
+        $this->package = $package;
+    }
+
+    /**
+     * @param int $idpackage
+     */
+    public function setIdpackage($idpackage)
+    {
+        $this->idpackage = $idpackage;
+    }
+
+    /**
+     * @param Product $product
+     */
+    public function setProduct($product)
+    {
+        $this->product = $product;
+    }
+
+    /**
+     * @param int $idproduct
+     */
+    public function setIdproduct($idproduct)
+    {
+        $this->idproduct = $idproduct;
+    }
+
+    /**
+     * @param int $quantity
+     */
+    public function setQuantity($quantity)
+    {
+        $this->quantity = $quantity;
+    }
+
+    /**
+     * @param int $idpackageproduct
+     */
+    public function setIdpackageproduct($idpackageproduct)
+    {
+        $this->idpackageproduct = $idpackageproduct;
+    }
 }

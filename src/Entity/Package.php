@@ -134,4 +134,84 @@ class Package
     {
         return $this->products;
     }
+
+    /**
+     * @param Sale $sale
+     */
+    public function setSale($sale)
+    {
+        $this->sale = $sale;
+    }
+
+    /**
+     * @param int $idsale
+     */
+    public function setIdsale($idsale)
+    {
+        $this->idsale = $idsale;
+    }
+
+    /**
+     * @param Forwarder $forwarder
+     */
+    public function setForwarder($forwarder)
+    {
+        $this->forwarder = $forwarder;
+    }
+
+    /**
+     * @param int $idforwarder
+     */
+    public function setIdforwarder($idforwarder)
+    {
+        $this->idforwarder = $idforwarder;
+    }
+
+    /**
+     * @param int $trackingnumber
+     */
+    public function setTrackingnumber($trackingnumber)
+    {
+        $this->trackingnumber = $trackingnumber;
+    }
+
+    /**
+     * @param \DateTime $shippingdate
+     */
+    public function setShippingdate($shippingdate)
+    {
+        $this->shippingdate = $shippingdate;
+    }
+
+    /**
+     * @param \DateTime $actualshippingdate
+     */
+    public function setActualshippingdate($actualshippingdate)
+    {
+        $this->actualshippingdate = $actualshippingdate;
+    }
+
+    /**
+     * @param \DateTime $actualdeliverydate
+     */
+    public function setActualdeliverydate($actualdeliverydate)
+    {
+        $this->actualdeliverydate = $actualdeliverydate;
+    }
+
+    /**
+     * @param int $idpackage
+     */
+    public function setIdpackage($idpackage)
+    {
+        $this->idpackage = $idpackage;
+    }
+
+    /**
+     * @param Product[] $products
+     */
+    public function setProducts($products)
+    {
+        $this->products = $products;
+    }
 }

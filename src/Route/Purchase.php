@@ -42,11 +42,11 @@ class Purchase
         return $this->master->put($this->url,$purchase,$this->entity,$params);
     }
 
-    public function delete(\Mgd\Entity\Purchase $purchase)
+    public function remove(\Mgd\Entity\Purchase $purchase)
     {
         $params = array();
 
-        return $this->master->delete($this->url,$purchase,$this->entity,$params);
+        return $this->master->remove($this->url,$purchase,$this->entity,$params);
     }
 }
 ?>

@@ -11,5 +11,9 @@ const APIKEY = "sandbox_c2FuZGJveF83YzhkYzZiNmJmZDg5ZTRmZjI5NzUxZDk4YzM4MWEwYQ";
 //const APIKEY = "prod_cHJvZF83YzhkYzZiNmJmZDg5ZTRmZjI5NzUxZDk4YzM4MWEwYQ";
 
 $mgd = new \Mgd\Mgd(CLIENT_ID,CLIENT_SECRET,APIKEY);
-$supplierProducts = $mgd->supplierProduct->getAll();
-dump($supplierProducts);
+
+$zone = $mgd->zone->get(5);
+$suppression = $mgd->zone->remove($zone);
+dump($suppression);
+$zones = $mgd->zone->getAll();
+dump($zones);

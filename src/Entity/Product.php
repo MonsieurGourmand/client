@@ -108,4 +108,68 @@ class Product
     {
         return $this->children;
     }
+
+    /**
+     * @param Subcategory $subcategory
+     */
+    public function setSubcategory($subcategory)
+    {
+        $this->subcategory = $subcategory;
+    }
+
+    /**
+     * @param int $idsubcategory
+     */
+    public function setIdsubcategory($idsubcategory)
+    {
+        $this->idsubcategory = $idsubcategory;
+    }
+
+    /**
+     * @param string $reference
+     */
+    public function setReference($reference)
+    {
+        $this->reference = $reference;
+    }
+
+    /**
+     * @param string $name
+     */
+    public function setName($name)
+    {
+        $this->name = $name;
+    }
+
+    /**
+     * @param int $stockminimum
+     */
+    public function setStockminimum($stockminimum)
+    {
+        $this->stockminimum = $stockminimum;
+    }
+
+    /**
+     * @param int $idproduct
+     */
+    public function setIdproduct($idproduct)
+    {
+        $this->idproduct = $idproduct;
+    }
+
+    /**
+     * @param Product $parent
+     */
+    public function setParent($parent)
+    {
+        $this->parent = $parent;
+    }
+
+    /**
+     * @param Product[] $children
+     */
+    public function setChildren($children)
+    {
+        $this->children = $children;
+    }
 }

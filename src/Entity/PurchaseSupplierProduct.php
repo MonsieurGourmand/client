@@ -81,4 +81,52 @@ class PurchaseSupplierProduct
     {
         return $this->idpurchasesupplierproduct;
     }
+
+    /**
+     * @param Purchase $purchase
+     */
+    public function setPurchase($purchase)
+    {
+        $this->purchase = $purchase;
+    }
+
+    /**
+     * @param int $idpurchase
+     */
+    public function setIdpurchase($idpurchase)
+    {
+        $this->idpurchase = $idpurchase;
+    }
+
+    /**
+     * @param SupplierProduct $supplierproduct
+     */
+    public function setSupplierproduct($supplierproduct)
+    {
+        $this->supplierproduct = $supplierproduct;
+    }
+
+    /**
+     * @param int $idsupplierproduct
+     */
+    public function setIdsupplierproduct($idsupplierproduct)
+    {
+        $this->idsupplierproduct = $idsupplierproduct;
+    }
+
+    /**
+     * @param int $quantity
+     */
+    public function setQuantity($quantity)
+    {
+        $this->quantity = $quantity;
+    }
+
+    /**
+     * @param int $idpurchasesupplierproduct
+     */
+    public function setIdpurchasesupplierproduct($idpurchasesupplierproduct)
+    {
+        $this->idpurchasesupplierproduct = $idpurchasesupplierproduct;
+    }
 }

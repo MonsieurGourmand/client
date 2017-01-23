@@ -29,4 +29,20 @@ class Document
     {
         return $this->url;
     }
+
+    /**
+     * @param int $iddocument
+     */
+    public function setIddocument($iddocument)
+    {
+        $this->iddocument = $iddocument;
+    }
+
+    /**
+     * @param string $url
+     */
+    public function setUrl($url)
+    {
+        $this->url = $url;
+    }
 }

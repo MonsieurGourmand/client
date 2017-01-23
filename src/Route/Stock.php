@@ -48,10 +48,10 @@ class Stock
         return $this->master->put($this->url,$stock,$this->entity,$params);
     }
 
-    public function delete(\Mgd\Entity\Stock $stock)
+    public function remove(\Mgd\Entity\Stock $stock)
     {
         $params = array();
 
-        return $this->master->delete($this->url,$stock,$this->entity,$params);
+        return $this->master->remove($this->url,$stock,$this->entity,$params);
     }
 }

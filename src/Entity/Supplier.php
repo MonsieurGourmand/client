@@ -69,5 +69,45 @@ class Supplier
     {
         return $this->supplierProducts;
     }
+
+    /**
+     * @param string $name
+     */
+    public function setName($name)
+    {
+        $this->name = $name;
+    }
+
+    /**
+     * @param string $reference
+     */
+    public function setReference($reference)
+    {
+        $this->reference = $reference;
+    }
+
+    /**
+     * @param int $idsupplier
+     */
+    public function setIdsupplier($idsupplier)
+    {
+        $this->idsupplier = $idsupplier;
+    }
+
+    /**
+     * @param SupplierContact[] $supplierContacts
+     */
+    public function setSupplierContacts($supplierContacts)
+    {
+        $this->supplierContacts = $supplierContacts;
+    }
+
+    /**
+     * @param SupplierProduct[] $supplierProducts
+     */
+    public function setSupplierProducts($supplierProducts)
+    {
+        $this->supplierProducts = $supplierProducts;
+    }
 }
 ?>

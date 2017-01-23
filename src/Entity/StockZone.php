@@ -68,4 +68,44 @@ class StockZone
     {
         return $this->idstockzone;
     }
+
+    /**
+     * @param Zone $zone
+     */
+    public function setZone($zone)
+    {
+        $this->zone = $zone;
+    }
+
+    /**
+     * @param int $idzone
+     */
+    public function setIdzone($idzone)
+    {
+        $this->idzone = $idzone;
+    }
+
+    /**
+     * @param Stock $stock
+     */
+    public function setStock($stock)
+    {
+        $this->stock = $stock;
+    }
+
+    /**
+     * @param int $idstock
+     */
+    public function setIdstock($idstock)
+    {
+        $this->idstock = $idstock;
+    }
+
+    /**
+     * @param int $idstockzone
+     */
+    public function setIdstockzone($idstockzone)
+    {
+        $this->idstockzone = $idstockzone;
+    }
 }

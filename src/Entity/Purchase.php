@@ -200,4 +200,124 @@ class Purchase
     {
         return $this->teammates;
     }
+
+    /**
+     * @param Document $order
+     */
+    public function setOrder($order)
+    {
+        $this->order = $order;
+    }
+
+    /**
+     * @param Supplier $supplier
+     */
+    public function setSupplier($supplier)
+    {
+        $this->supplier = $supplier;
+    }
+
+    /**
+     * @param SupplierProduct[] $purchaseSupplierProducts
+     */
+    public function setPurchaseSupplierProducts($purchaseSupplierProducts)
+    {
+        $this->purchaseSupplierProducts = $purchaseSupplierProducts;
+    }
+
+    /**
+     * @param int $idsupplier
+     */
+    public function setIdsupplier($idsupplier)
+    {
+        $this->idsupplier = $idsupplier;
+    }
+
+    /**
+     * @param string $place
+     */
+    public function setPlace($place)
+    {
+        $this->place = $place;
+    }
+
+    /**
+     * @param string $invoicenumber
+     */
+    public function setInvoicenumber($invoicenumber)
+    {
+        $this->invoicenumber = $invoicenumber;
+    }
+
+    /**
+     * @param \DateTime $orderdate
+     */
+    public function setOrderdate($orderdate)
+    {
+        $this->orderdate = $orderdate;
+    }
+
+    /**
+     * @param string $deliveryreference
+     */
+    public function setDeliveryreference($deliveryreference)
+    {
+        $this->deliveryreference = $deliveryreference;
+    }
+
+    /**
+     * @param \DateTime $deliverydate
+     */
+    public function setDeliverydate($deliverydate)
+    {
+        $this->deliverydate = $deliverydate;
+    }
+
+    /**
+     * @param \DateTime $actualdeliverydate
+     */
+    public function setActualdeliverydate($actualdeliverydate)
+    {
+        $this->actualdeliverydate = $actualdeliverydate;
+    }
+
+    /**
+     * @param int $status
+     */
+    public function setStatus($status)
+    {
+        $this->status = $status;
+    }
+
+    /**
+     * @param string $step
+     */
+    public function setStep($step)
+    {
+        $this->step = $step;
+    }
+
+    /**
+     * @param int $idpurchase
+     */
+    public function setIdpurchase($idpurchase)
+    {
+        $this->idpurchase = $idpurchase;
+    }
+
+    /**
+     * @param string $orderreference
+     */
+    public function setOrderreference($orderreference)
+    {
+        $this->orderreference = $orderreference;
+    }
+
+    /**
+     * @param Teammate[] $teammates
+     */
+    public function setTeammates($teammates)
+    {
+        $this->teammates = $teammates;
+    }
 }

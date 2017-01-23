@@ -42,4 +42,28 @@ class ProductFood extends Product
     {
         return $this->idproductfood;
     }
+
+    /**
+     * @param Product $product
+     */
+    public function setProduct($product)
+    {
+        $this->product = $product;
+    }
+
+    /**
+     * @param int $idproduct
+     */
+    public function setIdproduct($idproduct)
+    {
+        $this->idproduct = $idproduct;
+    }
+
+    /**
+     * @param int $idproductfood
+     */
+    public function setIdproductfood($idproductfood)
+    {
+        $this->idproductfood = $idproductfood;
+    }
 }

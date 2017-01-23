@@ -44,4 +44,28 @@ class Category
         return $this->idcategory;
     }
 
+    /**
+     * @param string $name
+     */
+    public function setName($name)
+    {
+        $this->name = $name;
+    }
+
+    /**
+     * @param Subcategory[] $subcategories
+     */
+    public function setSubcategories($subcategories)
+    {
+        $this->subcategories = $subcategories;
+    }
+
+    /**
+     * @param int $idcategory
+     */
+    public function setIdcategory($idcategory)
+    {
+        $this->idcategory = $idcategory;
+    }
+
 }

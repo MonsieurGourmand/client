@@ -42,4 +42,28 @@ class Forwarder
     {
         return $this->idforwarder;
     }
+
+    /**
+     * @param string $name
+     */
+    public function setName($name)
+    {
+        $this->name = $name;
+    }
+
+    /**
+     * @param string $slug
+     */
+    public function setSlug($slug)
+    {
+        $this->slug = $slug;
+    }
+
+    /**
+     * @param int $idforwarder
+     */
+    public function setIdforwarder($idforwarder)
+    {
+        $this->idforwarder = $idforwarder;
+    }
 }

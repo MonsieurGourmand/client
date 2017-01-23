@@ -136,4 +136,84 @@ class Customer
         return $this->customerEntities;
     }
 
+    /**
+     * @param string $name
+     */
+    public function setName($name)
+    {
+        $this->name = $name;
+    }
+
+    /**
+     * @param int $discount
+     */
+    public function setDiscount($discount)
+    {
+        $this->discount = $discount;
+    }
+
+    /**
+     * @param Teammate $commercial
+     */
+    public function setCommercial($commercial)
+    {
+        $this->commercial = $commercial;
+    }
+
+    /**
+     * @param int $idcommercialteammate
+     */
+    public function setIdcommercialteammate($idcommercialteammate)
+    {
+        $this->idcommercialteammate = $idcommercialteammate;
+    }
+
+    /**
+     * @param Teammate $projet
+     */
+    public function setProjet($projet)
+    {
+        $this->projet = $projet;
+    }
+
+    /**
+     * @param int $idprojetteammate
+     */
+    public function setIdprojetteammate($idprojetteammate)
+    {
+        $this->idprojetteammate = $idprojetteammate;
+    }
+
+    /**
+     * @param int $idcustomer
+     */
+    public function setIdcustomer($idcustomer)
+    {
+        $this->idcustomer = $idcustomer;
+    }
+
+    /**
+     * @param int $iduser
+     */
+    public function setIduser($iduser)
+    {
+        $this->iduser = $iduser;
+    }
+
+    /**
+     * @param CustomerProduct[] $customerProducts
+     */
+    public function setCustomerProducts($customerProducts)
+    {
+        $this->customerProducts = $customerProducts;
+    }
+
+    /**
+     * @param CustomerEntity[] $customerEntities
+     */
+    public function setCustomerEntities($customerEntities)
+    {
+        $this->customerEntities = $customerEntities;
+    }
+
 }

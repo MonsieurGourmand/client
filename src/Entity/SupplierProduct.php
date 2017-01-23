@@ -343,4 +343,212 @@ class SupplierProduct
     {
         return $this->cost;
     }
+
+    /**
+     * @param int $idsupplierproduct
+     */
+    public function setIdsupplierproduct($idsupplierproduct)
+    {
+        $this->idsupplierproduct = $idsupplierproduct;
+    }
+
+    /**
+     * @param Product $product
+     */
+    public function setProduct($product)
+    {
+        $this->product = $product;
+    }
+
+    /**
+     * @param int $idproduct
+     */
+    public function setIdproduct($idproduct)
+    {
+        $this->idproduct = $idproduct;
+    }
+
+    /**
+     * @param Supplier $supplier
+     */
+    public function setSupplier($supplier)
+    {
+        $this->supplier = $supplier;
+    }
+
+    /**
+     * @param int $idsupplier
+     */
+    public function setIdsupplier($idsupplier)
+    {
+        $this->idsupplier = $idsupplier;
+    }
+
+    /**
+     * @param string $companyreference
+     */
+    public function setCompanyreference($companyreference)
+    {
+        $this->companyreference = $companyreference;
+    }
+
+    /**
+     * @param string $name
+     */
+    public function setName($name)
+    {
+        $this->name = $name;
+    }
+
+    /**
+     * @param string $description
+     */
+    public function setDescription($description)
+    {
+        $this->description = $description;
+    }
+
+    /**
+     * @param string $picture
+     */
+    public function setPicture($picture)
+    {
+        $this->picture = $picture;
+    }
+
+    /**
+     * @param int $batches
+     */
+    public function setBatches($batches)
+    {
+        $this->batches = $batches;
+    }
+
+    /**
+     * @param int $pieces
+     */
+    public function setPieces($pieces)
+    {
+        $this->pieces = $pieces;
+    }
+
+    /**
+     * @param int $productweight
+     */
+    public function setProductweight($productweight)
+    {
+        $this->productweight = $productweight;
+    }
+
+    /**
+     * @param int $batchweight
+     */
+    public function setBatchweight($batchweight)
+    {
+        $this->batchweight = $batchweight;
+    }
+
+    /**
+     * @param int $pieceweight
+     */
+    public function setPieceweight($pieceweight)
+    {
+        $this->pieceweight = $pieceweight;
+    }
+
+    /**
+     * @param int $kgcost
+     */
+    public function setKgcost($kgcost)
+    {
+        $this->kgcost = $kgcost;
+    }
+
+    /**
+     * @param int $productcost
+     */
+    public function setProductcost($productcost)
+    {
+        $this->productcost = $productcost;
+    }
+
+    /**
+     * @param int $piececost
+     */
+    public function setPiececost($piececost)
+    {
+        $this->piececost = $piececost;
+    }
+
+    /**
+     * @param int $batchcost
+     */
+    public function setBatchcost($batchcost)
+    {
+        $this->batchcost = $batchcost;
+    }
+
+    /**
+     * @param int $kgnegociate
+     */
+    public function setKgnegociate($kgnegociate)
+    {
+        $this->kgnegociate = $kgnegociate;
+    }
+
+    /**
+     * @param int $productnegociate
+     */
+    public function setProductnegociate($productnegociate)
+    {
+        $this->productnegociate = $productnegociate;
+    }
+
+    /**
+     * @param int $piecenegociate
+     */
+    public function setPiecenegociate($piecenegociate)
+    {
+        $this->piecenegociate = $piecenegociate;
+    }
+
+    /**
+     * @param int $batchnegociate
+     */
+    public function setBatchnegociate($batchnegociate)
+    {
+        $this->batchnegociate = $batchnegociate;
+    }
+
+    /**
+     * @param int $vat
+     */
+    public function setVat($vat)
+    {
+        $this->vat = $vat;
+    }
+
+    /**
+     * @param int $weight
+     */
+    public function setWeight($weight)
+    {
+        $this->weight = $weight;
+    }
+
+    /**
+     * @param int $negociate
+     */
+    public function setNegociate($negociate)
+    {
+        $this->negociate = $negociate;
+    }
+
+    /**
+     * @param int $cost
+     */
+    public function setCost($cost)
+    {
+        $this->cost = $cost;
+    }
 }

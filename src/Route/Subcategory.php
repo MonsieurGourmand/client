@@ -48,10 +48,10 @@ class Subcategory
         return $this->master->put($this->url,$subCategory,$this->entity,$params);
     }
 
-    public function delete(\Mgd\Entity\Subcategory $subCategory)
+    public function remove(\Mgd\Entity\Subcategory $subCategory)
     {
         $params = array();
 
-        return $this->master->delete($this->url,$subCategory,$this->entity,$params);
+        return $this->master->remove($this->url,$subCategory,$this->entity,$params);
     }
 }

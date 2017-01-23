@@ -48,10 +48,10 @@ class SupplierContact
         return $this->master->put($this->url,$supplierContact,$this->entity,$params);
     }
 
-    public function delete(\Mgd\Entity\SupplierContact $supplierContact)
+    public function remove(\Mgd\Entity\SupplierContact $supplierContact)
     {
         $params = array();
 
-        return $this->master->delete($this->url,$supplierContact,$this->entity,$params);
+        return $this->master->remove($this->url,$supplierContact,$this->entity,$params);
     }
 }

@@ -48,10 +48,10 @@ class Teammate
         return $this->master->put($this->url,$teammate,$this->entity,$params);
     }
 
-    public function delete(\Mgd\Entity\Teammate $teammate)
+    public function remove(\Mgd\Entity\Teammate $teammate)
     {
         $params = array();
 
-        return $this->master->delete($this->url,$teammate,$this->entity,$params);
+        return $this->master->remove($this->url,$teammate,$this->entity,$params);
     }
 }

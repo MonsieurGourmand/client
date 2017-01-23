@@ -48,10 +48,10 @@ class Product
         return $this->master->put($this->url,$product,$this->entity,$params);
     }
 
-    public function delete(\Mgd\Entity\Product $product)
+    public function remove(\Mgd\Entity\Product $product)
     {
         $params = array();
 
-        return $this->master->delete($this->url,$product,$this->entity,$params);
+        return $this->master->remove($this->url,$product,$this->entity,$params);
     }
 }
