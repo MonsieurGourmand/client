@@ -16,7 +16,7 @@ class Purchase
      private $supplier;
 
      /**
-      * @var SupplierProduct[]
+      * @var PurchaseSupplierProduct[]
      */
      private $purchaseSupplierProducts;
 
@@ -98,7 +98,7 @@ class Purchase
     }
 
     /**
-     * @return SupplierProduct[]
+     * @return PurchaseSupplierProduct[]
      */
     public function getPurchaseSupplierProducts()
     {
@@ -218,7 +218,7 @@ class Purchase
     }
 
     /**
-     * @param SupplierProduct[] $purchaseSupplierProducts
+     * @param PurchaseSupplierProduct[] $purchaseSupplierProducts
      */
     public function setPurchaseSupplierProducts($purchaseSupplierProducts)
     {
