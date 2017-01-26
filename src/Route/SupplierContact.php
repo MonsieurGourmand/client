@@ -23,35 +23,26 @@ class SupplierContact
     public function getAll()
     {
         $params = array();
-
         return $this->master->getAll($this->url, $this->entity,$params);
     }
 
     public function get($id)
     {
-        $params = array();
-
-        return $this->master->get($this->url,$id,$this->entity,$params);
+        return $this->master->get($this->url,$id,$this->entity);
     }
 
     public function post(\Mgd\Entity\SupplierContact $supplierContact)
     {
-        $params = array();
-
-        return $this->master->post($this->url,$supplierContact,$this->entity,$params);
+        return $this->master->post($this->url,$supplierContact,$this->entity);
     }
 
     public function put(\Mgd\Entity\SupplierContact $supplierContact)
     {
-        $params = array();
-
-        return $this->master->put($this->url,$supplierContact,$this->entity,$params);
+        return $this->master->put($this->url,$supplierContact->getIdsuppliercontact(),$supplierContact,$this->entity);
     }
 
     public function remove(\Mgd\Entity\SupplierContact $supplierContact)
     {
-        $params = array();
-
-        return $this->master->remove($this->url,$supplierContact,$this->entity,$params);
+        return $this->master->remove($this->url,$supplierContact->getIdsuppliercontact());
     }
 }

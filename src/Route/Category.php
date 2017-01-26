@@ -23,35 +23,26 @@ class Category
     public function getAll()
     {
         $params = array();
-
         return $this->master->getAll($this->url, $this->entity,$params);
     }
 
     public function get($id)
     {
-        $params = array();
-
-        return $this->master->get($this->url,$id,$this->entity,$params);
+        return $this->master->get($this->url,$id,$this->entity);
     }
 
     public function post(\Mgd\Entity\Category $category)
     {
-        $params = array();
-
-        return $this->master->post($this->url,$category,$this->entity,$params);
+        return $this->master->post($this->url,$category,$this->entity);
     }
 
     public function put(\Mgd\Entity\Category $category)
     {
-        $params = array();
-
-        return $this->master->put($this->url,$category,$this->entity,$params);
+        return $this->master->put($this->url,$category->getIdcategory(),$category,$this->entity);
     }
 
     public function remove(\Mgd\Entity\Category $category)
     {
-        $params = array();
-
-        return $this->master->remove($this->url,$category,$this->entity,$params);
+        return $this->master->remove($this->url,$category->getIdcategory());
     }
 }

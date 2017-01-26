@@ -17,36 +17,27 @@ class Supplier
     public function getAll()
     {
         $params = array();
-
         return $this->master->getAll($this->url, $this->entity,$params);
     }
 
     public function get($id)
     {
-        $params = array();
-
-        return $this->master->get($this->url,$id,$this->entity,$params);
+        return $this->master->get($this->url,$id,$this->entity);
     }
 
     public function post(\Mgd\Entity\Supplier $supplier)
     {
-        $params = array();
-
-        return $this->master->post($this->url,$supplier,$this->entity,$params);
+        return $this->master->post($this->url,$supplier,$this->entity);
     }
 
     public function put(\Mgd\Entity\Supplier $supplier)
     {
-        $params = array();
-
-        return $this->master->put($this->url,$supplier,$this->entity,$params);
+        return $this->master->put($this->url,$supplier->getIdsupplier(),$supplier,$this->entity);
     }
 
     public function remove(\Mgd\Entity\Supplier $supplier)
     {
-        $params = array();
-
-        return $this->master->remove($this->url,$supplier,$this->entity,$params);
+        return $this->master->remove($this->url,$supplier->getIdsupplier());
     }
 }
 ?>

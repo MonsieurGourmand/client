@@ -23,35 +23,26 @@ class Product
     public function getAll()
     {
         $params = array();
-
         return $this->master->getAll($this->url, $this->entity,$params);
     }
 
     public function get($id)
     {
-        $params = array();
-
-        return $this->master->get($this->url,$id,$this->entity,$params);
+        return $this->master->get($this->url,$id,$this->entity);
     }
 
     public function post(\Mgd\Entity\Product $product)
     {
-        $params = array();
-
-        return $this->master->post($this->url,$product,$this->entity,$params);
+        return $this->master->post($this->url,$product,$this->entity);
     }
 
     public function put(\Mgd\Entity\Product $product)
     {
-        $params = array();
-
-        return $this->master->put($this->url,$product,$this->entity,$params);
+        return $this->master->put($this->url,$product->getIdproduct(),$product,$this->entity);
     }
 
     public function remove(\Mgd\Entity\Product $product)
     {
-        $params = array();
-
-        return $this->master->remove($this->url,$product,$this->entity,$params);
+        return $this->master->remove($this->url,$product->getIdproduct());
     }
 }

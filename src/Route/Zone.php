@@ -28,18 +28,17 @@ class Zone
 
     public function get($id)
     {
-        $params = array();
-        return $this->master->get($this->url,$id,$this->entity,$params);
+        return $this->master->get($this->url,$id,$this->entity);
     }
 
     public function post(\Mgd\Entity\Zone $zone)
     {
-        return $this->master->post($this->url,$zone);
+        return $this->master->post($this->url,$zone,$this->entity);
     }
 
     public function put(\Mgd\Entity\Zone $zone)
     {
-        return $this->master->put($this->url,$zone);
+        return $this->master->put($this->url,$zone->getIdzone(),$zone,$this->entity);
     }
 
     public function remove(\Mgd\Entity\Zone $zone)

@@ -17,36 +17,27 @@ class Purchase
     public function getAll()
     {
         $params = array();
-
         return $this->master->getAll($this->url, $this->entity,$params);
     }
 
     public function get($id)
     {
-        $params = array();
-
-        return $this->master->get($this->url,$id,$this->entity,$params);
+        return $this->master->get($this->url,$id,$this->entity);
     }
 
     public function post(\Mgd\Entity\Purchase $purchase)
     {
-        $params = array();
-
-        return $this->master->post($this->url,$purchase,$this->entity,$params);
+        return $this->master->post($this->url,$purchase,$this->entity);
     }
 
     public function put(\Mgd\Entity\Purchase $purchase)
     {
-        $params = array();
-
-        return $this->master->put($this->url,$purchase,$this->entity,$params);
+        return $this->master->put($this->url,$purchase->getIdpurchase(),$purchase,$this->entity);
     }
 
     public function remove(\Mgd\Entity\Purchase $purchase)
     {
-        $params = array();
-
-        return $this->master->remove($this->url,$purchase,$this->entity,$params);
+        return $this->master->remove($this->url,$purchase->getIdpurchase());
     }
 }
 ?>

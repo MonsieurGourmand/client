@@ -9,7 +9,7 @@ namespace Mgd;
  */
 class Parser
 {
-    public function do($response,$destination)
+    public function parse($response,$destination)
     {
         if(isset($response[0]))
         {

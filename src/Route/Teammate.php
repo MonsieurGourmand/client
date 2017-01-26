@@ -14,6 +14,9 @@ class Teammate
     /** @var string */
     protected $url = "equipe";
 
+    /** @var  string */
+    protected $mail;
+
     public function __construct(\Mgd\Mgd $master)
     {
         $this->master = $master;
@@ -23,35 +26,35 @@ class Teammate
     public function getAll()
     {
         $params = array();
-
+        if($this->mail) $params['mail'] = $this->mail;
         return $this->master->getAll($this->url, $this->entity,$params);
     }
 
     public function get($id)
     {
-        $params = array();
-
-        return $this->master->get($this->url,$id,$this->entity,$params);
+        return $this->master->get($this->url,$id,$this->entity);
     }
 
     public function post(\Mgd\Entity\Teammate $teammate)
     {
-        $params = array();
-
-        return $this->master->post($this->url,$teammate,$this->entity,$params);
+        return $this->master->post($this->url,$teammate,$this->entity);
     }
 
     public function put(\Mgd\Entity\Teammate $teammate)
     {
-        $params = array();
-
-        return $this->master->put($this->url,$teammate,$this->entity,$params);
+        return $this->master->put($this->url,$teammate->getIdteammate(),$teammate,$this->entity);
     }
 
     public function remove(\Mgd\Entity\Teammate $teammate)
     {
-        $params = array();
+        return $this->master->remove($this->url,$teammate->getIdteammate());
+    }
 
-        return $this->master->remove($this->url,$teammate,$this->entity,$params);
+    /**
+     * @param string $mail
+     */
+    public function setMail($mail)
+    {
+        $this->mail = $mail;
     }
 }

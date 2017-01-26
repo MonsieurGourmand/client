@@ -23,35 +23,26 @@ class Subcategory
     public function getAll()
     {
         $params = array();
-
         return $this->master->getAll($this->url, $this->entity,$params);
     }
 
     public function get($id)
     {
-        $params = array();
-
-        return $this->master->get($this->url,$id,$this->entity,$params);
+        return $this->master->get($this->url,$id,$this->entity);
     }
 
     public function post(\Mgd\Entity\Subcategory $subCategory)
     {
-        $params = array();
-
-        return $this->master->post($this->url,$subCategory,$this->entity,$params);
+        return $this->master->post($this->url,$subCategory,$this->entity);
     }
 
     public function put(\Mgd\Entity\Subcategory $subCategory)
     {
-        $params = array();
-
-        return $this->master->put($this->url,$subCategory,$this->entity,$params);
+        return $this->master->put($this->url,$subCategory->getIdsubcategory(),$subCategory,$this->entity);
     }
 
     public function remove(\Mgd\Entity\Subcategory $subCategory)
     {
-        $params = array();
-
-        return $this->master->remove($this->url,$subCategory,$this->entity,$params);
+        return $this->master->remove($this->url,$subCategory->getIdsubcategory());
     }
 }
