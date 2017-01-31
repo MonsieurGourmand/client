@@ -1,1 +1,1 @@
-# mgd-api
+# client
