@@ -1,5 +1,5 @@
 {
-  "name": "rdarricau/mgd",
+  "name": "monsieurgourmand/client",
   "description": "Librairie PHP pour interagir avec l'api de MonsieurGourmand.com",
   "authors": [
     {
@@ -10,7 +10,7 @@
   "minimum-stability": "dev",
   "require": {
     "php": ">=5.5.9",
-    "adoy/oauth2": "*"
+    "monsieurgourmand/oauth2": "*"
   },
   "require-dev":{
     "symfony/var-dumper":"*"
