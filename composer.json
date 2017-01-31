@@ -1,6 +1,7 @@
 {
   "name": "monsieurgourmand/client",
   "description": "Librairie PHP pour interagir avec l'api de MonsieurGourmand.com",
+  "license": "LGPL-2.1",
   "authors": [
     {
       "name": "Rémi Darricau",
