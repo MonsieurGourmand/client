@@ -17,7 +17,7 @@ class Serializer
         $array = array();
         foreach ($reflectionClass->getProperties() as $property) {
             $property->setAccessible(true);
-            if(!is_array($property->getValue($object)))
+            if(!is_array($property->getValue($object)) && !is_object($property->getValue($object)))
                 $array[$property->getName()] = $property->getValue($object);
             $property->setAccessible(false);
         }
