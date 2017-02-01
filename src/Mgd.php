@@ -66,22 +66,21 @@ class Mgd {
     }
 
     public function post($url, $object, $entityClass) {
-        $response = $this->client->fetch($this->apiUrl . $url . '.json',array(),$this->serializer->serialize($object),\OAuth2\Client::HTTP_METHOD_POST);
+        $response = $this->client->fetch($this->apiUrl . $url . '.json',$this->serializer->serialize($object),\OAuth2\Client::HTTP_METHOD_POST);
         if(self::getError($response))
             return self::post($url, $object, $entityClass);
         return $this->parser->parse($response['result'],$entityClass);
     }
 
     public function put($url, $id, $object, $entityClass) {
-        $object = $this->serializer->serialize($object);
-        $response = $this->client->fetch($this->apiUrl . $url .'/'.$id. '.json',array(),$object,\OAuth2\Client::HTTP_METHOD_PUT,array('Content-Type: application/json','Content-Length:'.strlen($object)));
+        $response = $this->client->fetch($this->apiUrl . $url .'/'.$id. '.json',$this->serializer->serialize($object),\OAuth2\Client::HTTP_METHOD_PUT,array('Content-Type' => 'x-www-form-urlencoded'));
         if(self::getError($response))
             return self::put($url, $id, $object, $entityClass);
         return $this->parser->parse($response['result'],$entityClass);
     }
 
     public function remove($url, $id) {
-        $response = $this->client->fetch($this->apiUrl . $url .'/'.$id. '.json',array(),'',\OAuth2\Client::HTTP_METHOD_DELETE);
+        $response = $this->client->fetch($this->apiUrl . $url .'/'.$id. '.json',null,\OAuth2\Client::HTTP_METHOD_DELETE);
         if(self::getError($response))
             return self::remove($url, $id);
         return $response;

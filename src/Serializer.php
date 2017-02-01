@@ -21,6 +21,6 @@ class Serializer
                 $array[$property->getName()] = $property->getValue($object);
             $property->setAccessible(false);
         }
-        return json_encode($array);
+        return $array;
     }
 }
