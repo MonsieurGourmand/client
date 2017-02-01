@@ -73,8 +73,8 @@ class Mgd {
     }
 
     public function put($url, $id, $object, $entityClass) {
-        $response = $this->client->fetch($this->apiUrl . $url .'/'.$id. '.json',$this->serializer->serialize($object),\OAuth2\Client::HTTP_METHOD_PUT,array('Content-Type: application/x-www-form-urlencoded'
-        ));
+        $object = $this->serializer->serialize($object);
+        $response = $this->client->fetch($this->apiUrl . $url .'/'.$id. '.json',$object,\OAuth2\Client::HTTP_METHOD_PUT,array('Content-Type: application/json','Content-Length:'.strlen($object)));
         if(self::getError($response))
             return self::put($url, $id, $object, $entityClass);
         return $this->parser->parse($response['result'],$entityClass);
