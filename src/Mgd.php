@@ -2,8 +2,6 @@
 
 namespace Mgd;
 
-require_once("OAuth2/Apikey.php");
-
 class Mgd {
     const TOKEN_ENDPOINT = '/oauth/v2/token';
     //const APIROOT = 'https://api.monsieurgourmand.com';
