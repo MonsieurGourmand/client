@@ -5,12 +5,11 @@ namespace Mgd;
 class Mgd {
     const TOKEN_ENDPOINT = '/oauth/v2/token';
     //const APIROOT = 'https://api.monsieurgourmand.com';
-    const APIROOT = 'http://api.monsieurgourmand.dev/app_dev.php/v1/';
+    const OAUTHROOT = 'http://api.monsieurgourmand.dev/app_dev.php';
+    const APIROOT = 'http://api.monsieurgourmand.dev/app_dev.php/v1';
 
     const SORT_DESC = "desc";
     const SORT_ASC = "asc";
-
-    public $apiUrl;
 
     private $passwordClientId = '1_2cf749lbilwkw0gc4kg8kg4g4goo8okcs08kwo0o0gwokwww4c';
     private $passwordClientSecret = '4fbuayr3782s8ggs8kgwgo4w0wkc4wgskg4skg4wksggwgscg4';
@@ -31,20 +30,23 @@ class Mgd {
 
         $passwordClient = new \OAuth2\Client($this->passwordClientId,$this->passwordClientSecret);
         $params = array('username' => $username, 'password' => $password);
-        $response = $passwordClient->getAccessToken(self::APIROOT.self::TOKEN_ENDPOINT, 'password', $params);
+        $response = $passwordClient->getAccessToken(self::OAUTHROOT.self::TOKEN_ENDPOINT, 'password', $params);
         $passwordClient->setAccessToken($response['result']['access_token']);
 
-        $user = $this->client->fetch(self::APIROOT.'/user.json');
+        $response = $passwordClient->fetch(self::APIROOT.'/user.json');
+        $user = $response['result'];
 
         $this->prod = new \OAuth2\Client($this->apiKeyClientId,$this->apiKeyClientSecret);
-        $params = array('apikey' => $user->prodApiKey);
-        $response = $this->prod->getAccessToken(self::APIROOT.self::TOKEN_ENDPOINT, 'apikey', $params);
+        $params = array('apikey' => $user['prodApiKey']);
+        $response = $this->prod->getAccessToken(self::OAUTHROOT.self::TOKEN_ENDPOINT, 'apikey', $params);
         $this->prod->setAccessToken($response['result']['access_token']);
 
         $this->sandbox = new \OAuth2\Client($this->apiKeyClientId,$this->apiKeyClientSecret);
-        $params = array('apikey' => $user->sandboxApiKey);
-        $response = $this->sandbox->getAccessToken(self::APIROOT.self::TOKEN_ENDPOINT, 'apikey', $params);
+        $params = array('apikey' => $user['sandboxApiKey']);
+        $response = $this->sandbox->getAccessToken(self::OAUTHROOT.self::TOKEN_ENDPOINT, 'apikey', $params);
         $this->sandbox->setAccessToken($response['result']['access_token']);
+
+        $this->client = $this->prod;
 
         // Entités métiers
         $this->category = new \Mgd\Route\Category($this);
@@ -96,6 +98,14 @@ class Mgd {
         if(self::getError($response))
             return self::remove($url, $id);
         return $response;
+    }
+
+    public function setEnv($env)
+    {
+        if($env == "production")
+            $this->client = $this->prod;
+        elseif($env == "sandbox")
+            $this->client = $this->sandbox;
     }
 
     // A reconstruire sur la base du refreshToken
