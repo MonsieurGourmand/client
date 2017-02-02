@@ -17,9 +17,9 @@ class Mgd {
     private $apiKeyClientId = '2_42f7qv8bgxusw44cs0804cco40sow8koc0csk00sk4skco8g8o';
     private $apiKeyClientSecret = '4fwdlyuen7k00ook8g4gccsc0kk0oo4k4kc0sg4s4wwg4wwcco';
 
-    public $client;
-    public $prod;
-    public $sandbox;
+    protected $client;
+    protected $prod;
+    protected $sandbox;
 
     private $parser;
     private $serializer;
