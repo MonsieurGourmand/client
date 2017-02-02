@@ -95,7 +95,7 @@ class Mgd {
     }
 
     public function remove($url, $id) {
-        $response = $this->client->fetch(self::APIROOT . $url .'/'.$id. '.json',null,\OAuth2\Client::HTTP_METHOD_DELETE);
+        $response = $this->client->fetch(self::APIROOT . $url .'/'.$id. '.json',array(),\OAuth2\Client::HTTP_METHOD_DELETE);
         if(self::getError($response))
             return self::remove($url, $id);
         return $response;
