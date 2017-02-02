@@ -8,6 +8,12 @@ class Purchase
     /** @var string */
     protected $url = "purchases";
 
+    /** @var \DateTime */
+    protected $start;
+
+    /** @var \DateTime */
+    protected $end;
+
     public function __construct(\Mgd\Mgd $master)
     {
         $this->master = $master;
@@ -17,6 +23,8 @@ class Purchase
     public function getAll()
     {
         $params = array();
+        if($this->start) $params["start"] = $this->start;        
+        if($this->end) $params["end"] = $this->end;        
         return $this->master->getAll($this->url, $this->entity,$params);
     }
 
