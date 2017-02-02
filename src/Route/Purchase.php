@@ -47,5 +47,21 @@ class Purchase
     {
         return $this->master->remove($this->url,$purchase->getIdpurchase());
     }
+
+    /**
+     * @param \DateTime $start
+     */
+    public function setStart($start)
+    {
+        $this->start = $start;
+    }
+
+    /**
+     * @param \DateTime $end
+     */
+    public function setEnd($end)
+    {
+        $this->end = $end;
+    }
 }
 ?>
