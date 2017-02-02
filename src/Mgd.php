@@ -12,22 +12,25 @@ class Mgd {
 
     public $apiUrl;
 
-    protected $apiKey;
-    protected $clientId;
-    protected $clientSecret;
+    private $clientId;
+    private $clientSecret;
+    private $username;
+    private $password;
 
     public $client;
     public $parser;
     public $serializer;
 
-    public function __construct($clientId,$clientSecret,$apiKey) {
+    public function __construct($clientId,$clientSecret,$username,$password) {
         if(!$clientId) throw new \Error('You must provide a clientId');
         if(!$clientSecret) throw new \Error('You must provide a clientSecret');
-        if(!$apiKey) throw new \Error('You must provide an apiKey');
+        if(!$username) throw new \Error('You must provide a username');
+        if(!$password) throw new \Error('You must provide a password');
 
-        $this->apiKey = $apiKey;
         $this->clientId = $clientId;
         $this->clientSecret = $clientSecret;
+        $this->username = $username;
+        $this->password = $password;
 
         $this->client = new \OAuth2\Client($this->clientId,$this->clientSecret);
         self::getAccessToken();
@@ -92,8 +95,8 @@ class Mgd {
     {
         $tokenUrl = self::APIROOT.self::TOKEN_ENDPOINT;
         // Gestion de la récupération des crédentials
-        $params = array('apikey' => $this->apiKey);
-        $response = $this->client->getAccessToken($tokenUrl, 'apikey', $params);
+        $params = array('username' => $this->username, 'password' => $this->password);
+        $response = $this->client->getAccessToken($tokenUrl, 'password', $params);
 
         if(floor($response['code'] / 100) >= 4) {
             throw new \Error("[".$response['result']['error']."] ".$response['result']['error_description']);
