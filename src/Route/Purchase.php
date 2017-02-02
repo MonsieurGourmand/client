@@ -20,6 +20,12 @@ class Purchase
         $this->entity = \Mgd\Entity\Purchase::class;
     }
 
+    public function reset()
+    {
+        if($this->start) $this->start = NULL;
+        if($this->end) $this->end = NULL;
+    }
+
     public function getAll()
     {
         $params = array();
