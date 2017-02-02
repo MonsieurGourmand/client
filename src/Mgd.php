@@ -13,12 +13,12 @@ class Mgd {
 
     private $passwordClientId = '1_2cf749lbilwkw0gc4kg8kg4g4goo8okcs08kwo0o0gwokwww4c';
     private $passwordClientSecret = '4fbuayr3782s8ggs8kgwgo4w0wkc4wgskg4skg4wksggwgscg4';
-    private $user;
+    public $user;
 
     private $apiKeyClientId = '2_42f7qv8bgxusw44cs0804cco40sow8koc0csk00sk4skco8g8o';
     private $apiKeyClientSecret = '4fwdlyuen7k00ook8g4gccsc0kk0oo4k4kc0sg4s4wwg4wwcco';
 
-    protected $client;
+    public $client;
     protected $prod;
     protected $sandbox;
 
@@ -112,16 +112,15 @@ class Mgd {
     public function getAccessToken()
     {
         if($this->client == $this->prod)
-            $params = array('apikey' => $this->user['prodApikey']);
+            $params = array('apikey' => $this->user['prodApiKey']);
         else
-            $params = array('apikey' => $this->user['sandboxApikey']);
+            $params = array('apikey' => $this->user['sandboxApiKey']);
 
         $response = $this->client->getAccessToken(self::OAUTHROOT.self::TOKEN_ENDPOINT, 'apikey', $params);
-        $this->client->setAccessToken($response['result']['access_token']);
-
         if(floor($response['code'] / 100) >= 4) {
             throw new \Error("[".$response['result']['error']."] ".$response['result']['error_description']);
         }
+        $this->client->setAccessToken($response['result']['access_token']);
     }
 
     public function getError($response)
