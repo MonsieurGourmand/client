@@ -53,7 +53,7 @@ class Purchase
      */
     public function setStart($start)
     {
-        $this->start = $start;
+        $this->start = $start->format('Y-m-d H:i:s');
     }
 
     /**
@@ -61,7 +61,7 @@ class Purchase
      */
     public function setEnd($end)
     {
-        $this->end = $end;
+        $this->end = $end->format('Y-m-d H:i:s');
     }
 }
 ?>
