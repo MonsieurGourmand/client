@@ -6,13 +6,14 @@ class Mgd {
     const TOKEN_ENDPOINT = '/oauth/v2/token';
     //const APIROOT = 'https://api.monsieurgourmand.com';
     const OAUTHROOT = 'http://api.monsieurgourmand.dev/app_dev.php';
-    const APIROOT = 'http://api.monsieurgourmand.dev/app_dev.php/v1';
+    const APIROOT = 'http://api.monsieurgourmand.dev/app_dev.php/v1/';
 
     const SORT_DESC = "desc";
     const SORT_ASC = "asc";
 
     private $passwordClientId = '1_2cf749lbilwkw0gc4kg8kg4g4goo8okcs08kwo0o0gwokwww4c';
     private $passwordClientSecret = '4fbuayr3782s8ggs8kgwgo4w0wkc4wgskg4skg4wksggwgscg4';
+    private $user;
 
     private $apiKeyClientId = '2_42f7qv8bgxusw44cs0804cco40sow8koc0csk00sk4skco8g8o';
     private $apiKeyClientSecret = '4fwdlyuen7k00ook8g4gccsc0kk0oo4k4kc0sg4s4wwg4wwcco';
@@ -33,16 +34,16 @@ class Mgd {
         $response = $passwordClient->getAccessToken(self::OAUTHROOT.self::TOKEN_ENDPOINT, 'password', $params);
         $passwordClient->setAccessToken($response['result']['access_token']);
 
-        $response = $passwordClient->fetch(self::APIROOT.'/user.json');
-        $user = $response['result'];
+        $response = $passwordClient->fetch(self::APIROOT.'user.json');
+        $this->user = $response['result'];
 
         $this->prod = new \OAuth2\Client($this->apiKeyClientId,$this->apiKeyClientSecret);
-        $params = array('apikey' => $user['prodApiKey']);
+        $params = array('apikey' => $this->user['prodApiKey']);
         $response = $this->prod->getAccessToken(self::OAUTHROOT.self::TOKEN_ENDPOINT, 'apikey', $params);
         $this->prod->setAccessToken($response['result']['access_token']);
 
         $this->sandbox = new \OAuth2\Client($this->apiKeyClientId,$this->apiKeyClientSecret);
-        $params = array('apikey' => $user['sandboxApiKey']);
+        $params = array('apikey' => $this->user['sandboxApiKey']);
         $response = $this->sandbox->getAccessToken(self::OAUTHROOT.self::TOKEN_ENDPOINT, 'apikey', $params);
         $this->sandbox->setAccessToken($response['result']['access_token']);
 
@@ -108,13 +109,15 @@ class Mgd {
             $this->client = $this->sandbox;
     }
 
-    // A reconstruire sur la base du refreshToken
     public function getAccessToken()
     {
-        $tokenUrl = self::APIROOT.self::TOKEN_ENDPOINT;
-        // Gestion de la récupération des crédentials
-        $params = array('apikey' => $this->prodApikey, 'password' => $this->password);
-        $response = $this->client->getAccessToken($tokenUrl, 'password', $params);
+        if($this->client == $this->prod)
+            $params = array('apikey' => $this->user['prodApikey']);
+        else
+            $params = array('apikey' => $this->user['sandboxApikey']);
+
+        $response = $this->client->getAccessToken(self::OAUTHROOT.self::TOKEN_ENDPOINT, 'apikey', $params);
+        $this->client->setAccessToken($response['result']['access_token']);
 
         if(floor($response['code'] / 100) >= 4) {
             throw new \Error("[".$response['result']['error']."] ".$response['result']['error_description']);
