@@ -12,7 +12,7 @@ namespace Mgd\Route;
 class Teammate
 {
     /** @var string */
-    protected $url = "equipe";
+    protected $url = "teammates";
 
     /** @var  string */
     protected $mail;

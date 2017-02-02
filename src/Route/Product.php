@@ -12,7 +12,7 @@ namespace Mgd\Route;
 class Product
 {
     /** @var string */
-    protected $url = "reference";
+    protected $url = "products";
 
     public function __construct(\Mgd\Mgd $master)
     {

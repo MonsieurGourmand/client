@@ -6,7 +6,7 @@ namespace Mgd\Route;
 class Purchase
 {
     /** @var string */
-    protected $url = "achats";
+    protected $url = "purchases";
 
     public function __construct(\Mgd\Mgd $master)
     {

@@ -12,7 +12,7 @@ namespace Mgd\Route;
 class Sale
 {
     /** @var string */
-    protected $url = "commandes";
+    protected $url = "sales";
 
     public function __construct(\Mgd\Mgd $master)
     {

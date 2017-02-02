@@ -46,7 +46,7 @@ class Mgd {
         $this->teammate = new \Mgd\Route\Teammate($this);
         $this->zone = new \Mgd\Route\Zone($this);
 
-        $this->apiUrl = self::APIROOT."/cantine/";
+        $this->apiUrl = self::APIROOT."/v1/";
         $this->parser = new Parser();
         $this->serializer = new Serializer();
     }

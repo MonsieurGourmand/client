@@ -12,7 +12,7 @@ namespace Mgd\Route;
 class Subcategory
 {
     /** @var string */
-    protected $url = "souscategories";
+    protected $url = "subcategories";
 
     public function __construct(\Mgd\Mgd $master)
     {

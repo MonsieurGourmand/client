@@ -6,7 +6,7 @@ namespace Mgd\Route;
 class Supplier
 {
 	/** @var string */
-	protected $url = "fournisseurs";
+	protected $url = "suppliers";
 
     public function __construct(\Mgd\Mgd $master)
     {
