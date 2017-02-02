@@ -32,6 +32,10 @@ class Mgd {
         $this->client = new \OAuth2\Client($this->clientId,$this->clientSecret);
         self::getAccessToken();
 
+        // User
+        $this->user = new \Mgd\Route\User($this);
+
+        // Entités métiers
         $this->category = new \Mgd\Route\Category($this);
         $this->product = new \Mgd\Route\Product($this);
         $this->purchase = new \Mgd\Route\Purchase($this);
