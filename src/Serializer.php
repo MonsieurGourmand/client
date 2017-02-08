@@ -11,16 +11,35 @@ namespace Mgd;
 
 class Serializer
 {
-    public function serialize($object)
+    public function serialize($element)
     {
+        if(is_array($element))
+        {
+            foreach($element as &$item)
+                $element = self::object($element);
+        }
+        else
+            $element = self::object($element);
+        return $element;
+    }
+
+    public function object($object) {
         $reflectionClass = new \ReflectionClass(get_class($object));
         $array = array();
         foreach ($reflectionClass->getProperties() as $property) {
             $property->setAccessible(true);
-            // if(!is_array($property->getValue($object)) && !is_object($property->getValue($object)))
-                $array[$property->getName()] = $property->getValue($object);
+            $value = $property->getValue($object);
+            if(is_array($value))
+            {
+                foreach ($value as &$element) {
+                    $element = self::object($element);
+                }
+            }
+            elseif(is_object($value))
+                $value = self::object($value);
+            $array[$property->getName()] = $value;
             $property->setAccessible(false);
         }
         return $array;
-    }
+    }    
 }
