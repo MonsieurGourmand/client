@@ -4,9 +4,9 @@ namespace Mgd;
 
 class Mgd {
     const TOKEN_ENDPOINT = '/oauth/v2/token';
-    //const APIROOT = 'https://api.monsieurgourmand.com';
-    const OAUTHROOT = 'http://api.monsieurgourmand.dev/app_dev.php';
-    const APIROOT = 'http://api.monsieurgourmand.dev/app_dev.php/v1/';
+
+    const OAUTHROOT = 'https://api.monsieurgourmand.com';
+    const APIROOT = 'https://api.monsieurgourmand.com/v1/';
 
     const SORT_DESC = "desc";
     const SORT_ASC = "asc";
