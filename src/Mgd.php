@@ -136,7 +136,7 @@ class Mgd {
             throw new \Error("[".$response['result']['error']."] ".$response['result']['error_description']);
         }
         if(floor($response['code'] / 100) > 4) {
-            throw new \Error($response['code']);
+            throw new \Error("[".$response['code']."] ".$response['result']['error']['exception'][0]['message']);
         }
     }
 }
