@@ -16,6 +16,11 @@ class Supplier
     private $reference;
 
     /**
+     * @var string
+     */
+    private $customerReference;
+
+    /**
      * @var integer
      */
     private $idsupplier;
@@ -108,6 +113,22 @@ class Supplier
     public function setSupplierProducts($supplierProducts)
     {
         $this->supplierProducts = $supplierProducts;
+    }
+
+    /**
+     * @return string
+     */
+    public function getCustomerReference()
+    {
+        return $this->customerReference;
+    }
+
+    /**
+     * @param string $customerReference
+     */
+    public function setCustomerReference($customerReference)
+    {
+        $this->customerReference = $customerReference;
     }
 }
 ?>
