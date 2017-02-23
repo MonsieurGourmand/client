@@ -82,6 +82,11 @@ class Purchase
      private $teammates;
 
     /**
+     * @var string
+     */
+    private $total;
+
+    /**
      * @return Document
      */
     public function getOrder()
@@ -319,5 +324,13 @@ class Purchase
     public function setTeammates($teammates)
     {
         $this->teammates = $teammates;
+    }
+
+    /**
+     * @return string
+     */
+    public function getTotal()
+    {
+        return $this->total;
     }
 }
