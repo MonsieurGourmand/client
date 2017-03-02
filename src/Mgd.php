@@ -51,6 +51,7 @@ class Mgd {
 
         // Entités métiers
         $this->category = new \Mgd\Route\Category($this);
+        $this->customer = new \Mgd\Route\Customer($this);
         $this->product = new \Mgd\Route\Product($this);
         $this->purchase = new \Mgd\Route\Purchase($this);
         $this->sale = new \Mgd\Route\Sale($this);
