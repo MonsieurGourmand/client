@@ -67,7 +67,7 @@ class Sale
     /**
      * @var SaleProduct[]
     */
-    private $products;
+    private $saleproducts;
 
     /**
      * @var integer
@@ -173,9 +173,9 @@ class Sale
     /**
      * @return SaleProduct[]
      */
-    public function getProducts()
+    public function getSaleproducts()
     {
-        return $this->products;
+        return $this->saleproducts;
     }
 
     /**
@@ -283,11 +283,11 @@ class Sale
     }
 
     /**
-     * @param SaleProduct[] $products
+     * @param SaleProduct[] $saleproducts
      */
-    public function setProducts($products)
+    public function setSaleproducts($saleproducts)
     {
-        $this->products = $products;
+        $this->saleproducts = $saleproducts;
     }
 
     /**
