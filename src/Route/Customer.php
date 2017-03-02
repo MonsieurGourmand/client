@@ -31,7 +31,7 @@ class Customer
         return $this->master->get($this->url,$id,$this->entity);
     }
 
-    public function post(\Mgd\Entity\Customer $customer)getIdcategory
+    public function post(\Mgd\Entity\Customer $customer)
     {
         return $this->master->post($this->url,$customer,$this->entity);
     }
