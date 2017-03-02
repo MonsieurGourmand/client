@@ -14,6 +14,11 @@ class Sale
       */
      private $idcustomer;
 
+    /**
+     * @var Document
+     */
+     private $order;
+
      /**
       * @var Teammate
       */
@@ -296,5 +301,21 @@ class Sale
     public function setIdsale($idsale)
     {
         $this->idsale = $idsale;
+    }
+
+    /**
+     * @return Document
+     */
+    public function getOrder()
+    {
+        return $this->order;
+    }
+
+    /**
+     * @param Document $order
+     */
+    public function setOrder($order)
+    {
+        $this->order = $order;
     }
 }
