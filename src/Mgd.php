@@ -13,6 +13,8 @@ class Mgd {
 
     public $client;
 
+    private $user;
+
     private $refresh_token;
     private $parser;
     private $serializer;
@@ -22,6 +24,8 @@ class Mgd {
         $response = $this->client->getAccessToken(self::OAUTHROOT.self::TOKEN_ENDPOINT, 'authorization_code',array('code'=>$code,'redirect_uri'=>'http://boutique.dev/callback'));
         $this->client->setAccessToken($response['result']['access_token']);
         $this->refresh_token = $response['result']['refresh_token'];
+        $response = $this->client->fetch(self::APIROOT.'me');
+        $this->user = $response['result'];
 
         // Entités métiers
         $this->category = new \Mgd\Route\Category($this);
@@ -103,6 +107,7 @@ class Mgd {
             $response = $this->client->getAccessToken(self::OAUTHROOT.self::TOKEN_ENDPOINT, 'refresh_token',array('refresh_token'=>$this->refresh_token));
             $this->client->setAccessToken($response['result']['access_token']);
             $this->refresh_token = $response['result']['refresh_token'];
+            return true;
         }
         // Gestion de l'accessToken expired
         if(floor($response['code'] / 100) == 4) {
