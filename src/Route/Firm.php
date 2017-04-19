@@ -17,7 +17,7 @@ class Firm
     public function __construct(\Mgd\Mgd $master)
     {
         $this->master = $master;
-        $this->entity = \Mgd\Entity\Contact::class;
+        $this->entity = \Mgd\Entity\Firm::class;
     }
 
     public function getAll()
@@ -31,18 +31,18 @@ class Firm
         return $this->master->get($this->url,$id,$this->entity);
     }
 
-    public function post(\Mgd\Entity\Contact $contact)
+    public function post(\Mgd\Entity\Firm $firm)
     {
-        return $this->master->post($this->url,$contact,$this->entity);
+        return $this->master->post($this->url,$firm,$this->entity);
     }
 
-    public function put(\Mgd\Entity\Contact $contact)
+    public function put(\Mgd\Entity\Firm $firm)
     {
-        return $this->master->put($this->url,$contact->getIdcontact(),$contact,$this->entity);
+        return $this->master->put($this->url,$firm->getIdFirm(),$firm,$this->entity);
     }
 
-    public function remove(\Mgd\Entity\Contact $contact)
+    public function remove(\Mgd\Entity\Firm $firm)
     {
-        return $this->master->remove($this->url,$contact->getIdcontact());
+        return $this->master->remove($this->url,$firm->getIdFirm());
     }
 }

@@ -9,10 +9,10 @@
 namespace Mgd\Route;
 
 
-class Purchase
+class Sale
 {
     /** @var string */
-    protected $url = "/purchases";
+    protected $url = "/sales";
     protected $base_url = "firms/";
 
     public function __construct(\Mgd\Mgd $master)
@@ -32,18 +32,18 @@ class Purchase
         return $this->master->get($this->base_url.$idFirm.$this->url,$id,$this->entity);
     }
 
-    public function post($idFirm,\Mgd\Entity\Order $purchase)
+    public function post($idFirm,\Mgd\Entity\Order $sale)
     {
-        return $this->master->post($this->base_url.$idFirm.$this->url,$purchase,$this->entity);
+        return $this->master->post($this->base_url.$idFirm.$this->url,$sale,$this->entity);
     }
 
-    public function put($idFirm,\Mgd\Entity\Order $purchase)
+    public function put($idFirm,\Mgd\Entity\Order $sale)
     {
-        return $this->master->put($this->base_url.$idFirm.$this->url,$purchase->getIdOrder(),$purchase,$this->entity);
+        return $this->master->put($this->base_url.$idFirm.$this->url,$sale->getIdOrder(),$sale,$this->entity);
     }
 
-    public function remove($idFirm,\Mgd\Entity\Order $purchase)
+    public function remove($idFirm,\Mgd\Entity\Order $sale)
     {
-        return $this->master->remove($this->base_url.$idFirm.$this->url,$purchase->getIdOrder());
+        return $this->master->remove($this->base_url.$idFirm.$this->url,$sale->getIdOrder());
     }
 }
