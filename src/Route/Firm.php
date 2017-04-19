@@ -9,10 +9,10 @@
 namespace Mgd\Route;
 
 
-class Contact
+class Firm
 {
     /** @var string */
-    protected $url = "contacts";
+    protected $url = "firms";
 
     public function __construct(\Mgd\Mgd $master)
     {

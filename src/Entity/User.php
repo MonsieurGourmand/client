@@ -9,12 +9,12 @@
 namespace Mgd\Entity;
 
 
-class Contact
+class User
 {
     /**
      * @var integer
      */
-    private $idcontact;
+    private $idUser;
 
     /**
      * @var string
@@ -49,9 +49,9 @@ class Contact
     /**
      * @return int
      */
-    public function getIdcontact()
+    public function getIdUser()
     {
-        return $this->idcontact;
+        return $this->idUser;
     }
 
     /**

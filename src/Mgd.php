@@ -5,49 +5,23 @@ namespace Mgd;
 class Mgd {
     const TOKEN_ENDPOINT = '/oauth/v2/token';
 
-    const OAUTHROOT = 'https://api.monsieurgourmand.com';
-    const APIROOT = 'https://api.monsieurgourmand.com/v1/';
+    const OAUTHROOT = 'http://api.dev';
+    const APIROOT = 'http://api.dev/v1/';
 
     const SORT_DESC = "desc";
     const SORT_ASC = "asc";
 
-    private $passwordClientId = '1_2cf749lbilwkw0gc4kg8kg4g4goo8okcs08kwo0o0gwokwww4c';
-    private $passwordClientSecret = '4fbuayr3782s8ggs8kgwgo4w0wkc4wgskg4skg4wksggwgscg4';
-    public $user;
-
-    private $apiKeyClientId = '2_42f7qv8bgxusw44cs0804cco40sow8koc0csk00sk4skco8g8o';
-    private $apiKeyClientSecret = '4fwdlyuen7k00ook8g4gccsc0kk0oo4k4kc0sg4s4wwg4wwcco';
-
     public $client;
-    protected $prod;
-    protected $sandbox;
 
+    private $refresh_token;
     private $parser;
     private $serializer;
 
-    public function __construct($username,$password) {
-        if(!$username) throw new \Error('You must provide a username');
-        if(!$password) throw new \Error('You must provide a password');
-
-        $passwordClient = new \OAuth2\Client($this->passwordClientId,$this->passwordClientSecret);
-        $params = array('username' => $username, 'password' => $password);
-        $response = $passwordClient->getAccessToken(self::OAUTHROOT.self::TOKEN_ENDPOINT, 'password', $params);
-        $passwordClient->setAccessToken($response['result']['access_token']);
-
-        $response = $passwordClient->fetch(self::APIROOT.'user.json');
-        $this->user = $response['result'];
-
-        $this->prod = new \OAuth2\Client($this->apiKeyClientId,$this->apiKeyClientSecret);
-        $params = array('apikey' => $this->user['prodApiKey']);
-        $response = $this->prod->getAccessToken(self::OAUTHROOT.self::TOKEN_ENDPOINT, 'apikey', $params);
-        $this->prod->setAccessToken($response['result']['access_token']);
-
-        $this->sandbox = new \OAuth2\Client($this->apiKeyClientId,$this->apiKeyClientSecret);
-        $params = array('apikey' => $this->user['sandboxApiKey']);
-        $response = $this->sandbox->getAccessToken(self::OAUTHROOT.self::TOKEN_ENDPOINT, 'apikey', $params);
-        $this->sandbox->setAccessToken($response['result']['access_token']);
-
-        $this->client = $this->prod;
+    public function __construct($code) {
+        $this->client = new \OAuth2\Client('22_3lj8zibuou044ckgogscw84cg0sg4gk0s44wggkgko0ccoccsc','2hidonngzry8wc0gkckcgso8g440s84cgs8g84480gc8cck40');
+        $response = $this->client->getAccessToken(self::OAUTHROOT.self::TOKEN_ENDPOINT, 'authorization_code',array('code'=>$code,'redirect_uri'=>'http://boutique.dev/callback'));
+        $this->client->setAccessToken($response['result']['access_token']);
+        $this->refresh_token = $response['result']['refresh_token'];
 
         // Entités métiers
         $this->category = new \Mgd\Route\Category($this);
@@ -129,8 +103,9 @@ class Mgd {
         // Gestion de l'accessToken expired
         if($response['code'] == 401 && $response['result']['error'] == "invalid_grant" && $response['result']['error_description'] == "The access token provided has expired.")
         {
-            self::getAccessToken();
-            return true;
+            $response = $this->client->getAccessToken(self::OAUTHROOT.self::TOKEN_ENDPOINT, 'refresh_token',array('refresh_token'=>$this->refresh_token));
+            $this->client->setAccessToken($response['result']['access_token']);
+            $this->refresh_token = $response['result']['refresh_token'];
         }
         // Gestion de l'accessToken expired
         if(floor($response['code'] / 100) == 4) {

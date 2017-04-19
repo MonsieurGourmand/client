@@ -9,10 +9,12 @@
 namespace Mgd\Route;
 
 
-class Sale
+class Order
 {
     /** @var string */
-    protected $url = "sales";
+    protected $sale_url = "sales";
+    protected $purchase_url = "sales";
+    protected $base_url = "firms";
 
     public function __construct(\Mgd\Mgd $master)
     {
