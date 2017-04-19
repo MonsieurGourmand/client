@@ -25,16 +25,13 @@ class Mgd {
 
         // Entités métiers
         $this->category = new \Mgd\Route\Category($this);
-        $this->customer = new \Mgd\Route\Customer($this);
-        $this->product = new \Mgd\Route\Product($this);
+        $this->firm = new \Mgd\Route\Firm($this);
+        $this->orderPurchaseProduct = new \Mgd\Route\OrderPurchaseProduct($this);
+        $this->orderSaleProduct = new \Mgd\Route\OrderSaleProduct($this);
         $this->purchase = new \Mgd\Route\Purchase($this);
+        $this->product = new \Mgd\Route\Product($this);
         $this->sale = new \Mgd\Route\Sale($this);
         $this->stock = new \Mgd\Route\Stock($this);
-        $this->subcategory = new \Mgd\Route\Subcategory($this);
-        $this->supplier = new \Mgd\Route\Supplier($this);
-        $this->supplierContact = new \Mgd\Route\SupplierContact($this);
-        $this->supplierProduct = new \Mgd\Route\SupplierProduct($this);
-        $this->teammate = new \Mgd\Route\Teammate($this);
         $this->zone = new \Mgd\Route\Zone($this);
 
         $this->parser = new Parser();
