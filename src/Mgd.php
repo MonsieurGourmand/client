@@ -13,7 +13,7 @@ class Mgd {
 
     public $client;
 
-    private $user;
+    public $user;
 
     private $refresh_token;
     private $parser;
