@@ -54,7 +54,7 @@ class Mgd {
         $this->client->setAccessToken($response['result']['access_token']);
         $this->refresh_token = $response['result']['refresh_token'];
         $response = $this->client->fetch($this->apiRoot.'me');
-        $this->user = $response['result'];
+        $this->user = $this->parser->parse($response['result'],\Mgd\Entity\User::class);
     }
 
     public function getAll($url, $entityClass ,$params=array()) {
