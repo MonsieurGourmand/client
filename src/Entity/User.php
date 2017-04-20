@@ -14,148 +14,52 @@ class User
     /**
      * @var integer
      */
-    private $idUser;
+    private $id;
 
     /**
      * @var string
      */
-    private $firstname;
+    private $email;
 
     /**
      * @var string
      */
-    private $lastname;
+    private $username;
 
     /**
-     * @var string
+     * @var Firm
      */
-    private $address;
-
-    /**
-     * @var string
-     */
-    private $mail;
-
-    /**
-     * @var string
-     */
-    private $phone;
-
-    /**
-     * @var string
-     */
-    private $mobile;
+    private $firm;
 
     /**
      * @return int
      */
-    public function getIdUser()
+    public function getId()
     {
-        return $this->idUser;
+        return $this->id;
     }
 
     /**
      * @return string
      */
-    public function getFirstname()
+    public function getEmail()
     {
-        return $this->firstname;
+        return $this->email;
     }
 
     /**
      * @return string
      */
-    public function getLastname()
+    public function getUsername()
     {
-        return $this->lastname;
+        return $this->username;
     }
 
     /**
-     * @return string
+     * @return Firm
      */
-    public function getAddress()
+    public function getFirm()
     {
-        return $this->address;
+        return $this->firm;
     }
-
-    /**
-     * @return string
-     */
-    public function getMail()
-    {
-        return $this->mail;
-    }
-
-    /**
-     * @return string
-     */
-    public function getPhone()
-    {
-        return $this->phone;
-    }
-
-    /**
-     * @return string
-     */
-    public function getMobile()
-    {
-        return $this->mobile;
-    }
-
-    /**
-     * @param int $idcontact
-     */
-    public function setIdcontact($idcontact)
-    {
-        $this->idcontact = $idcontact;
-    }
-
-    /**
-     * @param string $firstname
-     */
-    public function setFirstname($firstname)
-    {
-        $this->firstname = $firstname;
-    }
-
-    /**
-     * @param string $lastname
-     */
-    public function setLastname($lastname)
-    {
-        $this->lastname = $lastname;
-    }
-
-    /**
-     * @param string $address
-     */
-    public function setAddress($address)
-    {
-        $this->address = $address;
-    }
-
-    /**
-     * @param string $mail
-     */
-    public function setMail($mail)
-    {
-        $this->mail = $mail;
-    }
-
-    /**
-     * @param string $phone
-     */
-    public function setPhone($phone)
-    {
-        $this->phone = $phone;
-    }
-
-    /**
-     * @param string $mobile
-     */
-    public function setMobile($mobile)
-    {
-        $this->mobile = $mobile;
-    }
-
 }
