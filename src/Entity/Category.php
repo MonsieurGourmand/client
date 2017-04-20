@@ -9,11 +9,6 @@ class Category
      */
     private $name;
 
-    /**
-    * @var Subcategory[]
-    */
-    private $subcategories;
-
 
     /**
      * @var integer
@@ -26,14 +21,6 @@ class Category
     public function getName()
     {
         return $this->name;
-    }
-
-    /**
-     * @return Subcategory[]
-     */
-    public function getSubcategories()
-    {
-        return $this->subcategories;
     }
 
     /**

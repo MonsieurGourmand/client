@@ -5,23 +5,23 @@ namespace Mgd;
 class Mgd {
     const TOKEN_ENDPOINT = '/oauth/v2/token';
 
-    const OAUTHROOT = 'http://api.dev';
-    const APIROOT = 'http://api.dev/v1/';
+    private $oauthRoot;
+    private $apiRoot;
 
     const SORT_DESC = "desc";
     const SORT_ASC = "asc";
 
     public $client;
-
     public $user;
-
     private $refresh_token;
     private $parser;
     private $serializer;
 
-    public function __construct($code) {
-        $this->client = new \OAuth2\Client('22_3lj8zibuou044ckgogscw84cg0sg4gk0s44wggkgko0ccoccsc','2hidonngzry8wc0gkckcgso8g440s84cgs8g84480gc8cck40');
-        $response = $this->client->getAccessToken(self::OAUTHROOT.self::TOKEN_ENDPOINT, 'authorization_code',array('code'=>$code,'redirect_uri'=>'http://boutique.dev/callback'));
+    public function __construct($code,$client_id,$client_secret,$oauthRoot) {
+        $this->oauthRoot = $oauthRoot;
+        $this->apiRoot = $oauthRoot.'/v1';
+        $this->client = new \OAuth2\Client($client_id,$client_secret);
+        $response = $this->client->getAccessToken($this->oauthRoot.self::TOKEN_ENDPOINT, 'authorization_code',array('code'=>$code,'redirect_uri'=>'http://boutique.dev/callback'));
         $this->client->setAccessToken($response['result']['access_token']);
         $this->refresh_token = $response['result']['refresh_token'];
         $response = $this->client->fetch(self::APIROOT.'me');
@@ -75,28 +75,6 @@ class Mgd {
         if(self::getError($response))
             return self::remove($url, $id);
         return $response;
-    }
-
-    public function setEnv($env)
-    {
-        if($env == "production")
-            $this->client = $this->prod;
-        elseif($env == "sandbox")
-            $this->client = $this->sandbox;
-    }
-
-    public function getAccessToken()
-    {
-        if($this->client == $this->prod)
-            $params = array('apikey' => $this->user['prodApiKey']);
-        else
-            $params = array('apikey' => $this->user['sandboxApiKey']);
-
-        $response = $this->client->getAccessToken(self::OAUTHROOT.self::TOKEN_ENDPOINT, 'apikey', $params);
-        if(floor($response['code'] / 100) >= 4) {
-            throw new \Error("[".$response['result']['error']."] ".$response['result']['error_description']);
-        }
-        $this->client->setAccessToken($response['result']['access_token']);
     }
 
     public function getError($response)
