@@ -16,16 +16,16 @@ class Mgd {
     private $refresh_token;
     private $parser;
     private $serializer;
+    private $client_id;
+    private $client_secret;
+    private $callback;
 
-    public function __construct($code,$client_id,$client_secret,$oauthRoot) {
+    public function __construct($client_id,$client_secret,$callback,$oauthRoot) {
         $this->oauthRoot = $oauthRoot;
-        $this->apiRoot = $oauthRoot.'/v1';
-        $this->client = new \OAuth2\Client($client_id,$client_secret);
-        $response = $this->client->getAccessToken($this->oauthRoot.self::TOKEN_ENDPOINT, 'authorization_code',array('code'=>$code,'redirect_uri'=>'http://boutique.dev/callback'));
-        $this->client->setAccessToken($response['result']['access_token']);
-        $this->refresh_token = $response['result']['refresh_token'];
-        $response = $this->client->fetch(self::APIROOT.'me');
-        $this->user = $response['result'];
+        $this->apiRoot = $oauthRoot.'/v1/';
+        $this->client_id = $client_id;
+        $this->client_secret=$client_secret;
+        $this->callback = $callback;
 
         // Entités métiers
         $this->category = new \Mgd\Route\Category($this);
@@ -42,36 +42,51 @@ class Mgd {
         $this->serializer = new Serializer();
     }
 
+    public function login()
+    {
+        return $this->oauthRoot.'/oauth/v2/auth?client_id='.$this->client_id.'&redirect_uri='.$this->callback.'&response_type=code';
+    }
+
+    public function access($code)
+    {
+        $this->client = new \OAuth2\Client($this->client_id,$this->client_secret);
+        $response = $this->client->getAccessToken($this->oauthRoot.self::TOKEN_ENDPOINT, 'authorization_code',array('code'=>$code,'redirect_uri'=>'http://boutique.dev/callback'));
+        $this->client->setAccessToken($response['result']['access_token']);
+        $this->refresh_token = $response['result']['refresh_token'];
+        $response = $this->client->fetch($this->apiRoot.'me');
+        $this->user = $response['result'];
+    }
+
     public function getAll($url, $entityClass ,$params=array()) {
-        $response = $this->client->fetch(self::APIROOT . $url . '.json',$params);
+        $response = $this->client->fetch($this->apiRoot . $url . '.json',$params);
         if(self::getError($response))
             return self::getAll($url, $entityClass ,$params);
         return $this->parser->parse($response['result'],$entityClass);
     }
 
     public function get($url, $id, $entityClass) {
-        $response = $this->client->fetch(self::APIROOT . $url .'/'.$id. '.json');
+        $response = $this->client->fetch($this->apiRoot . $url .'/'.$id. '.json');
         if(self::getError($response))
             return self::get($url, $id, $entityClass);
         return $this->parser->parse($response['result'],$entityClass);
     }
 
     public function post($url, $object, $entityClass) {
-        $response = $this->client->fetch(self::APIROOT . $url . '.json',$this->serializer->serialize($object),\OAuth2\Client::HTTP_METHOD_POST,array('Content-Type' => 'application/x-www-form-urlencoded'),\OAuth2\Client::HTTP_FORM_CONTENT_TYPE_APPLICATION);
+        $response = $this->client->fetch($this->apiRoot . $url . '.json',$this->serializer->serialize($object),\OAuth2\Client::HTTP_METHOD_POST,array('Content-Type' => 'application/x-www-form-urlencoded'),\OAuth2\Client::HTTP_FORM_CONTENT_TYPE_APPLICATION);
         if(self::getError($response))
             return self::post($url, $object, $entityClass);
         return $this->parser->parse($response['result'],$entityClass);
     }
 
     public function put($url, $id, $object, $entityClass) {
-        $response = $this->client->fetch(self::APIROOT . $url .'/'.$id. '.json',$this->serializer->serialize($object),\OAuth2\Client::HTTP_METHOD_PUT,array('Content-Type' => 'application/x-www-form-urlencoded'),\OAuth2\Client::HTTP_FORM_CONTENT_TYPE_APPLICATION);
+        $response = $this->client->fetch($this->apiRoot . $url .'/'.$id. '.json',$this->serializer->serialize($object),\OAuth2\Client::HTTP_METHOD_PUT,array('Content-Type' => 'application/x-www-form-urlencoded'),\OAuth2\Client::HTTP_FORM_CONTENT_TYPE_APPLICATION);
         if(self::getError($response))
             return self::put($url, $id, $object, $entityClass);
         return $this->parser->parse($response['result'],$entityClass);
     }
 
     public function remove($url, $id) {
-        $response = $this->client->fetch(self::APIROOT . $url .'/'.$id. '.json',array(),\OAuth2\Client::HTTP_METHOD_DELETE);
+        $response = $this->client->fetch($this->apiRoot . $url .'/'.$id. '.json',array(),\OAuth2\Client::HTTP_METHOD_DELETE);
         if(self::getError($response))
             return self::remove($url, $id);
         return $response;
@@ -82,7 +97,7 @@ class Mgd {
         // Gestion de l'accessToken expired
         if($response['code'] == 401 && $response['result']['error'] == "invalid_grant" && $response['result']['error_description'] == "The access token provided has expired.")
         {
-            $response = $this->client->getAccessToken(self::OAUTHROOT.self::TOKEN_ENDPOINT, 'refresh_token',array('refresh_token'=>$this->refresh_token));
+            $response = $this->client->getAccessToken($this->oauthRoot.self::TOKEN_ENDPOINT, 'refresh_token',array('refresh_token'=>$this->refresh_token));
             $this->client->setAccessToken($response['result']['access_token']);
             $this->refresh_token = $response['result']['refresh_token'];
             return true;
