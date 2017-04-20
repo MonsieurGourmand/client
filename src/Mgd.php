@@ -50,7 +50,7 @@ class Mgd {
     public function access($code)
     {
         $this->client = new \OAuth2\Client($this->client_id,$this->client_secret);
-        $response = $this->client->getAccessToken($this->oauthRoot.self::TOKEN_ENDPOINT, 'authorization_code',array('code'=>$code));
+        $response = $this->client->getAccessToken($this->oauthRoot.self::TOKEN_ENDPOINT, 'authorization_code',array('code'=>$code,"redirect_uri" => $this->callback));
         $this->client->setAccessToken($response['result']['access_token']);
         $this->refresh_token = $response['result']['refresh_token'];
         $response = $this->client->fetch($this->apiRoot.'me');
