@@ -17,7 +17,7 @@ class User
     public function __construct(\Mgd\Mgd $master)
     {
         $this->master = $master;
-        $this->entity = \Mgd\Entity\Category::class;
+        $this->entity = \Mgd\Entity\User::class;
     }
 
     public function getAll()
