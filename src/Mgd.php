@@ -41,6 +41,8 @@ class Mgd {
         $this->sale = new \Mgd\Route\Sale($this);
         $this->stock = new \Mgd\Route\Stock($this);
         $this->zone = new \Mgd\Route\Zone($this);
+        $this->api_user = new \Mgd\Route\User($this);
+
 
         $this->parser = new Parser();
         $this->serializer = new Serializer();

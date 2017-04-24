@@ -27,6 +27,38 @@ class User
     private $username;
 
     /**
+     * @param int $id
+     */
+    public function setId($id)
+    {
+        $this->id = $id;
+    }
+
+    /**
+     * @param string $email
+     */
+    public function setEmail($email)
+    {
+        $this->email = $email;
+    }
+
+    /**
+     * @param string $username
+     */
+    public function setUsername($username)
+    {
+        $this->username = $username;
+    }
+
+    /**
+     * @param Firm $firm
+     */
+    public function setFirm($firm)
+    {
+        $this->firm = $firm;
+    }
+
+    /**
      * @var Firm
      */
     private $firm;
