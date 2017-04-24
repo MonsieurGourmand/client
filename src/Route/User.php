@@ -13,6 +13,7 @@ class User
 {
     /** @var string */
     protected $url = "users";
+    protected $base_url = "firms/";
 
     public function __construct(\Mgd\Mgd $master)
     {
