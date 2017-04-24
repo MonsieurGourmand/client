@@ -13,7 +13,6 @@ class Sale
 {
     /** @var string */
     protected $url = "/sales";
-    protected $base_url = "firms/";
 
     public function __construct(\Mgd\Mgd $master)
     {
@@ -24,26 +23,26 @@ class Sale
     public function getAll($idFirm)
     {
         $params = array();
-        return $this->master->getAll($this->base_url.$idFirm.$this->url, $this->entity,$params);
+        return $this->master->getAll($this->url, $this->entity,$params);
     }
 
     public function get($idFirm,$id)
     {
-        return $this->master->get($this->base_url.$idFirm.$this->url,$id,$this->entity);
+        return $this->master->get($this->url,$id,$this->entity);
     }
 
     public function post($idFirm,\Mgd\Entity\Order $sale)
     {
-        return $this->master->post($this->base_url.$idFirm.$this->url,$sale,$this->entity);
+        return $this->master->post($this->url,$sale,$this->entity);
     }
 
     public function put($idFirm,\Mgd\Entity\Order $sale)
     {
-        return $this->master->put($this->base_url.$idFirm.$this->url,$sale->getIdOrder(),$sale,$this->entity);
+        return $this->master->put($this->url,$sale->getIdOrder(),$sale,$this->entity);
     }
 
     public function remove($idFirm,\Mgd\Entity\Order $sale)
     {
-        return $this->master->remove($this->base_url.$idFirm.$this->url,$sale->getIdOrder());
+        return $this->master->remove($this->url,$sale->getIdOrder());
     }
 }

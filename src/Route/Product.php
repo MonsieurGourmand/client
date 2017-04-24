@@ -12,8 +12,7 @@ namespace Mgd\Route;
 class Product
 {
     /** @var string */
-    protected $url = "products";
-    protected $base_url = "firms/";
+    protected $url = "/products";
 
 
     public function __construct(\Mgd\Mgd $master)
@@ -22,29 +21,29 @@ class Product
         $this->entity = \Mgd\Entity\Product::class;
     }
 
-    public function getAll($idFirm)
+    public function getAll()
     {
         $params = array();
-        return $this->master->getAll($this->base_url.$idFirm.$this->url, $this->entity,$params);
+        return $this->master->getAll($this->url, $this->entity,$params);
     }
 
-    public function get($idFirm,$id)
+    public function get($id)
     {
-        return $this->master->get($this->base_url.$idFirm.$this->url,$id,$this->entity);
+        return $this->master->get($this->url,$id,$this->entity);
     }
 
-    public function post($idFirm,\Mgd\Entity\Product $product)
+    public function post(\Mgd\Entity\Product $product)
     {
-        return $this->master->post($this->base_url.$idFirm.$this->url,$product,$this->entity);
+        return $this->master->post($this->url,$product,$this->entity);
     }
 
-    public function put($idFirm,\Mgd\Entity\Product $product)
+    public function put(\Mgd\Entity\Product $product)
     {
-        return $this->master->put($this->base_url.$idFirm.$this->url,$product->getIdProduct(),$product,$this->entity);
+        return $this->master->put($this->url,$product->getIdProduct(),$product,$this->entity);
     }
 
-    public function remove($idFirm,\Mgd\Entity\Product $product)
+    public function remove(\Mgd\Entity\Product $product)
     {
-        return $this->master->remove($this->base_url.$idFirm.$this->url,$product->getIdProduct());
+        return $this->master->remove($this->url,$product->getIdProduct());
     }
 }

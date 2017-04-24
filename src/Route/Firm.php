@@ -11,8 +11,6 @@ namespace Mgd\Route;
 
 class Firm
 {
-    /** @var string */
-    protected $url = "firms";
 
     public function __construct(\Mgd\Mgd $master)
     {
@@ -23,26 +21,26 @@ class Firm
     public function getAll()
     {
         $params = array();
-        return $this->master->getAll($this->url, $this->entity,$params);
+        return $this->master->getAll('', $this->entity,$params);
     }
 
     public function get($id)
     {
-        return $this->master->get($this->url,$id,$this->entity);
+        return $this->master->get('',$id,$this->entity);
     }
 
     public function post(\Mgd\Entity\Firm $firm)
     {
-        return $this->master->post($this->url,$firm,$this->entity);
+        return $this->master->post('',$firm,$this->entity);
     }
 
     public function put(\Mgd\Entity\Firm $firm)
     {
-        return $this->master->put($this->url,$firm->getIdFirm(),$firm,$this->entity);
+        return $this->master->put('',$firm->getIdFirm(),$firm,$this->entity);
     }
 
     public function remove(\Mgd\Entity\Firm $firm)
     {
-        return $this->master->remove($this->url,$firm->getIdFirm());
+        return $this->master->remove('',$firm->getIdFirm());
     }
 }

@@ -12,8 +12,7 @@ namespace Mgd\Route;
 class User
 {
     /** @var string */
-    protected $url = "users";
-    protected $base_url = "firms/";
+    protected $url = "/users";
 
     public function __construct(\Mgd\Mgd $master)
     {

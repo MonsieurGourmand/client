@@ -12,7 +12,7 @@ namespace Mgd\Route;
 class Zone
 {
     /** @var string */
-    protected $url = "zones";
+    protected $url = "/zones";
 
     public function __construct(\Mgd\Mgd $master)
     {
