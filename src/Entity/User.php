@@ -32,6 +32,27 @@ class User
     private $firm;
 
     /**
+     * @var array
+     */
+    private $roles;
+
+    /**
+     * @return array
+     */
+    public function getRoles()
+    {
+        return $this->roles;
+    }
+
+    /**
+     * @param array $roles
+     */
+    public function setRoles($roles)
+    {
+        $this->roles = $roles;
+    }
+
+    /**
      * @return int
      */
     public function getId()

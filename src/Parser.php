@@ -34,14 +34,26 @@ class Parser
                         if (preg_match('/@var\s+([\w^\s]+)/', $propDest->getDocComment(), $matches)) {
                             list(, $type) = $matches;
                         }
-                        foreach ($value as &$item)
-                            $item = self::object($item, "\\Mgd\\Entity\\" . $type);
+                        if(strstr($type,'array'))
+                        {
+                            $propDest->setValue($destination,$value);
+                        }
+                        else
+                        {
+                            foreach ($value as &$item)
+                                $item = self::object($item, "\\Mgd\\Entity\\" . $type);
+                        }
                     }
                     else{
                         if (preg_match('/@var\s+(\w+)/', $propDest->getDocComment(), $matches)) {
                             list(, $type) = $matches;
                         }
-                        $value = self::object($value, "\\Mgd\\Entity\\" . $type);
+                        if(strstr($type,'array'))
+                        {
+                            $propDest->setValue($destination,$value);
+                        }
+                        else
+                            $value = self::object($value, "\\Mgd\\Entity\\" . $type);
                     }
                 }
                 $propDest->setValue($destination, $value);
