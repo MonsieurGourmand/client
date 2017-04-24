@@ -53,6 +53,11 @@ class Mgd {
         $response = $this->client->getAccessToken($this->oauthRoot.self::TOKEN_ENDPOINT, 'authorization_code',array('code'=>$code,"redirect_uri" => $this->callback));
         $this->client->setAccessToken($response['result']['access_token']);
         $this->refresh_token = $response['result']['refresh_token'];
+        $this->me();
+    }
+
+    public function me()
+    {
         $response = $this->client->fetch($this->apiRoot.'me');
         $this->user = $this->parser->parse($response['result'],\Mgd\Entity\User::class);
     }
