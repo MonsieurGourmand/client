@@ -9,10 +9,10 @@
 namespace Mgd\Route;
 
 
-class User
+class Teammate
 {
     /** @var string */
-    protected $url = "/users";
+    protected $url = "/teammates";
 
     public function __construct(\Mgd\Mgd $master)
     {
@@ -31,18 +31,18 @@ class User
         return $this->master->get($this->url,$id,$this->entity);
     }
 
-    public function post(\Mgd\Entity\User $user)
+    public function post(\Mgd\Entity\User $teammate)
     {
-        return $this->master->post($this->url,$user,$this->entity);
+        return $this->master->post($this->url,$teammate,$this->entity);
     }
 
-    public function put(\Mgd\Entity\User $user)
+    public function put(\Mgd\Entity\User $teammate)
     {
-        return $this->master->put($this->url,$user->getId(),$user,$this->entity);
+        return $this->master->put($this->url,$teammate->getId(),$teammate,$this->entity);
     }
 
-    public function remove(\Mgd\Entity\User $user)
+    public function remove(\Mgd\Entity\User $teammate)
     {
-        return $this->master->remove($this->url,$user->getId());
+        return $this->master->remove($this->url,$teammate->getId());
     }
 }

@@ -34,14 +34,12 @@ class Mgd {
         // Entités métiers
         $this->category = new \Mgd\Route\Category($this);
         $this->firm = new \Mgd\Route\Firm($this);
-        $this->orderPurchaseProduct = new \Mgd\Route\OrderPurchaseProduct($this);
-        $this->orderSaleProduct = new \Mgd\Route\OrderSaleProduct($this);
-        $this->purchase = new \Mgd\Route\Purchase($this);
+        $this->operation = new \Mgd\Route\Operation($this);
         $this->product = new \Mgd\Route\Product($this);
+        $this->purchase = new \Mgd\Route\Purchase($this);
         $this->sale = new \Mgd\Route\Sale($this);
-        $this->stock = new \Mgd\Route\Stock($this);
+        $this->teammate = new \Mgd\Route\Teammate($this);
         $this->zone = new \Mgd\Route\Zone($this);
-        $this->api_user = new \Mgd\Route\User($this);
 
 
         $this->parser = new Parser();
