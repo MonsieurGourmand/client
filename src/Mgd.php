@@ -39,7 +39,7 @@ class Mgd {
         $this->purchase = new \Mgd\Route\Purchase($this);
         $this->sale = new \Mgd\Route\Sale($this);
         $this->supplier = new \Mgd\Route\Supplier($this);
-        $this->teammate = new \Mgd\Route\Teammate($this);
+        $this->user = new \Mgd\Route\User($this);
         $this->zone = new \Mgd\Route\Zone($this);
 
 
