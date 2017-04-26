@@ -9,22 +9,25 @@ namespace Mgd;
  */
 class Parser
 {
-    public function parse($response,$destination)
+    public function parse($response,$destination,$master)
     {
         if(isset($response[0]))
         {
             foreach($response as &$item)
-                $item = self::object($item,$destination);
+                $item = self::object($item,$destination,$master);
         }
         else
-            $response = self::object($response,$destination);
+            $response = self::object($response,$destination,$master);
         return $response;
     }
 
-    public function object($arraySource, $destination) {
+    public function object($arraySource, $destination,$master) {
         if(!isset($arraySource)) return;
         $destination = new $destination();
         $destinationReflection = new \ReflectionObject($destination);
+        $propDest = $destinationReflection->getProperty("master");
+        $propDest->setAccessible(true);
+        $propDest->setValue($destination, $master);
         foreach ($arraySource as $key => $value) {
             if ($destinationReflection->hasProperty($key)) {
                 $propDest = $destinationReflection->getProperty($key);
@@ -41,7 +44,7 @@ class Parser
                         else
                         {
                             foreach ($value as &$item)
-                                $item = self::object($item, "\\Mgd\\Entity\\" . $type);
+                                $item = self::object($item, "\\Mgd\\Entity\\" . $type,$master);
                         }
                     }
                     else{
@@ -53,7 +56,7 @@ class Parser
                             $propDest->setValue($destination,$value);
                         }
                         else
-                            $value = self::object($value, "\\Mgd\\Entity\\" . $type);
+                            $value = self::object($value, "\\Mgd\\Entity\\" . $type,$master);
                     }
                 }
                 $propDest->setValue($destination, $value);

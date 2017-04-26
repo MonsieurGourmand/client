@@ -52,29 +52,6 @@ class Sale
     {
         return $this->master->remove($this->url,$sale->getIdOrder());
     }
-    public function getOrderProducts($idOrder)
-    {
-        return $this->master->getAll($this->url.'/'.$this->get($idOrder)->getIdOrder().$this->url_products,$this->orderProduct);
-    }
 
-    public function getOrderProduct($idOrder,$idProduct)
-    {
-        return $this->master->get($this->url.'/'.$this->get($idOrder)->getIdOrder().$this->url_products,$idProduct,$this->orderProduct);
-    }
-
-    public function addOrderProduct($idOrder,OrderProduct $orderProduct)
-    {
-        return $this->master->post($this->url.'/'.$this->get($idOrder)->getIdOrder().$this->url_products,$orderProduct,$this->orderProduct);
-    }
-
-    public function putOrderProduct($idOrder,OrderProduct $orderProduct)
-    {
-        return $this->master->put($this->url.'/'.$this->get($idOrder)->getIdOrder().$this->url_products,$orderProduct->getIdOrderProduct(),$orderProduct,$this->orderProduct);
-    }
-
-    public function deleteOrderProduct($idOrder,OrderProduct $orderProduct)
-    {
-        return $this->master->remove($this->url.'/'.$this->get($idOrder)->getIdOrder().$this->url_products,$orderProduct->getIdOrderProduct());
-    }
 
 }
