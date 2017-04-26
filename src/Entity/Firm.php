@@ -30,12 +30,17 @@ class Firm extends Master
     private $users;
 
     /**
+     * @var Product[]
+     */
+    private $products;
+
+    /**
      * @return User[]
      */
     public function getUsers()
     {
         if($this->users == null)
-            self::setUsers($this->master->getAll('/customers/'.$this->idFirm.'/users',User::class));
+            self::setUsers($this->master->getAll('/firms/'.$this->idFirm.'/users',User::class));
         return $this->users;
     }
 
@@ -46,6 +51,25 @@ class Firm extends Master
     {
         $this->users = $users;
     }
+
+    /**
+     * @return Product[]
+     */
+    public function getProducts()
+    {
+        if($this->products == null)
+            self::setProducts($this->master->getAll('/firms/'.$this->idFirm.'/products',User::class));
+        return $this->products;
+    }
+
+    /**
+     * @param Product[] $products
+     */
+    public function setProducts($products)
+    {
+        $this->products = $products;
+    }
+
 
     /**
      * @return string
