@@ -25,6 +25,29 @@ class Firm extends Master
     private $idFirm;
 
     /**
+     * @var User[]
+     */
+    private $users;
+
+    /**
+     * @return User[]
+     */
+    public function getUsers()
+    {
+        if($this->users == null)
+            self::setUsers($this->master->getAll('/customers/'.$this->idFirm.'/users',User::class));
+        return $this->users;
+    }
+
+    /**
+     * @param User[] $users
+     */
+    public function setUsers($users)
+    {
+        $this->users = $users;
+    }
+
+    /**
      * @return string
      */
     public function getReference()

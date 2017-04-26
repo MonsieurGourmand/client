@@ -10,11 +10,6 @@ class Zone extends Master
     private $parent;
 
     /**
-     * @var integer
-     */
-    private $idparent;
-
-    /**
      * @var string
      */
     private $name;
@@ -30,14 +25,6 @@ class Zone extends Master
     public function getParent()
     {
         return $this->parent;
-    }
-
-    /**
-     * @return int
-     */
-    public function getIdparent()
-    {
-        return $this->idparent;
     }
 
     /**
@@ -62,14 +49,6 @@ class Zone extends Master
     public function setParent($parent)
     {
         $this->parent = $parent;
-    }
-
-    /**
-     * @param int $idparent
-     */
-    public function setIdparent($idparent)
-    {
-        $this->idparent = $idparent;
     }
 
     /**

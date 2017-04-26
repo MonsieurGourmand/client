@@ -23,10 +23,8 @@ class Order extends Master
 
     /**
      * @var Firm
-     *
      */
     private $seller;
-
 
     /**
      * @var User
