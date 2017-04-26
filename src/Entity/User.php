@@ -27,6 +27,27 @@ class User
     private $username;
 
     /**
+     * @var bool
+     */
+    private $enabled;
+
+    /**
+     * @return mixed
+     */
+    public function getEnabled()
+    {
+        return $this->enabled;
+    }
+
+    /**
+     * @param mixed $enabled
+     */
+    public function setEnabled($enabled)
+    {
+        $this->enabled = $enabled;
+    }
+
+    /**
      * @param int $id
      */
     public function setId($id)
