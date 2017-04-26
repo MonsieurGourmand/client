@@ -2,7 +2,7 @@
 
 namespace Mgd\Entity;
 
-class Zone
+class Zone extends Master
 {
     /**
      * @var Zone

@@ -8,20 +8,13 @@
 
 namespace Mgd\Entity;
 
-
-use Mgd\Mgd;
-
-class User
+class User extends Master
 {
     /**
      * @var integer
      */
     private $id;
 
-    /**
-     * @var Mgd
-     */
-    protected $master;
     /**
      * @var string
      */
@@ -36,22 +29,6 @@ class User
      * @var bool
      */
     private $enabled;
-
-    /**
-     * @return Mgd
-     */
-    public function getMaster()
-    {
-        return $this->master;
-    }
-
-    /**
-     * @param Mgd $master
-     */
-    public function setMaster($master)
-    {
-        $this->master = $master;
-    }
 
     /**
      * @return mixed

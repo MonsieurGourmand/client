@@ -9,22 +9,15 @@
 namespace Mgd\Route;
 
 
-
-use Mgd\Entity\Order;
-use Mgd\Entity\OrderProduct;
-
 class Sale
 {
     /** @var string */
     protected $url = "/sales";
-    private $url_products = "/products";
-
 
     public function __construct(\Mgd\Mgd $master)
     {
         $this->master = $master;
         $this->entity = \Mgd\Entity\Order::class;
-        $this->orderProduct = OrderProduct::class;
     }
 
     public function getAll()

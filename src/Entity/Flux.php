@@ -2,7 +2,7 @@
 
 namespace Mgd\Entity;
 
-class Flux
+class Flux extends Master
 {
      /**
       * @var Stock

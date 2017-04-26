@@ -33,11 +33,12 @@ class Mgd {
 
         // Entités métiers
         $this->category = new \Mgd\Route\Category($this);
-        $this->firm = new \Mgd\Route\Firm($this);
+        $this->customer = new \Mgd\Route\Customer($this);
         $this->operation = new \Mgd\Route\Operation($this);
         $this->product = new \Mgd\Route\Product($this);
         $this->purchase = new \Mgd\Route\Purchase($this);
         $this->sale = new \Mgd\Route\Sale($this);
+        $this->supplier = new \Mgd\Route\Supplier($this);
         $this->teammate = new \Mgd\Route\Teammate($this);
         $this->zone = new \Mgd\Route\Zone($this);
 

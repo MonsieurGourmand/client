@@ -2,7 +2,7 @@
 
 namespace Mgd\Entity;
 
-class Order
+class Order extends Master
 {
 
     /**

@@ -2,7 +2,7 @@
 
 namespace Mgd\Entity;
 
-class Stock
+class Stock extends Master
 {
      /**
       * @var Product

@@ -2,7 +2,7 @@
 
 namespace Mgd\Entity;
 
-class OrderProduct
+class OrderProduct extends Master
 {
     /**
      * @var Order
@@ -13,7 +13,6 @@ class OrderProduct
      * @var Product
      */
     private $product;
-
 
     /**
      * @var integer

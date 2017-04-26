@@ -2,7 +2,7 @@
 
 namespace Mgd\Entity;
 
-class Document
+class Document extends Master
 {
     /**
      * @var integer
@@ -28,14 +28,6 @@ class Document
     public function getUrl()
     {
         return $this->url;
-    }
-
-    /**
-     * @param int $iddocument
-     */
-    public function setIddocument($iddocument)
-    {
-        $this->iddocument = $iddocument;
     }
 
     /**

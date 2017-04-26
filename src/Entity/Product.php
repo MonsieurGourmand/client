@@ -2,11 +2,8 @@
 
 namespace Mgd\Entity;
 
-
-
-class Product
+class Product extends Master
 {
-
     /**
      * @var integer
      */
@@ -39,8 +36,6 @@ class Product
      * @var Category
      */
     private $category;
-
-
 
     /**
      * @var string
@@ -134,13 +129,9 @@ class Product
      */
     private $vat;
 
-
-
     private $weight;
 
-
     private $negotiate;
-
 
     private $cost;
 

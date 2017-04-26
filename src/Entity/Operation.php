@@ -2,7 +2,7 @@
 
 namespace Mgd\Entity;
 
-class Operation
+class Operation extends Master
 {
 
     const SALE_TYPE = "sale";

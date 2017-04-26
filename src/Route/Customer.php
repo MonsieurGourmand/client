@@ -9,15 +9,15 @@
 namespace Mgd\Route;
 
 
-class Purchase
+class Customer
 {
     /** @var string */
-    protected $url = "/purchases";
+    protected $url = "/customers";
 
     public function __construct(\Mgd\Mgd $master)
     {
         $this->master = $master;
-        $this->entity = \Mgd\Entity\Order::class;
+        $this->entity = \Mgd\Entity\Firm::class;
     }
 
     public function getAll()
@@ -31,18 +31,20 @@ class Purchase
         return $this->master->get($this->url,$id,$this->entity);
     }
 
-    public function post(\Mgd\Entity\Order $purchase)
+    public function post(\Mgd\Entity\Firm $firm)
     {
-        return $this->master->post($this->url,$purchase,$this->entity);
+        return $this->master->post($this->url,$firm,$this->entity);
     }
 
-    public function put(\Mgd\Entity\Order $purchase)
+    public function put(\Mgd\Entity\Firm $firm)
     {
-        return $this->master->put($this->url,$purchase->getIdOrder(),$purchase,$this->entity);
+        return $this->master->put($this->url,$firm->getIdFirm(),$firm,$this->entity);
     }
 
-    public function remove(\Mgd\Entity\Order $purchase)
+    public function remove(\Mgd\Entity\Firm $firm)
     {
-        return $this->master->remove($this->url,$purchase->getIdOrder());
+        return $this->master->remove($this->url,$firm->getIdFirm());
     }
+
+
 }
