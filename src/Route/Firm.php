@@ -94,4 +94,9 @@ class Firm
     {
         return $this->master->post($this->contacts_url,$user,$this->contact);
     }
+
+    public function putContact(User $user)
+    {
+        return $this->master->put($this->contacts_url,$user->getId(),$user,$this->contact);
+    }
 }
