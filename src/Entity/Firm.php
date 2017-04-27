@@ -2,6 +2,8 @@
 
 namespace Mgd\Entity;
 
+use Mgd\Route\Supplier\User;
+
 class Firm extends Master
 {
     /**
@@ -25,31 +27,18 @@ class Firm extends Master
     private $idFirm;
 
     /**
-     * @var User[]
+     * @var User
      */
-    private $users;
+    protected $users;
 
     /**
      * @var Product[]
      */
     private $products;
 
-    /**
-     * @return User[]
-     */
-    public function getUsers()
+    public function __construct()
     {
-        if($this->users == null)
-            self::setUsers($this->master->getAll('/firms/'.$this->idFirm.'/users',User::class));
-        return $this->users;
-    }
-
-    /**
-     * @param User[] $users
-     */
-    public function setUsers($users)
-    {
-        $this->users = $users;
+        $this->users = new User($this);
     }
 
     /**

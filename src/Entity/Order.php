@@ -13,7 +13,7 @@ class Order extends Master
     /**
      * @var Order
      */
-    private $idParent;
+    private $parent;
 
     /**
      * @var Firm
@@ -101,17 +101,17 @@ class Order extends Master
     /**
      * @return Order
      */
-    public function getIdParent()
+    public function getParent()
     {
-        return $this->idParent;
+        return $this->parent;
     }
 
     /**
-     * @param Order $idParent
+     * @param Order $parent
      */
-    public function setIdParent($idParent)
+    public function setParent($parent)
     {
-        $this->idParent = $idParent;
+        $this->parent = $parent;
     }
 
     /**
