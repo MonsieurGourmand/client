@@ -16,7 +16,7 @@ class Mgd {
     /**
      * @var \Mgd\Entity\User $user
      */
-    public $user;
+    public $me;
     private $refresh_token;
     private $parser;
     private $serializer;
@@ -64,7 +64,7 @@ class Mgd {
     public function me()
     {
         $response = $this->client->fetch($this->apiRoot.'me');
-        $this->user = $this->parser->parse($response['result'],\Mgd\Entity\User::class,$this);
+        $this->me = $this->parser->parse($response['result'],\Mgd\Entity\User::class,$this);
     }
 
     public function getAll($url, $entityClass ,$params=array()) {
