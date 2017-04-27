@@ -11,72 +11,49 @@ namespace Mgd\Entity;
 class User extends Master
 {
     /**
-     * @var integer
+     * @var integer $id
      */
     private $id;
 
     /**
-     * @var string
+     * @var string $email
      */
     private $email;
 
     /**
-     * @var string
-     */
-    private $username;
-
-    /**
-     * @var bool
+     * @var bool $enabled
      */
     private $enabled;
 
     /**
-     * @return mixed
+     * @var string $firstname
      */
-    public function getEnabled()
-    {
-        return $this->enabled;
-    }
+    private $firstname;
 
     /**
-     * @param mixed $enabled
+     * @var string $lastname
      */
-    public function setEnabled($enabled)
-    {
-        $this->enabled = $enabled;
-    }
+    private $lastname;
 
     /**
-     * @param int $id
+     * @var string $phone
      */
-    public function setId($id)
-    {
-        $this->id = $id;
-    }
+    private $phone;
 
     /**
-     * @param string $email
+     * @var string $mobile
      */
-    public function setEmail($email)
-    {
-        $this->email = $email;
-    }
+    private $mobile;
 
     /**
-     * @param string $username
+     * @var string $address
      */
-    public function setUsername($username)
-    {
-        $this->username = $username;
-    }
+    private $address;
 
     /**
-     * @param Firm $firm
+     * @var bool $notification
      */
-    public function setFirm($firm)
-    {
-        $this->firm = $firm;
-    }
+    private $notification;
 
     /**
      * @var Firm
@@ -87,22 +64,6 @@ class User extends Master
      * @var array
      */
     private $roles;
-
-    /**
-     * @return array
-     */
-    public function getRoles()
-    {
-        return $this->roles;
-    }
-
-    /**
-     * @param array $roles
-     */
-    public function setRoles($roles)
-    {
-        $this->roles = $roles;
-    }
 
     /**
      * @return int
@@ -121,11 +82,59 @@ class User extends Master
     }
 
     /**
+     * @return bool
+     */
+    public function isEnabled()
+    {
+        return $this->enabled;
+    }
+
+    /**
      * @return string
      */
-    public function getUsername()
+    public function getFirstname()
     {
-        return $this->username;
+        return $this->firstname;
+    }
+
+    /**
+     * @return string
+     */
+    public function getLastname()
+    {
+        return $this->lastname;
+    }
+
+    /**
+     * @return string
+     */
+    public function getPhone()
+    {
+        return $this->phone;
+    }
+
+    /**
+     * @return string
+     */
+    public function getMobile()
+    {
+        return $this->mobile;
+    }
+
+    /**
+     * @return string
+     */
+    public function getAddress()
+    {
+        return $this->address;
+    }
+
+    /**
+     * @return bool
+     */
+    public function isNotification()
+    {
+        return $this->notification;
     }
 
     /**
@@ -134,5 +143,93 @@ class User extends Master
     public function getFirm()
     {
         return $this->firm;
+    }
+
+    /**
+     * @return array
+     */
+    public function getRoles()
+    {
+        return $this->roles;
+    }
+
+    /**
+     * @param string $email
+     */
+    public function setEmail($email)
+    {
+        $this->email = $email;
+    }
+
+    /**
+     * @param bool $enabled
+     */
+    public function setEnabled($enabled)
+    {
+        $this->enabled = $enabled;
+    }
+
+    /**
+     * @param string $firstname
+     */
+    public function setFirstname($firstname)
+    {
+        $this->firstname = $firstname;
+    }
+
+    /**
+     * @param string $lastname
+     */
+    public function setLastname($lastname)
+    {
+        $this->lastname = $lastname;
+    }
+
+    /**
+     * @param string $phone
+     */
+    public function setPhone($phone)
+    {
+        $this->phone = $phone;
+    }
+
+    /**
+     * @param string $mobile
+     */
+    public function setMobile($mobile)
+    {
+        $this->mobile = $mobile;
+    }
+
+    /**
+     * @param string $address
+     */
+    public function setAddress($address)
+    {
+        $this->address = $address;
+    }
+
+    /**
+     * @param bool $notification
+     */
+    public function setNotification($notification)
+    {
+        $this->notification = $notification;
+    }
+
+    /**
+     * @param Firm $firm
+     */
+    public function setFirm($firm)
+    {
+        $this->firm = $firm;
+    }
+
+    /**
+     * @param array $roles
+     */
+    public function setRoles($roles)
+    {
+        $this->roles = $roles;
     }
 }
