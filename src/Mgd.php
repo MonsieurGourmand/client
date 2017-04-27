@@ -4,7 +4,7 @@ namespace Mgd;
 
 class Mgd {
     const TOKEN_ENDPOINT = '/oauth/v2/token';
-    const MOTHER_ROAD = 'firms/';
+    const MOTHER_ROAD = 'groups/';
 
     private $oauthRoot;
     private $apiRoot;
