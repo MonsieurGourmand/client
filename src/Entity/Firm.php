@@ -7,6 +7,12 @@ use Mgd\Route\Supplier\User;
 class Firm extends Master
 {
     /**
+     * @var User
+     */
+    public $users;
+
+
+    /**
      * @var string
      */
     private $name;
@@ -25,11 +31,6 @@ class Firm extends Master
      * @var integer
      */
     private $idFirm;
-
-    /**
-     * @var User
-     */
-    protected $users;
 
     /**
      * @var Product[]
