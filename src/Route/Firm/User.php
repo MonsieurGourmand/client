@@ -6,18 +6,17 @@
  * Time: 6:10 PM
  */
 
-namespace Mgd\Route\Supplier;
+namespace Mgd\Route\Firm;
 
 use Mgd\Entity\Firm;
-use Mgd\Mgd;
 
 class User
 {
-    public function __construct(Firm $supplier)
+    public function __construct(Firm $firm)
     {
-        $this->master = $supplier->getMaster();
+        $this->master = $firm->getMaster();
         $this->entity = \Mgd\Entity\User::class;
-        $this->url = "/suppliers/".$supplier->getIdFirm()."/users";
+        $this->url = "firms/".$firm->getIdFirm()."/users";
     }
 
     public function getAll()

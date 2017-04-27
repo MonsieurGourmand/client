@@ -25,9 +25,12 @@ class Parser
         if(!isset($arraySource)) return;
         $destination = new $destination();
         $destinationReflection = new \ReflectionObject($destination);
+
+        // Intégration du master
         $propDest = $destinationReflection->getProperty("master");
         $propDest->setAccessible(true);
         $propDest->setValue($destination, $master);
+
         foreach ($arraySource as $key => $value) {
             if ($destinationReflection->hasProperty($key)) {
                 $propDest = $destinationReflection->getProperty($key);
@@ -64,6 +67,18 @@ class Parser
                 $destination->$key = $value;
             }
         }
+
+        // Création des routes secondaires
+        foreach ($destinationReflection->getProperties() as $property)
+        {
+            preg_match('/\\\\Mgd\\\\Route\\\\(.*)/', $property->getDocComment(), $matches);
+            if(count($matches) > 0)
+            {
+                $propDest->setAccessible(true);
+                $propDest->setValue($destination,new $matches[0]($destination));
+            }
+        }
+
         return $destination;
     }
 }

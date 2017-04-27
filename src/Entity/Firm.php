@@ -2,14 +2,18 @@
 
 namespace Mgd\Entity;
 
-use Mgd\Route\Supplier\User;
 
 class Firm extends Master
 {
     /**
-     * @var User
+     * @var \Mgd\Route\Supplier\User
      */
     public $users;
+
+    /**
+     * @var \Mgd\Route\Supplier\Product
+     */
+    public $products;
 
 
     /**
@@ -31,34 +35,6 @@ class Firm extends Master
      * @var integer
      */
     private $idFirm;
-
-    /**
-     * @var Product[]
-     */
-    private $products;
-
-    public function __construct()
-    {
-        $this->users = new User($this);
-    }
-
-    /**
-     * @return Product[]
-     */
-    public function getProducts()
-    {
-        if($this->products == null)
-            self::setProducts($this->master->getAll('/firms/'.$this->idFirm.'/products',User::class));
-        return $this->products;
-    }
-
-    /**
-     * @param Product[] $products
-     */
-    public function setProducts($products)
-    {
-        $this->products = $products;
-    }
 
 
     /**
