@@ -26,14 +26,14 @@ class User extends Master
     private $enabled;
 
     /**
-     * @var string $firstname
+     * @var string $firstName
      */
-    private $firstname;
+    private $firstName;
 
     /**
-     * @var string $lastname
+     * @var string $lastName
      */
-    private $lastname;
+    private $lastName;
 
     /**
      * @var string $phone
@@ -92,17 +92,17 @@ class User extends Master
     /**
      * @return string
      */
-    public function getFirstname()
+    public function getFirstName()
     {
-        return $this->firstname;
+        return $this->firstName;
     }
 
     /**
      * @return string
      */
-    public function getLastname()
+    public function getLastName()
     {
-        return $this->lastname;
+        return $this->lastName;
     }
 
     /**
@@ -170,19 +170,19 @@ class User extends Master
     }
 
     /**
-     * @param string $firstname
+     * @param string $firstName
      */
-    public function setFirstname($firstname)
+    public function setFirstName($firstName)
     {
-        $this->firstname = $firstname;
+        $this->firstName = $firstName;
     }
 
     /**
-     * @param string $lastname
+     * @param string $lastName
      */
-    public function setLastname($lastname)
+    public function setLastName($lastName)
     {
-        $this->lastname = $lastname;
+        $this->lastName = $lastName;
     }
 
     /**
