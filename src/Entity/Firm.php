@@ -6,12 +6,12 @@ namespace Mgd\Entity;
 class Firm extends Master
 {
     /**
-     * @var \Mgd\Route\Supplier\User
+     * @var \Mgd\Route\Firm\User
      */
     public $users;
 
     /**
-     * @var \Mgd\Route\Supplier\Product
+     * @var \Mgd\Route\Firm\Product
      */
     public $products;
 
