@@ -29,12 +29,12 @@ class Order extends Master
     /**
      * @var User
      */
-    private $leadUser;
+    private $lead_user;
 
     /**
      * @var User
      */
-    private $salesUser;
+    private $sales_user;
 
     /**
      * @var string
@@ -44,22 +44,22 @@ class Order extends Master
     /**
      * @var string
      */
-    private $invoiceNumber;
+    private $invoice_number;
 
     /**
      * @var \DateTime
      */
-    private $orderDate;
+    private $order_date;
 
     /**
      * @var string
      */
-    private $deliveryReference;
+    private $delivery_reference;
 
     /**
      * @var \DateTime
      */
-    private $deliveryDate;
+    private $delivery_date;
 
     /**
      * @var \DateTime
@@ -80,7 +80,7 @@ class Order extends Master
     /**
      * @var integer
      */
-    private $idOrder;
+    private $id_order;
 
     /**
      * @return Document
@@ -151,15 +151,15 @@ class Order extends Master
      */
     public function getLeadUser()
     {
-        return $this->leadUser;
+        return $this->lead_user;
     }
 
     /**
-     * @param User $leadUser
+     * @param User $lead_user
      */
-    public function setLeadUser($leadUser)
+    public function setLeadUser($lead_user)
     {
-        $this->leadUser = $leadUser;
+        $this->lead_user = $lead_user;
     }
 
     /**
@@ -167,15 +167,15 @@ class Order extends Master
      */
     public function getSalesUser()
     {
-        return $this->salesUser;
+        return $this->sales_user;
     }
 
     /**
-     * @param User $salesUser
+     * @param User $sales_user
      */
-    public function setSalesUser($salesUser)
+    public function setSalesUser($sales_user)
     {
-        $this->salesUser = $salesUser;
+        $this->sales_user = $sales_user;
     }
 
     /**
@@ -199,15 +199,15 @@ class Order extends Master
      */
     public function getInvoiceNumber()
     {
-        return $this->invoiceNumber;
+        return $this->invoice_number;
     }
 
     /**
-     * @param string $invoiceNumber
+     * @param string $invoice_number
      */
-    public function setInvoiceNumber($invoiceNumber)
+    public function setInvoiceNumber($invoice_number)
     {
-        $this->invoiceNumber = $invoiceNumber;
+        $this->invoice_number = $invoice_number;
     }
 
     /**
@@ -215,15 +215,15 @@ class Order extends Master
      */
     public function getOrderDate()
     {
-        return $this->orderDate;
+        return $this->order_date;
     }
 
     /**
-     * @param \DateTime $orderDate
+     * @param \DateTime $order_date
      */
-    public function setOrderDate($orderDate)
+    public function setOrderDate($order_date)
     {
-        $this->orderDate = $orderDate;
+        $this->order_date = $order_date;
     }
 
     /**
@@ -231,15 +231,15 @@ class Order extends Master
      */
     public function getDeliveryReference()
     {
-        return $this->deliveryReference;
+        return $this->delivery_reference;
     }
 
     /**
-     * @param string $deliveryReference
+     * @param string $delivery_reference
      */
-    public function setDeliveryReference($deliveryReference)
+    public function setDeliveryReference($delivery_reference)
     {
-        $this->deliveryReference = $deliveryReference;
+        $this->delivery_reference = $delivery_reference;
     }
 
     /**
@@ -247,15 +247,15 @@ class Order extends Master
      */
     public function getDeliveryDate()
     {
-        return $this->deliveryDate;
+        return $this->delivery_date;
     }
 
     /**
-     * @param \DateTime $deliveryDate
+     * @param \DateTime $delivery_date
      */
-    public function setDeliveryDate($deliveryDate)
+    public function setDeliveryDate($delivery_date)
     {
-        $this->deliveryDate = $deliveryDate;
+        $this->delivery_date = $delivery_date;
     }
 
     /**
@@ -311,7 +311,7 @@ class Order extends Master
      */
     public function getIdOrder()
     {
-        return $this->idOrder;
+        return $this->id_order;
     }
 
     /**
