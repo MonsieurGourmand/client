@@ -34,7 +34,7 @@ class Firm extends Master
     /**
      * @var integer
      */
-    private $id_firm;
+    private $idFirm;
 
 
     /**
@@ -74,7 +74,7 @@ class Firm extends Master
      */
     public function getIdFirm()
     {
-        return $this->id_firm;
+        return $this->idFirm;
     }
 
     /**
