@@ -16,7 +16,7 @@ class Product
     {
         $this->master = $firm->getMaster();
         $this->entity = \Mgd\Entity\Product::class;
-        $this->url = "/groups/".$firm->getIdFirm()."/products";
+        $this->url = "/firms/".$firm->getIdFirm()."/products";
     }
 
     public function getAll()
