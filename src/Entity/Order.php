@@ -6,6 +6,11 @@ class Order extends Master
 {
 
     /**
+     * @var \Mgd\Route\Order\OrderProduct
+     */
+    public $orderProducts;
+
+    /**
      * @var Document
      */
     private $document;
@@ -29,7 +34,7 @@ class Order extends Master
     /**
      * @var User
      */
-    private $lead_user;
+    private $leadUser;
 
     /**
      * @var User
