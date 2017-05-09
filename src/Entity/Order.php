@@ -6,6 +6,11 @@ class Order extends Master
 {
 
     /**
+     * @var \Mgd\Route\Order\OrderProduct
+     */
+    public $orderProducts;
+
+    /**
      * @var Document
      */
     private $document;
@@ -312,13 +317,5 @@ class Order extends Master
     public function getIdOrder()
     {
         return $this->idOrder;
-    }
-
-    /**
-     * @param int $idOrder
-     */
-    public function setIdOrder($idOrder)
-    {
-        $this->idOrder = $idOrder;
     }
 }

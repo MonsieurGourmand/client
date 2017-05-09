@@ -74,8 +74,9 @@ class Parser
             preg_match('/\\\\Mgd\\\\Route\\\\(.*)/', $property->getDocComment(), $matches);
             if(count($matches) > 0)
             {
+                $class = trim($matches[0]);
                 $property->setAccessible(true);
-                $property->setValue($destination,new $matches[0]($destination));
+                $property->setValue($destination,new $class($destination));
             }
         }
 
