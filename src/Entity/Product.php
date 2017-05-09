@@ -13,7 +13,7 @@ class Product extends Master
     /**
      * @var Product
      */
-    private $saleProduct;
+    private $purchaseProduct;
 
 
     /**
@@ -154,19 +154,18 @@ class Product extends Master
     /**
      * @return Product
      */
-    public function getSaleProduct()
+    public function getPurchaseProduct()
     {
-        return $this->saleProduct;
+        return $this->purchaseProduct;
     }
 
     /**
-     * @param Product $saleProduct
+     * @param Product $purchaseProduct
      */
-    public function setSaleProduct($saleProduct)
+    public function setPurchaseProduct($purchaseProduct)
     {
-        $this->saleProduct = $saleProduct;
+        $this->purchaseProduct = $purchaseProduct;
     }
-
     /**
      * @return bool
      */
