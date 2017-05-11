@@ -94,9 +94,18 @@ class Parser
         return $destination;
     }
 
-    public function toJson($object)
+    public function toJson($response)
     {
-        $json = json_encode($object);
+        if(is_array($response))
+        {
+            foreach($response as &$object)
+            {
+                $object = get_object_vars($object);
+            }
+        }
+        else
+            $response = get_object_vars($response);
+        $json = json_encode($response);
         return $json;
     }
 }
