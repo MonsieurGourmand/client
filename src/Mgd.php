@@ -12,6 +12,9 @@ class Mgd {
     const SORT_DESC = "desc";
     const SORT_ASC = "asc";
 
+    const FORMAT_OBJECT = "object";
+    const FORMAT_JSON = "json";
+
     public $client;
     /**
      * @var \Mgd\Entity\User $user
@@ -44,6 +47,7 @@ class Mgd {
 
 
         $this->parser = new Parser();
+        $this->format = self::FORMAT_OBJECT;
         $this->serializer = new Serializer();
     }
 

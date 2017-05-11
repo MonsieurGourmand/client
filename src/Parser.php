@@ -11,6 +11,17 @@ class Parser
 {
     public function parse($response,$destination,$master)
     {
+        switch ($master->format){
+            case "json":
+                return $this->toJson($response);
+                break;
+            default:
+                return $this->toObject($response,$destination,$master);
+        }
+    }
+
+    public function toObject($response,$destination,$master)
+    {
         if(isset($response[0]))
         {
             foreach($response as &$item)
@@ -81,5 +92,11 @@ class Parser
         }
 
         return $destination;
+    }
+
+    public function toJson($object)
+    {
+        $json = json_encode($object);
+        return $json;
     }
 }
