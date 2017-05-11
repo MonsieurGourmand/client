@@ -48,7 +48,7 @@ class Parser
                 $propDest->setAccessible(true);
                 if (is_array($value)) {
                     if(isset($value[0])) {
-                        if (preg_match('/@var\s+([\w^\s]+)/', $propDest->getDocComment(), $matches)) {
+                        if (preg_match('/@var\s+(\w+)/', $propDest->getDocComment(), $matches)) {
                             list(, $type) = $matches;
                         }
                         if(strstr($type,'array'))
