@@ -9,7 +9,18 @@ namespace Mgd;
  */
 class Parser
 {
-    public function parse($response,$destination,$master)
+    public function parse($response,$destination,$master,$format)
+    {
+        switch ($format){
+            case "json":
+                return $this->toJson($response);
+                break;
+            default:
+                return $this->toObject($response,$destination,$master);
+        }
+    }
+
+    public function toObject($response,$destination,$master)
     {
         if(isset($response[0]))
         {
@@ -81,5 +92,11 @@ class Parser
         }
 
         return $destination;
+    }
+
+    public function toJson($response)
+    {
+        $json = json_encode($response);
+        return $json;
     }
 }

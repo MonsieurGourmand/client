@@ -5,9 +5,14 @@ namespace Mgd\Entity;
 class Category extends Master
 {
     /**
-     * @var integer $idcategory
+     * @var Category
      */
-    private $idcategory;
+    private $subCategories;
+
+    /**
+     * @var integer $idCategory
+     */
+    private $idCategory;
 
     /**
      * @var string $name
@@ -17,14 +22,30 @@ class Category extends Master
     /**
      * @var Category $parent
      */
-    private $parent;
+    private $parentCategory;
+
+    /**
+     * @return mixed
+     */
+    public function getParentCategory()
+    {
+        return $this->parentCategory;
+    }
+
+    /**
+     * @param mixed $parentCategory
+     */
+    public function setParentCategory($parentCategory)
+    {
+        $this->parentCategory = $parentCategory;
+    }
 
     /**
      * @return int
      */
-    public function getIdcategory()
+    public function getIdCategory()
     {
-        return $this->idcategory;
+        return $this->idCategory;
     }
 
     /**
@@ -48,20 +69,16 @@ class Category extends Master
     /**
      * @return Category
      */
-    public function getParent()
+    public function getSubCategories()
     {
-        if($this->parent == null)
-            self::setParent($this->master->get("/categories",self::getIdcategory(),Category::class));
-        return $this->parent;
+        return $this->subCategories;
     }
 
     /**
-     * @param Category $parent
-     * @return Category
+     * @param Category $subCategories
      */
-    public function setParent($parent)
+    public function setSubCategories($subCategories)
     {
-        $this->parent = $parent;
-        return $this;
+        $this->subCategories = $subCategories;
     }
 }
