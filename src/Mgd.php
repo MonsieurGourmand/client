@@ -47,7 +47,6 @@ class Mgd {
 
 
         $this->parser = new Parser();
-        $this->format = self::FORMAT_OBJECT;
         $this->serializer = new Serializer();
     }
 
@@ -71,35 +70,35 @@ class Mgd {
         $this->me = $this->parser->parse($response['result'],\Mgd\Entity\User::class,$this);
     }
 
-    public function getAll($url, $entityClass ,$params=array()) {
+    public function getAll($url, $entityClass ,$params=array(),$format) {
         $response = $this->client->fetch($this->apiRoot .self::MOTHER_ROAD.$this->me->getFirm()->getIdFirm(). $url . '.json',$params);
         if(self::getError($response))
-            return self::getAll($url, $entityClass ,$params);
-        return $this->parser->parse($response['result'],$entityClass,$this);
+            return self::getAll($url, $entityClass ,$params,$format);
+        return $this->parser->parse($response['result'],$entityClass,$this,$format);
     }
 
-    public function get($url, $id, $entityClass) {
+    public function get($url, $id, $entityClass,$format) {
         if($id != null)
             $response = $this->client->fetch($this->apiRoot .self::MOTHER_ROAD.$this->me->getFirm()->getIdFirm(). $url .'/'.$id. '.json');
         else
             $response = $this->client->fetch($this->apiRoot .self::MOTHER_ROAD.$this->me->getFirm()->getIdFirm(). $url. '.json');
         if(self::getError($response))
-            return self::get($url, $id, $entityClass);
-        return $this->parser->parse($response['result'],$entityClass,$this);
+            return self::get($url, $id, $entityClass,$format);
+        return $this->parser->parse($response['result'],$entityClass,$this,$format);
     }
 
-    public function post($url, $object, $entityClass) {
+    public function post($url, $object, $entityClass,$format) {
         $response = $this->client->fetch($this->apiRoot.self::MOTHER_ROAD.$this->me->getFirm()->getIdFirm() . $url . '.json',$this->serializer->serialize($object),\OAuth2\Client::HTTP_METHOD_POST,array('Content-Type' => 'application/x-www-form-urlencoded'),\OAuth2\Client::HTTP_FORM_CONTENT_TYPE_APPLICATION);
         if(self::getError($response))
-            return self::post($url, $object, $entityClass);
-        return $this->parser->parse($response['result'],$entityClass,$this);
+            return self::post($url, $object, $entityClass,$format);
+        return $this->parser->parse($response['result'],$entityClass,$this,$format);
     }
 
-    public function put($url, $id, $object, $entityClass) {
+    public function put($url, $id, $object, $entityClass,$format) {
         $response = $this->client->fetch($this->apiRoot .self::MOTHER_ROAD.$this->me->getFirm()->getIdFirm(). $url .'/'.$id. '.json',$this->serializer->serialize($object),\OAuth2\Client::HTTP_METHOD_PUT,array('Content-Type' => 'application/x-www-form-urlencoded'),\OAuth2\Client::HTTP_FORM_CONTENT_TYPE_APPLICATION);
         if(self::getError($response))
-            return self::put($url, $id, $object, $entityClass);
-        return $this->parser->parse($response['result'],$entityClass,$this);
+            return self::put($url, $id, $object, $entityClass,$format);
+        return $this->parser->parse($response['result'],$entityClass,$this,$format);
     }
 
     public function remove($url, $id) {

@@ -9,9 +9,9 @@ namespace Mgd;
  */
 class Parser
 {
-    public function parse($response,$destination,$master)
+    public function parse($response,$destination,$master,$format)
     {
-        switch ($master->format){
+        switch ($format){
             case "json":
                 return $this->toJson($response);
                 break;
@@ -96,15 +96,6 @@ class Parser
 
     public function toJson($response)
     {
-        if(is_array($response))
-        {
-            foreach($response as &$object)
-            {
-                $object = get_object_vars($object);
-            }
-        }
-        else
-            $response = get_object_vars($response);
         $json = json_encode($response);
         return $json;
     }

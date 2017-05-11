@@ -20,25 +20,25 @@ class Zone
         $this->entity = \Mgd\Entity\Zone::class;
     }
 
-    public function getAll()
+    public function getAll($format=\Mgd\Mgd::FORMAT_OBJECT)
     {
         $params = array();
-        return $this->master->getAll($this->url, $this->entity,$params);
+        return $this->master->getAll($this->url, $this->entity,$params,$format);
     }
 
-    public function get($id)
+    public function get($id,$format=\Mgd\Mgd::FORMAT_OBJECT)
     {
-        return $this->master->get($this->url,$id,$this->entity);
+        return $this->master->get($this->url,$id,$this->entity,$format);
     }
 
-    public function post(\Mgd\Entity\Zone $zone)
+    public function post(\Mgd\Entity\Zone $zone,$format=\Mgd\Mgd::FORMAT_OBJECT)
     {
-        return $this->master->post($this->url,$zone,$this->entity);
+        return $this->master->post($this->url,$zone,$this->entity,$format);
     }
 
-    public function put(\Mgd\Entity\Zone $zone)
+    public function put(\Mgd\Entity\Zone $zone,$format=\Mgd\Mgd::FORMAT_OBJECT)
     {
-        return $this->master->put($this->url,$zone->getIdzone(),$zone,$this->entity);
+        return $this->master->put($this->url,$zone->getIdzone(),$zone,$this->entity,$format);
     }
 
     public function remove(\Mgd\Entity\Zone $zone)

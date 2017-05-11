@@ -20,25 +20,25 @@ class Purchase
         $this->entity = \Mgd\Entity\Order::class;
     }
 
-    public function getAll()
+    public function getAll($format=\Mgd\Mgd::FORMAT_OBJECT)
     {
         $params = array();
-        return $this->master->getAll($this->url, $this->entity,$params);
+        return $this->master->getAll($this->url, $this->entity,$params,$format);
     }
 
-    public function get($id)
+    public function get($id,$format=\Mgd\Mgd::FORMAT_OBJECT)
     {
-        return $this->master->get($this->url,$id,$this->entity);
+        return $this->master->get($this->url,$id,$this->entity,$format);
     }
 
-    public function post(\Mgd\Entity\Order $purchase)
+    public function post(\Mgd\Entity\Order $purchase,$format=\Mgd\Mgd::FORMAT_OBJECT)
     {
-        return $this->master->post($this->url,$purchase,$this->entity);
+        return $this->master->post($this->url,$purchase,$this->entity,$format);
     }
 
-    public function put(\Mgd\Entity\Order $purchase)
+    public function put(\Mgd\Entity\Order $purchase,$format=\Mgd\Mgd::FORMAT_OBJECT)
     {
-        return $this->master->put($this->url,$purchase->getIdOrder(),$purchase,$this->entity);
+        return $this->master->put($this->url,$purchase->getIdOrder(),$purchase,$this->entity,$format);
     }
 
     public function remove(\Mgd\Entity\Order $purchase)

@@ -20,25 +20,25 @@ class Operation
         $this->entity = \Mgd\Entity\Operation::class;
     }
 
-    public function getAll()
+    public function getAll($format=\Mgd\Mgd::FORMAT_OBJECT)
     {
         $params = array();
-        return $this->master->getAll($this->url, $this->entity,$params);
+        return $this->master->getAll($this->url, $this->entity,$params,$format);
     }
 
-    public function get($id)
+    public function get($id,$format=\Mgd\Mgd::FORMAT_OBJECT)
     {
-        return $this->master->get($this->url,$id,$this->entity);
+        return $this->master->get($this->url,$id,$this->entity,$format);
     }
 
-    public function post(\Mgd\Entity\Operation $operation)
+    public function post(\Mgd\Entity\Operation $operation,$format=\Mgd\Mgd::FORMAT_OBJECT)
     {
-        return $this->master->post($this->url,$operation,$this->entity);
+        return $this->master->post($this->url,$operation,$this->entity,$format);
     }
 
-    public function put(\Mgd\Entity\Operation $operation)
+    public function put(\Mgd\Entity\Operation $operation,$format=\Mgd\Mgd::FORMAT_OBJECT)
     {
-        return $this->master->put($this->url,$operation->getIdOperation(),$operation,$this->entity);
+        return $this->master->put($this->url,$operation->getIdOperation(),$operation,$this->entity,$format);
     }
 
     public function remove(\Mgd\Entity\Operation $operation)
