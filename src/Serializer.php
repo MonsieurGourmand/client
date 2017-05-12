@@ -13,6 +13,7 @@ class Serializer
 {
     public function serialize($element)
     {
+
         $depth = 0;
         if(is_array($element))
         {
@@ -20,7 +21,9 @@ class Serializer
                 $element = self::object($element,$depth);
         }
         else
+        {
             $element = self::object($element,$depth);
+        }
         return $element;
     }
 
@@ -31,7 +34,7 @@ class Serializer
         foreach ($reflectionClass->getProperties() as $property) {
             $property->setAccessible(true);
             $value = $property->getValue($object);
-            if(is_array($value))
+            if(is_array($value) && is_object($value[0]))
             {
                 foreach ($value as &$element) {
                     $element = self::object($element,$depth + 1);
@@ -43,5 +46,5 @@ class Serializer
             $property->setAccessible(false);
         }
         return $array;
-    }    
+    }
 }
