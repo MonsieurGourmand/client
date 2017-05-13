@@ -38,6 +38,27 @@ class Product extends Master
     private $category;
 
     /**
+     * @var Product
+     */
+    private $salesProducts;
+
+    /**
+     * @return Product
+     */
+    public function getSalesProducts()
+    {
+        return $this->salesProducts;
+    }
+
+    /**
+     * @param Product $salesProduct
+     */
+    public function setSalesProducts($salesProducts)
+    {
+        $this->salesProducts = $salesProducts;
+    }
+
+    /**
      * @var string
      *
      */
