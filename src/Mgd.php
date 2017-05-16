@@ -72,7 +72,7 @@ class Mgd {
     }
 
     public function getAll($url, $entityClass ,$params=array(),$format) {
-        $response = $this->client->fetch($this->apiRoot .self::MOTHER_ROAD.$this->me->getFirm()->getIdFirm(). $url . $dot,$params);
+        $response = $this->client->fetch($this->apiRoot .self::MOTHER_ROAD.$this->me->getFirm()->getIdFirm(). $url . '.json',$params);
         if(self::getError($response))
             return self::getAll($url, $entityClass ,$params,$format);
         return $this->parser->parse($response['result'],$entityClass,$this,$format);
