@@ -5,14 +5,14 @@ namespace Mgd\Entity;
 class Product extends Master
 {
     /**
+     * @var \Mgd\Route\Product\Price
+     */
+    public $price;
+
+    /**
      * @var integer
      */
     private $idProduct;
-
-    /**
-     * @var \Mgd\Route\Product\Price
-     */
-    public $prices;
 
     /**
      * @return int
@@ -341,5 +341,26 @@ class Product extends Master
      * @var integer
      */
     private $cost;
+
+    /**
+     * @var Price
+     */
+    private $activePrice;
+
+    /**
+     * @return mixed
+     */
+    public function getActivePrice()
+    {
+        return $this->activePrice;
+    }
+
+    /**
+     * @param mixed $activePrice
+     */
+    public function setActivePrice($activePrice)
+    {
+        $this->activePrice = $activePrice;
+    }
 
 }
