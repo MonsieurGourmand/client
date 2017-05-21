@@ -9,152 +9,10 @@ class Product extends Master
      */
     private $idProduct;
 
-
     /**
-     * @var Product
+     * @var \Mgd\Route\Product\Price
      */
-    private $purchaseProduct;
-
-
-    /**
-     * @var boolean
-     */
-    private $active;
-
-
-    /**
-     * @var Product
-     */
-    private $parent;
-
-    /**
-     * @var Firm
-     */
-    private $firm;
-
-    /**
-     * @var Category
-     */
-    private $category;
-
-    /**
-     * @var Product
-     */
-    private $salesProducts;
-
-    /**
-     * @return Product
-     */
-    public function getSalesProducts()
-    {
-        return $this->salesProducts;
-    }
-
-    /**
-     * @param Product $salesProduct
-     */
-    public function setSalesProducts($salesProducts)
-    {
-        $this->salesProducts = $salesProducts;
-    }
-
-    /**
-     * @var string
-     *
-     */
-    private $companyReference;
-
-    /**
-     * @var string
-     *
-     */
-    private $name;
-
-    /**
-     * @var string
-     */
-    private $description;
-
-    /**
-     * @var string
-     */
-    private $picture;
-
-    /**
-     * @var integer
-     */
-    private $batches;
-
-    /**
-     * @var integer
-     */
-    private $pieces;
-
-    /**
-     * @var integer
-     */
-    private $productWeight;
-
-    /**
-     * @var integer
-     */
-    private $batchWeight;
-
-    /**
-     * @var integer
-     */
-    private $pieceWeight;
-
-    /**
-     * @var integer
-     */
-    private $kgCost;
-
-    /**
-     * @var integer
-     */
-    private $productCost;
-
-    /**
-     * @var integer
-     */
-    private $pieceCost;
-
-    /**
-     * @var integer
-     */
-    private $batchCost;
-
-    /**
-     * @var integer
-     */
-    private $kgNegotiate;
-
-    /**
-     * @var integer
-     */
-    private $productNegotiate;
-
-    /**
-     * @var integer
-     */
-    private $pieceNegotiate;
-
-    /**
-     * @var integer
-     */
-    private $batchNegotiate;
-
-    /**
-     * @var integer
-     */
-    private $vat;
-
-    private $weight;
-
-    private $negotiate;
-
-    private $cost;
+    public $prices;
 
     /**
      * @return int
@@ -186,37 +44,6 @@ class Product extends Master
     public function setPurchaseProduct($purchaseProduct)
     {
         $this->purchaseProduct = $purchaseProduct;
-    }
-    /**
-     * @return bool
-     */
-    public function isActive()
-    {
-        return $this->active;
-    }
-
-    /**
-     * @param bool $active
-     */
-    public function setActive($active)
-    {
-        $this->active = $active;
-    }
-
-    /**
-     * @return Product
-     */
-    public function getParent()
-    {
-        return $this->parent;
-    }
-
-    /**
-     * @param Product $parent
-     */
-    public function setParent($parent)
-    {
-        $this->parent = $parent;
     }
 
     /**
@@ -350,6 +177,38 @@ class Product extends Master
     /**
      * @return int
      */
+    public function getWeight()
+    {
+        return $this->weight;
+    }
+
+    /**
+     * @param int $weight
+     */
+    public function setWeight($weight)
+    {
+        $this->weight = $weight;
+    }
+
+    /**
+     * @return int
+     */
+    public function getBaseWeight()
+    {
+        return $this->baseWeight;
+    }
+
+    /**
+     * @param int $baseWeight
+     */
+    public function setBaseWeight($baseWeight)
+    {
+        $this->baseWeight = $baseWeight;
+    }
+
+    /**
+     * @return int
+     */
     public function getProductWeight()
     {
         return $this->productWeight;
@@ -366,205 +225,13 @@ class Product extends Master
     /**
      * @return int
      */
-    public function getBatchWeight()
-    {
-        return $this->batchWeight;
-    }
-
-    /**
-     * @param int $batchWeight
-     */
-    public function setBatchWeight($batchWeight)
-    {
-        $this->batchWeight = $batchWeight;
-    }
-
-    /**
-     * @return int
-     */
-    public function getPieceWeight()
-    {
-        return $this->pieceWeight;
-    }
-
-    /**
-     * @param int $pieceWeight
-     */
-    public function setPieceWeight($pieceWeight)
-    {
-        $this->pieceWeight = $pieceWeight;
-    }
-
-    /**
-     * @return int
-     */
-    public function getKgCost()
-    {
-        return $this->kgCost;
-    }
-
-    /**
-     * @param int $kgCost
-     */
-    public function setKgCost($kgCost)
-    {
-        $this->kgCost = $kgCost;
-    }
-
-    /**
-     * @return int
-     */
-    public function getProductCost()
-    {
-        return $this->productCost;
-    }
-
-    /**
-     * @param int $productCost
-     */
-    public function setProductCost($productCost)
-    {
-        $this->productCost = $productCost;
-    }
-
-    /**
-     * @return int
-     */
-    public function getPieceCost()
-    {
-        return $this->pieceCost;
-    }
-
-    /**
-     * @param int $pieceCost
-     */
-    public function setPieceCost($pieceCost)
-    {
-        $this->pieceCost = $pieceCost;
-    }
-
-    /**
-     * @return int
-     */
-    public function getBatchCost()
-    {
-        return $this->batchCost;
-    }
-
-    /**
-     * @param int $batchCost
-     */
-    public function setBatchCost($batchCost)
-    {
-        $this->batchCost = $batchCost;
-    }
-
-    /**
-     * @return int
-     */
-    public function getKgNegotiate()
-    {
-        return $this->kgNegotiate;
-    }
-
-    /**
-     * @param int $kgNegotiate
-     */
-    public function setKgNegotiate($kgNegotiate)
-    {
-        $this->kgNegotiate = $kgNegotiate;
-    }
-
-    /**
-     * @return int
-     */
-    public function getProductNegotiate()
-    {
-        return $this->productNegotiate;
-    }
-
-    /**
-     * @param int $productNegotiate
-     */
-    public function setProductNegotiate($productNegotiate)
-    {
-        $this->productNegotiate = $productNegotiate;
-    }
-
-    /**
-     * @return int
-     */
-    public function getPieceNegotiate()
-    {
-        return $this->pieceNegotiate;
-    }
-
-    /**
-     * @param int $pieceNegotiate
-     */
-    public function setPieceNegotiate($pieceNegotiate)
-    {
-        $this->pieceNegotiate = $pieceNegotiate;
-    }
-
-    /**
-     * @return int
-     */
-    public function getBatchNegotiate()
-    {
-        return $this->batchNegotiate;
-    }
-
-    /**
-     * @param int $batchNegotiate
-     */
-    public function setBatchNegotiate($batchNegotiate)
-    {
-        $this->batchNegotiate = $batchNegotiate;
-    }
-
-    /**
-     * @return int
-     */
-    public function getVat()
-    {
-        return $this->vat;
-    }
-
-    /**
-     * @param int $vat
-     */
-    public function setVat($vat)
-    {
-        $this->vat = $vat;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getWeight()
-    {
-        return $this->weight;
-    }
-
-    /**
-     * @param mixed $weight
-     */
-    public function setWeight($weight)
-    {
-        $this->weight = $weight;
-    }
-
-    /**
-     * @return mixed
-     */
     public function getNegotiate()
     {
         return $this->negotiate;
     }
 
     /**
-     * @param mixed $negotiate
+     * @param int $negotiate
      */
     public function setNegotiate($negotiate)
     {
@@ -572,7 +239,7 @@ class Product extends Master
     }
 
     /**
-     * @return mixed
+     * @return int
      */
     public function getCost()
     {
@@ -580,12 +247,99 @@ class Product extends Master
     }
 
     /**
-     * @param mixed $cost
+     * @param int $cost
      */
     public function setCost($cost)
     {
         $this->cost = $cost;
     }
+    /**
+     * @var Product
+     */
+    private $purchaseProduct;
+    /**
+     * @var Firm
+     */
+    private $firm;
 
+    /**
+     * @var Category
+     */
+    private $category;
+
+    /**
+     * @var Product
+     */
+    private $salesProducts;
+
+    /**
+     * @return Product
+     */
+    public function getSalesProducts()
+    {
+        return $this->salesProducts;
+    }
+
+    /**
+     * @param Product $salesProduct
+     */
+    public function setSalesProducts($salesProducts)
+    {
+        $this->salesProducts = $salesProducts;
+    }
+
+    /**
+     * @var string
+     *
+     */
+    private $companyReference;
+
+    /**
+     * @var string
+     *
+     */
+    private $name;
+
+    /**
+     * @var string
+     */
+    private $description;
+
+    /**
+     * @var string
+     */
+    private $picture;
+
+    /**
+     * @var integer
+     */
+    private $batches;
+
+    /**
+     * @var integer
+     */
+    private $pieces;
+
+    /**
+     * @var integer
+     */
+    private $weight;
+
+    /**
+     * @var integer
+     */
+    private $baseWeight;
+    /**
+     * @var integer
+     */
+    private $productWeight;
+    /**
+     * @var integer
+     */
+    private $negotiate;
+    /**
+     * @var integer
+     */
+    private $cost;
 
 }
