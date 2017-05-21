@@ -39,7 +39,7 @@ class Order extends Master
     /**
      * @var User
      */
-    private $salesUser;
+    private $followers;
 
     /**
      * @var string
@@ -81,6 +81,15 @@ class Order extends Master
      */
     private $step;
 
+    /**
+     * @var float
+     */
+    private $total;
+
+    /**
+     * @var string
+     */
+    private $orderReference;
 
     /**
      * @var integer
@@ -170,17 +179,17 @@ class Order extends Master
     /**
      * @return User
      */
-    public function getSalesUser()
+    public function getFollowers()
     {
-        return $this->salesUser;
+        return $this->followers;
     }
 
     /**
-     * @param User $salesUser
+     * @param $followers
      */
-    public function setSalesUser($salesUser)
+    public function setFollowers($followers)
     {
-        $this->salesUser = $salesUser;
+        $this->followers = $followers;
     }
 
     /**
@@ -317,5 +326,41 @@ class Order extends Master
     public function getIdOrder()
     {
         return $this->idOrder;
+    }
+
+    /**
+     * @return float
+     */
+    public function getTotal()
+    {
+        return $this->total;
+    }
+
+    /**
+     * @param float $total
+     * @return Order
+     */
+    public function setTotal($total)
+    {
+        $this->total = $total;
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getOrderReference()
+    {
+        return $this->orderReference;
+    }
+
+    /**
+     * @param string $orderReference
+     * @return Order
+     */
+    public function setOrderReference($orderReference)
+    {
+        $this->orderReference = $orderReference;
+        return $this;
     }
 }

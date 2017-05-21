@@ -14,6 +14,7 @@ class Mgd {
 
     const FORMAT_OBJECT = "object";
     const FORMAT_JSON = "json";
+    const FORMAT_PDF = "pdf";
 
     public $client;
     /**
@@ -78,13 +79,17 @@ class Mgd {
     }
 
     public function get($url, $id, $entityClass,$format) {
+        $format == self::FORMAT_PDF ? $dot = ".pdf" : $dot = ".json";
         if($id != null)
-            $response = $this->client->fetch($this->apiRoot .self::MOTHER_ROAD.$this->me->getFirm()->getIdFirm(). $url .'/'.$id. '.json');
+            $response = $this->client->fetch($this->apiRoot .self::MOTHER_ROAD.$this->me->getFirm()->getIdFirm(). $url .'/'.$id. $dot);
         else
-            $response = $this->client->fetch($this->apiRoot .self::MOTHER_ROAD.$this->me->getFirm()->getIdFirm(). $url. '.json');
+            $response = $this->client->fetch($this->apiRoot .self::MOTHER_ROAD.$this->me->getFirm()->getIdFirm(). $url. $dot);
         if(self::getError($response))
             return self::get($url, $id, $entityClass,$format);
-        return $this->parser->parse($response['result'],$entityClass,$this,$format);
+        if($format == self::FORMAT_PDF)
+            return $response['result'];
+        else
+            return $this->parser->parse($response['result'],$entityClass,$this,$format);
     }
 
     public function post($url, $object, $entityClass,$format) {
