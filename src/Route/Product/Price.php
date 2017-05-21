@@ -16,44 +16,35 @@ class Price
     public function __construct(Product $product)
     {
         $this->master = $product->getMaster();
-        $this->entity = \Mgd\Entity\Price::class;
-        $this->url = "/products/" . $product->getIdProduct() . "/prices";
+        $this->entity = \Mgd\Entity\User::class;
+        $this->url = "/products/".$product->getIdProduct()."/prices";
     }
 
-    public function getAll( Firm $firm = null,$format = \Mgd\Mgd::FORMAT_OBJECT)
+    public function getAll($format=\Mgd\Mgd::FORMAT_OBJECT)
     {
-        if ($firm)
-            $url = "/firms/" . $firm->getIdFirm() . $this->url;
-        else
-            $url = $this->url;
         $params = array();
-        return $this->master->getAll($url, $this->entity, $params, $format);
+        return $this->master->getAll($this->url, $this->entity,$params,$format);
     }
 
-    public function get($id, Firm $firm = null,$format = \Mgd\Mgd::FORMAT_OBJECT)
+    public function get($id,$format=\Mgd\Mgd::FORMAT_OBJECT)
     {
-        if ($firm)
-            $url = "/firms/" . $firm->getIdFirm() . $this->url;
-        else
-            $url = $this->url;
-        return $this->master->get($url, $id, $this->entity, $format);
+        return $this->master->get($this->url,$id,$this->entity,$format);
     }
 
-    public function post(\Mgd\Entity\Price $price, Firm $firm = null, $format = \Mgd\Mgd::FORMAT_OBJECT)
+    public function post(\Mgd\Entity\User $user,$format=\Mgd\Mgd::FORMAT_OBJECT)
     {
-        if ($firm)
-            $url = "/firms/" . $firm->getIdFirm() . $this->url;
-        else
-            $url = $this->url;
-        return $this->master->post($url, $price, $this->entity, $format);
+        return $this->master->post($this->url,$user,$this->entity,$format);
     }
 
-    public function put(\Mgd\Entity\Price $price,Firm $firm = null, $format = \Mgd\Mgd::FORMAT_OBJECT)
+    public function put(\Mgd\Entity\User $user,$format=\Mgd\Mgd::FORMAT_OBJECT)
     {
-        if ($firm)
-            $url = "/firms/" . $firm->getIdFirm() . $this->url;
-        else
-            $url = $this->url;
-        return $this->master->put($url, $price->getIdPrice(), $price, $this->entity, $format);
+        return $this->master->put($this->url,$user->getId(),$user,$this->entity,$format);
     }
+
+    public function remove(\Mgd\Entity\User $user)
+    {
+        return $this->master->remove($this->url,$user->getId());
+    }
+
+
 }
