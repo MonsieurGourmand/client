@@ -34,11 +34,18 @@ class Serializer
         foreach ($reflectionClass->getProperties() as $property) {
             $property->setAccessible(true);
             $value = $property->getValue($object);
-            if(is_array($value) && is_object($value[0]))
+            if(is_array($value))
             {
-                foreach ($value as &$element) {
-                    $element = self::object($element,$depth + 1);
+                if(isset($value[0]))
+                {
+                    if(is_object($value[0]))
+                    {
+                        foreach ($value as &$element) {
+                            $element = self::object($element,$depth + 1);
+                        }
+                    }
                 }
+
             }
             elseif(is_object($value) && strpos(get_class($value),"Mgd") !== false)
                 $value = self::object($value,$depth + 1);
