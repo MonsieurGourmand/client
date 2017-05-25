@@ -348,6 +348,29 @@ class Product extends Master
     private $activePrice;
 
     /**
+     * @return int
+     */
+    public function getQuantityPurchase()
+    {
+        return $this->quantityPurchase;
+    }
+
+    /**
+     * @param int $quantityPurchase
+     */
+    public function setQuantityPurchase($quantityPurchase)
+    {
+        $this->quantityPurchase = $quantityPurchase;
+    }
+
+
+    /**
+     * @var integer
+     *
+     */
+    private $quantityPurchase;
+
+    /**
      * @return mixed
      */
     public function getActivePrice()
