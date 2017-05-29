@@ -21,6 +21,28 @@ class OrderProduct extends Master
     private $quantity;
 
     /**
+     * @return int
+     */
+    public function getFree()
+    {
+        return $this->free;
+    }
+
+    /**
+     * @param int $free
+     */
+    public function setFree($free)
+    {
+        $this->free = $free;
+    }
+
+    /**
+     * @var integer
+     *
+     */
+    private $free;
+
+    /**
      * @var integer
      *
      */
