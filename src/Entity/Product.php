@@ -20,6 +20,27 @@ class Product extends Master
     private $idProduct;
 
     /**
+     * @var integer
+     */
+    private $quantity;
+
+    /**
+     * @return int
+     */
+    public function getQuantity()
+    {
+        return $this->quantity;
+    }
+
+    /**
+     * @param int $quantity
+     */
+    public function setQuantity($quantity)
+    {
+        $this->quantity = $quantity;
+    }
+
+    /**
      * @return int
      */
     public function getIdProduct()
