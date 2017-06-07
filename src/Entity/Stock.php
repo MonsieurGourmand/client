@@ -9,25 +9,15 @@ class Stock extends Master
       */
      private $product;
 
-     /**
-      * @var integer
-      */
-     private $idproduct;
-
-    /**
-     * @var string
-     */
-    private $stockreference;
-
     /**
      * @var \DateTime
      */
-    private $expirationdate;
+    private $expirationDate;
 
     /**
      * @var integer
      */
-    private $idstock;
+    private $idStock;
 
     /**
      * @return Product
@@ -35,38 +25,6 @@ class Stock extends Master
     public function getProduct()
     {
         return $this->product;
-    }
-
-    /**
-     * @return int
-     */
-    public function getIdproduct()
-    {
-        return $this->idproduct;
-    }
-
-    /**
-     * @return string
-     */
-    public function getStockreference()
-    {
-        return $this->stockreference;
-    }
-
-    /**
-     * @return \DateTime
-     */
-    public function getExpirationdate()
-    {
-        return $this->expirationdate;
-    }
-
-    /**
-     * @return int
-     */
-    public function getIdstock()
-    {
-        return $this->idstock;
     }
 
     /**
@@ -78,34 +36,36 @@ class Stock extends Master
     }
 
     /**
-     * @param int $idproduct
+     * @return \DateTime
      */
-    public function setIdproduct($idproduct)
+    public function getExpirationDate()
     {
-        $this->idproduct = $idproduct;
+        return $this->expirationDate;
     }
 
     /**
-     * @param string $stockreference
+     * @param \DateTime $expirationDate
      */
-    public function setStockreference($stockreference)
+    public function setExpirationDate($expirationDate)
     {
-        $this->stockreference = $stockreference;
+        $this->expirationDate = $expirationDate;
     }
 
     /**
-     * @param \DateTime $expirationdate
+     * @return int
      */
-    public function setExpirationdate($expirationdate)
+    public function getIdStock()
     {
-        $this->expirationdate = $expirationdate;
+        return $this->idStock;
     }
 
     /**
-     * @param int $idstock
+     * @param int $idStock
      */
-    public function setIdstock($idstock)
+    public function setIdStock($idStock)
     {
-        $this->idstock = $idstock;
+        $this->idStock = $idStock;
     }
+
+
 }

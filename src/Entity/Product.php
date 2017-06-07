@@ -10,6 +10,11 @@ class Product extends Master
     public $price;
 
     /**
+     * @var \Mgd\Route\Product\Stock
+     */
+    public $stock;
+
+    /**
      * @var integer
      */
     private $idProduct;
