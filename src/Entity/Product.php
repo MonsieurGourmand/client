@@ -373,6 +373,24 @@ class Product extends Master
      */
     private $activePrice;
 
+    private $dlcDisable;
+
+    /**
+     * @return mixed
+     */
+    public function getDlcDisable()
+    {
+        return $this->dlcDisable;
+    }
+
+    /**
+     * @param mixed $dlcDisable
+     */
+    public function setDlcDisable($dlcDisable)
+    {
+        $this->dlcDisable = $dlcDisable;
+    }
+
     /**
      * @return int
      */
