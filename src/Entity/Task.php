@@ -33,6 +33,27 @@ class Task extends Master
     private $user;
 
     /**
+     * @var Operation
+     */
+    private $operation;
+
+    /**
+     * @return Operation
+     */
+    public function getOperation()
+    {
+        return $this->operation;
+    }
+
+    /**
+     * @param Operation $operation
+     */
+    public function setOperation($operation)
+    {
+        $this->operation = $operation;
+    }
+
+    /**
      * @return int
      */
     public function getIdTask()

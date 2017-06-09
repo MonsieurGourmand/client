@@ -13,11 +13,11 @@ use Mgd\Entity\Task;
 
 class Flux
 {
-    public function __construct(Operation $operation,Task $task)
+    public function __construct(Task $task)
     {
         $this->master = $task->getMaster();
         $this->entity = \Mgd\Entity\Flux::class;
-        $this->url = "/operations/".$operation->getIdOperation()."/tasks/".$task->getIdTask()."/fluxes";
+        $this->url = "/operations/".$task->getOperation()->getIdOperation()."/tasks/".$task->getIdTask()."/fluxes";
     }
 
     public function getAll($format=\Mgd\Mgd::FORMAT_OBJECT)
