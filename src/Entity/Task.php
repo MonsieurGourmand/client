@@ -5,6 +5,11 @@ namespace Mgd\Entity;
 class Task extends Master
 {
     /**
+     * @var \Mgd\Route\Task\Flux
+     */
+    public $fluxes;
+
+    /**
      * @var integer
      *
      */
