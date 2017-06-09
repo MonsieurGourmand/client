@@ -4,21 +4,16 @@ namespace Mgd\Entity;
 
 class Operation extends Master
 {
+    /**
+     * @var \Mgd\Route\Operation\Task
+     */
+    public $tasks;
 
-    const SALE_TYPE = "sale";
-    const PURCHASE_TYPE = "purchase";
-    const CORRECTION_TYPE = "correction";
     /**
      * @var integer
      *
      */
     private $idOperation;
-
-
-    /**
-     * @var string
-     */
-    private $type;
 
     /**
      * @var Order
