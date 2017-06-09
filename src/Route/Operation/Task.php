@@ -6,7 +6,7 @@
  * Time: 6:10 PM
  */
 
-namespace Mgd\Route\Order;
+namespace Mgd\Route\Operation;
 
 use Mgd\Entity\Operation;
 
