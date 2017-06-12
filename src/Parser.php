@@ -11,13 +11,21 @@ class Parser
 {
     public function parse($response,$destination,$master,$format)
     {
-        switch ($format){
-            case "json":
-                return $this->toJson($response);
-                break;
-            default:
-                return $this->toObject($response,$destination,$master);
+        if(!empty($response))
+        {
+            switch ($format){
+                case "json":
+                    return $this->toJson($response);
+                    break;
+                default:
+                    return $this->toObject($response,$destination,$master);
+            }
         }
+        else
+        {
+            return $response;
+        }
+
     }
 
     public function toObject($response,$destination,$master)
