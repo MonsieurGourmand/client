@@ -23,7 +23,14 @@ class Parser
         }
         else
         {
-            return $this->toJson($response);}
+            switch ($format){
+                case "json":
+                    return $this->toJson($response);
+                    break;
+                default:
+                    return array();
+            }
+        }
 
     }
 
