@@ -23,8 +23,7 @@ class Parser
         }
         else
         {
-            return $response;
-        }
+            return $this->toJson($response);}
 
     }
 
