@@ -27,14 +27,35 @@ class Firm extends Master
     private $reference;
 
     /**
-    * @var string
-    */
+     * @var string
+     */
     private $customerReference;
 
     /**
      * @var integer
      */
     private $idFirm;
+
+    /**
+     * @var integer
+     */
+    private $postagePaid;
+
+    /**
+     * @return int
+     */
+    public function getPostagePaid()
+    {
+        return $this->postagePaid;
+    }
+
+    /**
+     * @param int $postagePaid
+     */
+    public function setPostagePaid($postagePaid)
+    {
+        $this->postagePaid = $postagePaid;
+    }
 
 
     /**
