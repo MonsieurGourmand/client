@@ -25,6 +25,11 @@ class Category extends Master
     private $reference;
 
     /**
+     * @var integer $slug
+     */
+    private $slug;
+
+    /**
      * @var Category $parent
      */
     private $parentCategory;
@@ -103,5 +108,13 @@ class Category extends Master
     {
         $this->reference = $reference;
         return $this;
+    }
+
+    /**
+     * @return int
+     */
+    public function getSlug()
+    {
+        return $this->slug;
     }
 }
