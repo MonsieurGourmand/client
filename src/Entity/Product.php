@@ -25,6 +25,48 @@ class Product extends Master
     private $quantity;
 
     /**
+     * @var integer
+     */
+    private $alert;
+
+    /**
+     * @return mixed
+     */
+    public function getAlert()
+    {
+        return $this->alert;
+    }
+
+    /**
+     * @param mixed $alert
+     */
+    public function setAlert($alert)
+    {
+        $this->alert = $alert;
+    }
+
+    /**
+     * @return int
+     */
+    public function getBaseAlert()
+    {
+        return $this->baseAlert;
+    }
+
+    /**
+     * @param int $baseAlert
+     */
+    public function setBaseAlert($baseAlert)
+    {
+        $this->baseAlert = $baseAlert;
+    }
+
+    /**
+     * @var integer
+     */
+    private $baseAlert;
+
+    /**
      * @return int
      */
     public function getQuantity()
