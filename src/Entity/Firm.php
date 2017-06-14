@@ -37,12 +37,12 @@ class Firm extends Master
     private $idFirm;
 
     /**
-     * @var integer
+     * @var string
      */
     private $postagePaid;
 
     /**
-     * @return int
+     * @return string
      */
     public function getPostagePaid()
     {
@@ -50,7 +50,7 @@ class Firm extends Master
     }
 
     /**
-     * @param int $postagePaid
+     * @param string $postagePaid
      */
     public function setPostagePaid($postagePaid)
     {
