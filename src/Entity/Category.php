@@ -20,6 +20,16 @@ class Category extends Master
     private $name;
 
     /**
+     * @var integer $reference
+     */
+    private $reference;
+
+    /**
+     * @var integer $slug
+     */
+    private $slug;
+
+    /**
      * @var Category $parent
      */
     private $parentCategory;
@@ -80,5 +90,31 @@ class Category extends Master
     public function setSubCategories($subCategories)
     {
         $this->subCategories = $subCategories;
+    }
+
+    /**
+     * @return int
+     */
+    public function getReference()
+    {
+        return $this->reference;
+    }
+
+    /**
+     * @param int $reference
+     * @return Category
+     */
+    public function setReference($reference)
+    {
+        $this->reference = $reference;
+        return $this;
+    }
+
+    /**
+     * @return int
+     */
+    public function getSlug()
+    {
+        return $this->slug;
     }
 }
