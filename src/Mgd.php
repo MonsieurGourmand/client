@@ -65,6 +65,13 @@ class Mgd {
         $this->me();
     }
 
+    public function accessClientCredential()
+    {
+        $this->client = new \OAuth2\Client($this->client_id,$this->client_secret);
+        $response = $this->client->getAccessToken($this->oauthRoot.self::TOKEN_ENDPOINT, 'client_credentials');
+        $this->client->setAccessToken($response['result']['access_token']);
+    }
+
     public function me()
     {
         $response = $this->client->fetch($this->apiRoot.'me');
