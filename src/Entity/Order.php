@@ -11,6 +11,11 @@ class Order extends Master
     public $orderProducts;
 
     /**
+     * @var \Mgd\Route\Order\Package
+     */
+    public $packages;
+
+    /**
      * @var Document
      */
     private $document;
