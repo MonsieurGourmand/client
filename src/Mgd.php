@@ -68,7 +68,7 @@ class Mgd {
     public function accessClientCredential()
     {
         $this->client = new \OAuth2\Client($this->client_id,$this->client_secret);
-        $response = $this->client->getAccessToken($this->oauthRoot.self::TOKEN_ENDPOINT, 'client_credentials');
+        $response = $this->client->getAccessToken($this->oauthRoot.self::TOKEN_ENDPOINT, 'client_credentials',array());
         $this->client->setAccessToken($response['result']['access_token']);
     }
 
@@ -125,10 +125,19 @@ class Mgd {
         // Gestion de l'accessToken expired
         if($response['code'] == 401 && $response['result']['error'] == "invalid_grant" && $response['result']['error_description'] == "The access token provided has expired.")
         {
-            $response = $this->client->getAccessToken($this->oauthRoot.self::TOKEN_ENDPOINT, 'refresh_token',array('refresh_token'=>$this->refresh_token));
-            $this->client->setAccessToken($response['result']['access_token']);
-            $this->refresh_token = $response['result']['refresh_token'];
-            return true;
+            if($this->refresh_token != null)
+            {
+                $response = $this->client->getAccessToken($this->oauthRoot.self::TOKEN_ENDPOINT, 'refresh_token',array('refresh_token'=>$this->refresh_token));
+                $this->client->setAccessToken($response['result']['access_token']);
+                $this->refresh_token = $response['result']['refresh_token'];
+                return true;
+            }
+            else
+            {
+                $this->accessClientCredential();
+                return true;
+            }
+
         }
         // Gestion de l'accessToken expired
         if(floor($response['code'] / 100) == 4) {

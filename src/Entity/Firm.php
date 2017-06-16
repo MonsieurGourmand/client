@@ -11,6 +11,14 @@ class Firm extends Master
     public $users;
 
     /**
+     * @param int $idFirm
+     */
+    public function setIdFirm($idFirm)
+    {
+        $this->idFirm = $idFirm;
+    }
+
+    /**
      * @var \Mgd\Route\Firm\Product
      */
     public $products;
