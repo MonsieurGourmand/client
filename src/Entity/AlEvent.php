@@ -29,6 +29,11 @@ class AlEvent extends Master
     private $type;
 
     /**
+     * @var \DateTime
+     */
+    private $eventDate;
+
+    /**
      * @return int
      */
     public function getId()
@@ -107,11 +112,4 @@ class AlEvent extends Master
     {
         $this->eventDate = $eventDate;
     }
-
-    /**
-     * @var string
-     *
-     */
-    private $eventDate;
-
 }
