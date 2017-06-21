@@ -16,6 +16,11 @@ class Order extends Master
     public $packages;
 
     /**
+     * @var \Mgd\Route\Order\AlEvent
+     */
+    public $alEvents;
+
+    /**
      * @var Document
      */
     private $document;
