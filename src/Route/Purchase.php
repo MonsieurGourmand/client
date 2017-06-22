@@ -20,9 +20,14 @@ class Purchase
         $this->entity = \Mgd\Entity\Order::class;
     }
 
-    public function getAll($format=\Mgd\Mgd::FORMAT_OBJECT)
+    public function getAll($format=\Mgd\Mgd::FORMAT_OBJECT,$startDate=null,$endDate=null)
     {
         $params = array();
+        if($startDate && $endDate)
+        {
+            $params['startDate'] = $startDate;
+            $params['endDate'] = $endDate;
+        }
         return $this->master->getAll($this->url, $this->entity,$params,$format);
     }
 
