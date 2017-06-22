@@ -23,10 +23,11 @@ class AlEvent extends Master
     private $content;
 
     /**
-     * @var integer
+     * @var string
      *
      */
     private $type;
+
 
     /**
      * @var \DateTime
@@ -82,7 +83,7 @@ class AlEvent extends Master
     }
 
     /**
-     * @return int
+     * @return string
      */
     public function getType()
     {
@@ -90,7 +91,7 @@ class AlEvent extends Master
     }
 
     /**
-     * @param int $type
+     * @param string $type
      */
     public function setType($type)
     {
