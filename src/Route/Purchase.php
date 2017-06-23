@@ -28,6 +28,7 @@ class Purchase
             $params['startDate'] = $startDate;
             $params['endDate'] = $endDate;
         }
+
         return $this->master->getAll($this->url, $this->entity,$params,$format);
     }
 
