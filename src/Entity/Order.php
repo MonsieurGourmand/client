@@ -47,7 +47,7 @@ class Order extends Master
     private $leadUser;
 
     /**
-     * @var User
+     * @var User[]
      */
     private $followers;
 
