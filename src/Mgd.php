@@ -85,6 +85,8 @@ class Mgd {
             return self::getAll($url, $entityClass ,$params,$format);
         if($format == self::FORMAT_OBJECT)
             return $this->parser->parse($response['result'],$entityClass,$this,$format);
+        elseif($format == self::FORMAT_JSON)
+            return json_encode($response['result']);
         else
             return $response['result'];
     }
@@ -99,6 +101,8 @@ class Mgd {
             return self::get($url, $id, $entityClass,$format);
         if($format == self::FORMAT_OBJECT)
             return $this->parser->parse($response['result'],$entityClass,$this,$format);
+        elseif($format == self::FORMAT_JSON)
+            return json_encode($response['result']);
         else
             return $response['result'];
     }
@@ -109,6 +113,8 @@ class Mgd {
             return self::post($url, $object, $entityClass,$format);
         if($format == self::FORMAT_OBJECT)
             return $this->parser->parse($response['result'],$entityClass,$this,$format);
+        elseif($format == self::FORMAT_JSON)
+            return json_encode($response['result']);
         else
             return $response['result'];    }
 
@@ -118,6 +124,8 @@ class Mgd {
             return self::put($url, $id, $object, $entityClass,$format);
         if($format == self::FORMAT_OBJECT)
             return $this->parser->parse($response['result'],$entityClass,$this,$format);
+        elseif($format == self::FORMAT_JSON)
+            return json_encode($response['result']);
         else
             return $response['result'];    }
 
