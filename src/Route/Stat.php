@@ -34,10 +34,10 @@ class Stat
             "endDate" => $this->endDate->format("d/m/Y")
         );
         $url = $this->url."/orders";
-        return $this->master->getAll($url,null,$params);
+        return $this->master->getAll($url,null,$params,\Mgd\Mgd::FORMAT_JSON);
     }
 
-    public function getProducts($format=\Mgd\Mgd::FORMAT_JSON)
+    public function getProducts()
     {
         $params = array(
             "startDate" => $this->startDate->format("d/m/Y"),
