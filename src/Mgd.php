@@ -45,6 +45,7 @@ class Mgd {
         $this->supplier = new \Mgd\Route\Supplier($this);
         $this->user = new \Mgd\Route\User($this);
         $this->zone = new \Mgd\Route\Zone($this);
+        $this->stat = new \Mgd\Route\Stat($this);
 
 
         $this->parser = new Parser();
@@ -82,7 +83,10 @@ class Mgd {
         $response = $this->client->fetch($this->apiRoot .self::MOTHER_ROAD.$this->me->getFirm()->getIdFirm(). $url . '.json',$params);
         if(self::getError($response))
             return self::getAll($url, $entityClass ,$params,$format);
-        return $this->parser->parse($response['result'],$entityClass,$this,$format);
+        if($format == self::FORMAT_OBJECT)
+            return $this->parser->parse($response['result'],$entityClass,$this,$format);
+        else
+            return $response['result'];
     }
 
     public function get($url, $id, $entityClass,$format) {
@@ -93,25 +97,29 @@ class Mgd {
             $response = $this->client->fetch($this->apiRoot .self::MOTHER_ROAD.$this->me->getFirm()->getIdFirm(). $url. $dot);
         if(self::getError($response))
             return self::get($url, $id, $entityClass,$format);
-        if($format == self::FORMAT_PDF)
-            return $response['result'];
-        else
+        if($format == self::FORMAT_OBJECT)
             return $this->parser->parse($response['result'],$entityClass,$this,$format);
+        else
+            return $response['result'];
     }
 
     public function post($url, $object, $entityClass,$format) {
         $response = $this->client->fetch($this->apiRoot.self::MOTHER_ROAD.$this->me->getFirm()->getIdFirm() . $url . '.json',$this->serializer->serialize($object),\OAuth2\Client::HTTP_METHOD_POST,array('Content-Type' => 'application/x-www-form-urlencoded'),\OAuth2\Client::HTTP_FORM_CONTENT_TYPE_APPLICATION);
         if(self::getError($response))
             return self::post($url, $object, $entityClass,$format);
-        return $this->parser->parse($response['result'],$entityClass,$this,$format);
-    }
+        if($format == self::FORMAT_OBJECT)
+            return $this->parser->parse($response['result'],$entityClass,$this,$format);
+        else
+            return $response['result'];    }
 
     public function put($url, $id, $object, $entityClass,$format) {
         $response = $this->client->fetch($this->apiRoot .self::MOTHER_ROAD.$this->me->getFirm()->getIdFirm(). $url .'/'.$id. '.json',$this->serializer->serialize($object),\OAuth2\Client::HTTP_METHOD_PUT,array('Content-Type' => 'application/x-www-form-urlencoded'),\OAuth2\Client::HTTP_FORM_CONTENT_TYPE_APPLICATION);
         if(self::getError($response))
             return self::put($url, $id, $object, $entityClass,$format);
-        return $this->parser->parse($response['result'],$entityClass,$this,$format);
-    }
+        if($format == self::FORMAT_OBJECT)
+            return $this->parser->parse($response['result'],$entityClass,$this,$format);
+        else
+            return $response['result'];    }
 
     public function remove($url, $id) {
         $response = $this->client->fetch($this->apiRoot.self::MOTHER_ROAD.$this->me->getFirm()->getIdFirm() . $url .'/'.$id. '.json',array(),\OAuth2\Client::HTTP_METHOD_DELETE);
