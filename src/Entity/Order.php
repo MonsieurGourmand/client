@@ -47,6 +47,12 @@ class Order extends Master
     private $leadUser;
 
     /**
+     * @var User
+     */
+    private $saleUser;
+
+
+    /**
      * @var User[]
      */
     private $followers;
@@ -55,6 +61,16 @@ class Order extends Master
      * @var string
      */
     private $place;
+
+    /**
+     * @var string
+     */
+    private $zipCode;
+
+    /**
+     * @var string
+     */
+    private $city;
 
     /**
      * @var string
@@ -98,6 +114,75 @@ class Order extends Master
      * @var \DateTime
      */
     private $deliveryDate;
+
+    /**
+     * @var \DateTime
+     */
+    private $shippingDate;
+
+    /**
+     * @return User
+     */
+    public function getSaleUser()
+    {
+        return $this->saleUser;
+    }
+
+    /**
+     * @param User $saleUser
+     */
+    public function setSaleUser($saleUser)
+    {
+        $this->saleUser = $saleUser;
+    }
+
+    /**
+     * @return string
+     */
+    public function getZipCode()
+    {
+        return $this->zipCode;
+    }
+
+    /**
+     * @param string $zipCode
+     */
+    public function setZipCode($zipCode)
+    {
+        $this->zipCode = $zipCode;
+    }
+
+    /**
+     * @return string
+     */
+    public function getCity()
+    {
+        return $this->city;
+    }
+
+    /**
+     * @param string $city
+     */
+    public function setCity($city)
+    {
+        $this->city = $city;
+    }
+
+    /**
+     * @return \DateTime
+     */
+    public function getShippingDate()
+    {
+        return $this->shippingDate;
+    }
+
+    /**
+     * @param \DateTime $shippingDate
+     */
+    public function setShippingDate($shippingDate)
+    {
+        $this->shippingDate = $shippingDate;
+    }
 
     /**
      * @var \DateTime
