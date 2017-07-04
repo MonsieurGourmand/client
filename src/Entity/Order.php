@@ -204,6 +204,92 @@ class Order extends Master
      */
     private $total;
 
+
+    /**
+     * @var float
+     */
+    private $totalHT;
+
+    /**
+     * @var float
+     */
+    private $totalVAT;
+
+
+    /**
+     * @var float
+     */
+    private $discount;
+
+    /**
+     * @var float
+     */
+    private $deliveryCharge;
+
+    /**
+     * @return float
+     */
+    public function getTotalHT()
+    {
+        return $this->totalHT;
+    }
+
+    /**
+     * @param float $totalHT
+     */
+    public function setTotalHT($totalHT)
+    {
+        $this->totalHT = $totalHT;
+    }
+
+    /**
+     * @return float
+     */
+    public function getTotalVAT()
+    {
+        return $this->totalVAT;
+    }
+
+    /**
+     * @param float $totalVAT
+     */
+    public function setTotalVAT($totalVAT)
+    {
+        $this->totalVAT = $totalVAT;
+    }
+
+    /**
+     * @return float
+     */
+    public function getDiscount()
+    {
+        return $this->discount;
+    }
+
+    /**
+     * @param float $discount
+     */
+    public function setDiscount($discount)
+    {
+        $this->discount = $discount;
+    }
+
+    /**
+     * @return float
+     */
+    public function getDeliveryCharge()
+    {
+        return $this->deliveryCharge;
+    }
+
+    /**
+     * @param float $deliveryCharge
+     */
+    public function setDeliveryCharge($deliveryCharge)
+    {
+        $this->deliveryCharge = $deliveryCharge;
+    }
+
     /**
      * @var string
      */
