@@ -21,6 +21,48 @@ class OrderProduct extends Master
     private $quantity;
 
     /**
+     * @var float
+     */
+    private $cost;
+
+    /**
+     * @var float
+     */
+    private $vat;
+
+    /**
+     * @return float
+     */
+    public function getCost()
+    {
+        return $this->cost;
+    }
+
+    /**
+     * @param float $cost
+     */
+    public function setCost($cost)
+    {
+        $this->cost = $cost;
+    }
+
+    /**
+     * @return float
+     */
+    public function getVat()
+    {
+        return $this->vat;
+    }
+
+    /**
+     * @param float $vat
+     */
+    public function setVat($vat)
+    {
+        $this->vat = $vat;
+    }
+
+    /**
      * @return int
      */
     public function getFree()
