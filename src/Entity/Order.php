@@ -224,7 +224,28 @@ class Order extends Master
     /**
      * @var float
      */
+    private $discountType;
+
+    /**
+     * @var float
+     */
     private $deliveryCharge;
+
+    /**
+     * @return float
+     */
+    public function getDiscountType()
+    {
+        return $this->discountType;
+    }
+
+    /**
+     * @param float $discountType
+     */
+    public function setDiscountType($discountType)
+    {
+        $this->discountType = $discountType;
+    }
 
     /**
      * @return float
