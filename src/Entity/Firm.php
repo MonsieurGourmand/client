@@ -45,9 +45,30 @@ class Firm extends Master
     private $idFirm;
 
     /**
-     * @var string
+     * @var integer
      */
     private $postagePaid;
+
+    /**
+     * @var string
+     */
+    private $comment;
+
+    /**
+     * @return string
+     */
+    public function getComment()
+    {
+        return $this->comment;
+    }
+
+    /**
+     * @param string $comment
+     */
+    public function setComment($comment)
+    {
+        $this->comment = $comment;
+    }
 
     /**
      * @return string
