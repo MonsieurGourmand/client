@@ -32,17 +32,17 @@ class OrderEvent extends Master
     }
 
     /**
-     * @var \Mgd\Route\Order\OrderProduct
+     * @var \Mgd\Route\OrderEvent\OrderProduct
      */
     public $orderProducts;
 
     /**
-     * @var \Mgd\Route\Order\Package
+     * @var \Mgd\Route\OrderEvent\Package
      */
     public $packages;
 
     /**
-     * @var \Mgd\Route\Order\AlEvent
+     * @var \Mgd\Route\OrderEvent\AlEvent
      */
     public $alEvents;
 

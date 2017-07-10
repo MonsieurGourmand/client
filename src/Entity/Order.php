@@ -11,7 +11,7 @@ class Order extends Master
 
 
     /**
-     * @var \DateTime
+     * @var string
      */
     private $orderDate;
 
