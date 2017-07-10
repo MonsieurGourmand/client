@@ -31,6 +31,71 @@ class Order extends Master
     private $name;
 
     /**
+     * @var Firm
+     *
+     */
+    private $purchaser;
+
+    /**
+     * @var Firm
+     */
+    private $seller;
+
+    /**
+     * @var User
+     */
+    private $leadUser;
+
+    /**
+     * @return Firm
+     */
+    public function getPurchaser()
+    {
+        return $this->purchaser;
+    }
+
+    /**
+     * @param Firm $purchaser
+     */
+    public function setPurchaser($purchaser)
+    {
+        $this->purchaser = $purchaser;
+    }
+
+    /**
+     * @return Firm
+     */
+    public function getSeller()
+    {
+        return $this->seller;
+    }
+
+    /**
+     * @param Firm $seller
+     */
+    public function setSeller($seller)
+    {
+        $this->seller = $seller;
+    }
+
+    /**
+     * @return User
+     */
+    public function getLeadUser()
+    {
+        return $this->leadUser;
+    }
+
+    /**
+     * @param User $leadUser
+     */
+    public function setLeadUser($leadUser)
+    {
+        $this->leadUser = $leadUser;
+    }
+
+
+    /**
      * @return int
      */
     public function getIdOrder()
