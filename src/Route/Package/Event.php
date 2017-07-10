@@ -16,7 +16,7 @@ class Event
     {
         $this->master = $package->getMaster();
         $this->entity = \Mgd\Entity\Event::class;
-        $this->url = "/orders/".$package->getOrder()->getIdOrder()."/packages/".$package->getIdPackage()."/events";
+        $this->url = "/orders/".$package->getOrderEvent()->getOrder()->getIdOrder()."/events/".$package->getOrderEvent()->getIdOrderEvent()."/packages/".$package->getIdPackage()."/events";
     }
 
     public function getAll($format=\Mgd\Mgd::FORMAT_OBJECT)

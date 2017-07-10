@@ -12,11 +12,11 @@ use Mgd\Entity\Order;
 
 class OrderProduct
 {
-    public function __construct(Order $order)
+    public function __construct(\Mgd\Entity\OrderEvent $orderEvent)
     {
-        $this->master = $order->getMaster();
+        $this->master = $orderEvent->getMaster();
         $this->entity = \Mgd\Entity\OrderProduct::class;
-        $this->url = "/orders/".$order->getIdOrder()."/products";
+        $this->url = "/orders/".$orderEvent->getOrder()->getidOrder()."/events/".$orderEvent->getIdOrderEvent()."/products";
     }
 
     public function getAll($format=\Mgd\Mgd::FORMAT_OBJECT)

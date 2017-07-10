@@ -4,10 +4,18 @@ namespace Mgd\Entity;
 
 class OrderProduct extends Master
 {
+
+
     /**
-     * @var Order
+     * @var integer
+     *
      */
-    private $order;
+    private $idOrderProduct;
+
+    /**
+     * @var OrderEvent
+     */
+    private $orderEvent;
 
     /**
      * @var Product
@@ -62,49 +70,6 @@ class OrderProduct extends Master
         $this->vat = $vat;
     }
 
-    /**
-     * @return int
-     */
-    public function getFree()
-    {
-        return $this->free;
-    }
-
-    /**
-     * @param int $free
-     */
-    public function setFree($free)
-    {
-        $this->free = $free;
-    }
-
-    /**
-     * @var integer
-     *
-     */
-    private $free;
-
-    /**
-     * @var integer
-     *
-     */
-    private $idOrderProduct;
-
-    /**
-     * @return Order
-     */
-    public function getOrder()
-    {
-        return $this->order;
-    }
-
-    /**
-     * @param Order $order
-     */
-    public function setOrder($order)
-    {
-        $this->order = $order;
-    }
 
     /**
      * @return Product
@@ -153,6 +118,23 @@ class OrderProduct extends Master
     {
         $this->idOrderProduct = $idOrderProduct;
     }
+
+    /**
+     * @return OrderEvent
+     */
+    public function getOrderEvent()
+    {
+        return $this->orderEvent;
+    }
+
+    /**
+     * @param OrderEvent $orderEvent
+     */
+    public function setOrderEvent($orderEvent)
+    {
+        $this->orderEvent = $orderEvent;
+    }
+
 
 
 }

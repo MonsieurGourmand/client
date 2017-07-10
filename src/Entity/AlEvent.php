@@ -11,10 +11,10 @@ class AlEvent extends Master
     private $id;
 
     /**
-     * @var Order
+     * @var OrderEvent
      *
      */
-    private $order;
+    private $orderEvent;
 
     /**
      * @var string
@@ -73,22 +73,6 @@ class AlEvent extends Master
     }
 
     /**
-     * @return Order
-     */
-    public function getOrder()
-    {
-        return $this->order;
-    }
-
-    /**
-     * @param Order $order
-     */
-    public function setOrder($order)
-    {
-        $this->order = $order;
-    }
-
-    /**
      * @return string
      */
     public function getContent()
@@ -135,4 +119,21 @@ class AlEvent extends Master
     {
         $this->eventDate = $eventDate;
     }
+
+    /**
+     * @return OrderEvent
+     */
+    public function getOrderEvent()
+    {
+        return $this->orderEvent;
+    }
+
+    /**
+     * @param OrderEvent $orderEvent
+     */
+    public function setOrderEvent($orderEvent)
+    {
+        $this->orderEvent = $orderEvent;
+    }
+
 }

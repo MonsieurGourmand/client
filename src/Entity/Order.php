@@ -4,53 +4,21 @@ namespace Mgd\Entity;
 
 class Order extends Master
 {
+    /**
+     * @var integer
+     */
+    private $idOrder;
+
 
     /**
-     * @var \Mgd\Route\Order\OrderProduct
+     * @var \DateTime
      */
-    public $orderProducts;
+    private $orderDate;
 
     /**
-     * @var \Mgd\Route\Order\Package
+     * @var \Mgd\Route\Order\OrderEvent
      */
-    public $packages;
-
-    /**
-     * @var \Mgd\Route\Order\AlEvent
-     */
-    public $alEvents;
-
-    /**
-     * @var Document
-     */
-    private $document;
-
-    /**
-     * @var Order
-     */
-    private $parent;
-
-    /**
-     * @var Firm
-     *
-     */
-    private $purchaser;
-
-    /**
-     * @var Firm
-     */
-    private $seller;
-
-    /**
-     * @var User
-     */
-    private $leadUser;
-
-    /**
-     * @var User
-     */
-    private $saleUser;
-
+    public $orderEvents;
 
     /**
      * @var User[]
@@ -60,393 +28,22 @@ class Order extends Master
     /**
      * @var string
      */
-    private $place;
+    private $name;
 
     /**
-     * @var string
+     * @return int
      */
-    private $zipCode;
-
-    /**
-     * @var string
-     */
-    private $city;
-
-    /**
-     * @var string
-     */
-    private $invoiceNumber;
-
-
-    /**
-     * @var string
-     */
-    private $comment;
-
-    /**
-     * @return string
-     */
-    public function getComment()
+    public function getIdOrder()
     {
-        return $this->comment;
+        return $this->idOrder;
     }
 
     /**
-     * @param string $comment
+     * @param int $idOrder
      */
-    public function setComment($comment)
+    public function setIdOrder($idOrder)
     {
-        $this->comment = $comment;
-    }
-
-
-    /**
-     * @var \DateTime
-     */
-    private $orderDate;
-
-    /**
-     * @var string
-     */
-    private $deliveryReference;
-
-    /**
-     * @var \DateTime
-     */
-    private $deliveryDate;
-
-    /**
-     * @var \DateTime
-     */
-    private $shippingDate;
-
-    /**
-     * @return User
-     */
-    public function getSaleUser()
-    {
-        return $this->saleUser;
-    }
-
-    /**
-     * @param User $saleUser
-     */
-    public function setSaleUser($saleUser)
-    {
-        $this->saleUser = $saleUser;
-    }
-
-    /**
-     * @return string
-     */
-    public function getZipCode()
-    {
-        return $this->zipCode;
-    }
-
-    /**
-     * @param string $zipCode
-     */
-    public function setZipCode($zipCode)
-    {
-        $this->zipCode = $zipCode;
-    }
-
-    /**
-     * @return string
-     */
-    public function getCity()
-    {
-        return $this->city;
-    }
-
-    /**
-     * @param string $city
-     */
-    public function setCity($city)
-    {
-        $this->city = $city;
-    }
-
-    /**
-     * @return \DateTime
-     */
-    public function getShippingDate()
-    {
-        return $this->shippingDate;
-    }
-
-    /**
-     * @param \DateTime $shippingDate
-     */
-    public function setShippingDate($shippingDate)
-    {
-        $this->shippingDate = $shippingDate;
-    }
-
-    /**
-     * @var \DateTime
-     */
-    private $actualDeliveryDate;
-
-    /**
-     * @var integer
-     */
-    private $status = 0;
-
-    /**
-     * @var string
-     */
-    private $step;
-
-    /**
-     * @var float
-     */
-    private $total;
-
-
-    /**
-     * @var float
-     */
-    private $totalHT;
-
-    /**
-     * @var float
-     */
-    private $totalVAT;
-
-
-    /**
-     * @var float
-     */
-    private $discount;
-
-    /**
-     * @var float
-     */
-    private $discountType;
-
-    /**
-     * @var float
-     */
-    private $deliveryCharge;
-
-    /**
-     * @return float
-     */
-    public function getDiscountType()
-    {
-        return $this->discountType;
-    }
-
-    /**
-     * @param float $discountType
-     */
-    public function setDiscountType($discountType)
-    {
-        $this->discountType = $discountType;
-    }
-
-    /**
-     * @return float
-     */
-    public function getTotalHT()
-    {
-        return $this->totalHT;
-    }
-
-    /**
-     * @param float $totalHT
-     */
-    public function setTotalHT($totalHT)
-    {
-        $this->totalHT = $totalHT;
-    }
-
-    /**
-     * @return float
-     */
-    public function getTotalVAT()
-    {
-        return $this->totalVAT;
-    }
-
-    /**
-     * @param float $totalVAT
-     */
-    public function setTotalVAT($totalVAT)
-    {
-        $this->totalVAT = $totalVAT;
-    }
-
-    /**
-     * @return float
-     */
-    public function getDiscount()
-    {
-        return $this->discount;
-    }
-
-    /**
-     * @param float $discount
-     */
-    public function setDiscount($discount)
-    {
-        $this->discount = $discount;
-    }
-
-    /**
-     * @return float
-     */
-    public function getDeliveryCharge()
-    {
-        return $this->deliveryCharge;
-    }
-
-    /**
-     * @param float $deliveryCharge
-     */
-    public function setDeliveryCharge($deliveryCharge)
-    {
-        $this->deliveryCharge = $deliveryCharge;
-    }
-
-    /**
-     * @var string
-     */
-    private $orderReference;
-
-    /**
-     * @var integer
-     */
-    private $idOrder;
-
-    /**
-     * @return Document
-     */
-    public function getDocument()
-    {
-        return $this->document;
-    }
-
-    /**
-     * @param Document $document
-     */
-    public function setDocument($document)
-    {
-        $this->document = $document;
-    }
-
-    /**
-     * @return Order
-     */
-    public function getParent()
-    {
-        return $this->parent;
-    }
-
-    /**
-     * @param Order $parent
-     */
-    public function setParent($parent)
-    {
-        $this->parent = $parent;
-    }
-
-    /**
-     * @return Firm
-     */
-    public function getPurchaser()
-    {
-        return $this->purchaser;
-    }
-
-    /**
-     * @param Firm $purchaser
-     */
-    public function setPurchaser($purchaser)
-    {
-        $this->purchaser = $purchaser;
-    }
-
-    /**
-     * @return Firm
-     */
-    public function getSeller()
-    {
-        return $this->seller;
-    }
-
-    /**
-     * @param Firm $seller
-     */
-    public function setSeller($seller)
-    {
-        $this->seller = $seller;
-    }
-
-    /**
-     * @return User
-     */
-    public function getLeadUser()
-    {
-        return $this->leadUser;
-    }
-
-    /**
-     * @param User $leadUser
-     */
-    public function setLeadUser($leadUser)
-    {
-        $this->leadUser = $leadUser;
-    }
-
-    /**
-     * @return User
-     */
-    public function getFollowers()
-    {
-        return $this->followers;
-    }
-
-    /**
-     * @param $followers
-     */
-    public function setFollowers($followers)
-    {
-        $this->followers = $followers;
-    }
-
-    /**
-     * @return string
-     */
-    public function getPlace()
-    {
-        return $this->place;
-    }
-
-    /**
-     * @param string $place
-     */
-    public function setPlace($place)
-    {
-        $this->place = $place;
-    }
-
-    /**
-     * @return string
-     */
-    public function getInvoiceNumber()
-    {
-        return $this->invoiceNumber;
-    }
-
-    /**
-     * @param string $invoiceNumber
-     */
-    public function setInvoiceNumber($invoiceNumber)
-    {
-        $this->invoiceNumber = $invoiceNumber;
+        $this->idOrder = $idOrder;
     }
 
     /**
@@ -465,127 +62,37 @@ class Order extends Master
         $this->orderDate = $orderDate;
     }
 
+
+
     /**
-     * @return string
+     * @return User[]
      */
-    public function getDeliveryReference()
+    public function getFollowers()
     {
-        return $this->deliveryReference;
+        return $this->followers;
     }
 
     /**
-     * @param string $deliveryReference
+     * @param User[] $followers
      */
-    public function setDeliveryReference($deliveryReference)
+    public function setFollowers($followers)
     {
-        $this->deliveryReference = $deliveryReference;
-    }
-
-    /**
-     * @return \DateTime
-     */
-    public function getDeliveryDate()
-    {
-        return $this->deliveryDate;
-    }
-
-    /**
-     * @param \DateTime $deliveryDate
-     */
-    public function setDeliveryDate($deliveryDate)
-    {
-        $this->deliveryDate = $deliveryDate;
-    }
-
-    /**
-     * @return \DateTime
-     */
-    public function getActualDeliveryDate()
-    {
-        return $this->actualDeliveryDate;
-    }
-
-    /**
-     * @param \DateTime $actualDeliveryDate
-     */
-    public function setActualDeliveryDate($actualDeliveryDate)
-    {
-        $this->actualDeliveryDate = $actualDeliveryDate;
-    }
-
-    /**
-     * @return int
-     */
-    public function getStatus()
-    {
-        return $this->status;
-    }
-
-    /**
-     * @param int $status
-     */
-    public function setStatus($status)
-    {
-        $this->status = $status;
+        $this->followers = $followers;
     }
 
     /**
      * @return string
      */
-    public function getStep()
+    public function getName()
     {
-        return $this->step;
+        return $this->name;
     }
 
     /**
-     * @param string $step
+     * @param string $name
      */
-    public function setStep($step)
+    public function setName($name)
     {
-        $this->step = $step;
-    }
-
-    /**
-     * @return int
-     */
-    public function getIdOrder()
-    {
-        return $this->idOrder;
-    }
-
-    /**
-     * @return float
-     */
-    public function getTotal()
-    {
-        return $this->total;
-    }
-
-    /**
-     * @param float $total
-     * @return Order
-     */
-    public function setTotal($total)
-    {
-        $this->total = $total;
-        return $this;
-    }
-
-    /**
-     * @return string
-     */
-    public function getOrderReference()
-    {
-        return $this->orderReference;
-    }
-
-    /**
-     * @param string $orderReference
-     * @return Order
-     */
-    public function setOrderReference($orderReference)
-    {
-        $this->orderReference = $orderReference;
-        return $this;
+        $this->name = $name;
     }
 }

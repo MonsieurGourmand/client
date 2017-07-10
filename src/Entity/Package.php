@@ -29,9 +29,15 @@ class Package extends Master
     private $shippingDate;
 
     /**
-     * @var Order
+     * @var OrderEvent
      */
-    private $order;
+    private $orderEvent;
+
+    /**
+     * @var integer
+     *
+     */
+    private $type;
 
     /**
      * @return Event
@@ -103,22 +109,6 @@ class Package extends Master
     }
 
     /**
-     * @return Order
-     */
-    public function getOrder()
-    {
-        return $this->order;
-    }
-
-    /**
-     * @param Order $order
-     */
-    public function setOrder($order)
-    {
-        $this->order = $order;
-    }
-
-    /**
      * @return int
      */
     public function getType()
@@ -135,8 +125,20 @@ class Package extends Master
     }
 
     /**
-     * @var integer
-     *
+     * @return OrderEvent
      */
-    private $type;
+    public function getOrderEvent()
+    {
+        return $this->orderEvent;
+    }
+
+    /**
+     * @param OrderEvent $orderEvent
+     */
+    public function setOrderEvent($orderEvent)
+    {
+        $this->orderEvent = $orderEvent;
+    }
+
+
 }
