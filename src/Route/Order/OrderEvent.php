@@ -16,27 +16,31 @@ class OrderEvent
     {
         $this->master = $order->getMaster();
         $this->entity = \Mgd\Entity\OrderEvent::class;
-        $this->url = "/orders/".$order->getIdOrder()."/events";
+        $this->url = "/orders/" . $order->getIdOrder() . "/events";
+        $this->idOrder = $order->getIdOrder();
     }
 
-    public function getAll($format=\Mgd\Mgd::FORMAT_OBJECT)
+    public function getAll($format = \Mgd\Mgd::FORMAT_OBJECT)
     {
         $params = array();
-        return $this->master->getAll($this->url, $this->entity,$params,$format);
+        return $this->master->getAll($this->url, $this->entity, $params, $format);
     }
 
-    public function get($id,$format=\Mgd\Mgd::FORMAT_OBJECT)
+    public function get($id, $format = \Mgd\Mgd::FORMAT_OBJECT)
     {
-        return $this->master->get($this->url,$id,$this->entity,$format);
+        if ($format != \Mgd\Mgd::FORMAT_PDF)
+            return $this->master->get($this->url, $id, $this->entity, $format);
+        else
+            return $this->master->get("/purchases/" .$this->idOrder."/events", $id, $this->entity, $format);
     }
 
-    public function post(\Mgd\Entity\OrderEvent $orderEvent,$format=\Mgd\Mgd::FORMAT_OBJECT)
+    public function post(\Mgd\Entity\OrderEvent $orderEvent, $format = \Mgd\Mgd::FORMAT_OBJECT)
     {
-        return $this->master->post($this->url,$orderEvent,$this->entity,$format);
+        return $this->master->post($this->url, $orderEvent, $this->entity, $format);
     }
 
-    public function put(\Mgd\Entity\OrderEvent $orderEvent,$format=\Mgd\Mgd::FORMAT_OBJECT)
+    public function put(\Mgd\Entity\OrderEvent $orderEvent, $format = \Mgd\Mgd::FORMAT_OBJECT)
     {
-        return $this->master->put($this->url,$orderEvent->getidOrderEvent(),$orderEvent,$this->entity,$format);
+        return $this->master->put($this->url, $orderEvent->getidOrderEvent(), $orderEvent, $this->entity, $format);
     }
 }
