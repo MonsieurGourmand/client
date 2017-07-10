@@ -18,7 +18,7 @@ class Order extends Master
     /**
      * @var \Mgd\Route\Order\OrderEvent
      */
-    public $orderEvents;
+    public $orderEvent;
 
     /**
      * @var User[]
