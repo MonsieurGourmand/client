@@ -37,6 +37,11 @@ class OrderEvent extends Master
     public $orderProduct;
 
     /**
+     * @var \Mgd\Route\OrderEvent\OrderMoment
+     */
+    public $orderMoments;
+
+    /**
      * @var \Mgd\Route\OrderEvent\Package
      */
     public $package;
