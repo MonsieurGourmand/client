@@ -27,6 +27,32 @@ class OrderMoment extends Master
     private $title;
 
     /**
+     * @var \Mgd\Route\OrderMoment\OrderProduct
+     */
+    public $orderProduct;
+
+    /**
+     * @var OrderEvent
+     */
+    private $orderEvent;
+
+    /**
+     * @return mixed
+     */
+    public function getOrderEvent()
+    {
+        return $this->orderEvent;
+    }
+
+    /**
+     * @param mixed $orderEvent
+     */
+    public function setOrderEvent($orderEvent)
+    {
+        $this->orderEvent = $orderEvent;
+    }
+
+    /**
      * @return int
      */
     public function getIdOrderMoment()
