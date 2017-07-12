@@ -102,6 +102,69 @@ class OrderEvent extends Master
     /**
      * @var \DateTime
      */
+    private $eventStart;
+
+    /**
+     * @var \DateTime
+     */
+    private $eventEnd;
+
+    /**
+     * @var string
+     */
+    private $estimateNumber;
+
+    /**
+     * @return \DateTime
+     */
+    public function getEventStart()
+    {
+        return $this->eventStart;
+    }
+
+    /**
+     * @param \DateTime $eventStart
+     */
+    public function setEventStart($eventStart)
+    {
+        $this->eventStart = $eventStart;
+    }
+
+    /**
+     * @return \DateTime
+     */
+    public function getEventEnd()
+    {
+        return $this->eventEnd;
+    }
+
+    /**
+     * @param \DateTime $eventEnd
+     */
+    public function setEventEnd($eventEnd)
+    {
+        $this->eventEnd = $eventEnd;
+    }
+
+    /**
+     * @return string
+     */
+    public function getEstimateNumber()
+    {
+        return $this->estimateNumber;
+    }
+
+    /**
+     * @param string $estimateNumber
+     */
+    public function setEstimateNumber($estimateNumber)
+    {
+        $this->estimateNumber = $estimateNumber;
+    }
+
+    /**
+     * @var \DateTime
+     */
     private $shippingDate;
 
 
