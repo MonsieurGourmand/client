@@ -21,10 +21,7 @@ class OrderMoment extends Master
      */
     private $pax;
 
-    /**
-     * @var string
-     */
-    private $title;
+
 
     /**
      * @var \Mgd\Route\OrderMoment\OrderProduct
@@ -98,22 +95,6 @@ class OrderMoment extends Master
     public function setPax($pax)
     {
         $this->pax = $pax;
-    }
-
-    /**
-     * @return string
-     */
-    public function getTitle()
-    {
-        return $this->title;
-    }
-
-    /**
-     * @param string $title
-     */
-    public function setTitle($title)
-    {
-        $this->title = $title;
     }
 
 
