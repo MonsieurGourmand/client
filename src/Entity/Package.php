@@ -38,28 +38,6 @@ class Package extends Master
      *
      */
     private $type;
-
-    /**
-     * @return Event
-     */
-    public function getActiveEvent()
-    {
-        return $this->activeEvent;
-    }
-
-    /**
-     * @param Event $activeEvent
-     */
-    public function setActiveEvent($activeEvent)
-    {
-        $this->activeEvent = $activeEvent;
-    }
-
-    /**
-     * @var Event
-     */
-    private $activeEvent;
-
     /**
      * @return int
      */
