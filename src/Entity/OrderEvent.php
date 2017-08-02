@@ -64,27 +64,6 @@ class OrderEvent extends Master
     /**
      * @var string
      */
-    private $streetNumber;
-
-    /**
-     * @return string
-     */
-    public function getStreetNumber()
-    {
-        return $this->streetNumber;
-    }
-
-    /**
-     * @param string $streetNumber
-     */
-    public function setStreetNumber($streetNumber)
-    {
-        $this->streetNumber = $streetNumber;
-    }
-
-    /**
-     * @var string
-     */
     private $place;
 
     /**
