@@ -4,7 +4,7 @@ namespace Mgd;
 
 class Mgd {
     const TOKEN_ENDPOINT = '/oauth/v2/token';
-    const GROUPS_ROAD = 'groups/';
+    const GROUPS_ROAD = '/groups/';
 
     private $oauthRoot;
     private $apiRoot;
@@ -31,7 +31,7 @@ class Mgd {
 
     public function __construct($client_id,$client_secret,$callback,$oauthRoot) {
         $this->oauthRoot = $oauthRoot;
-        $this->apiRoot = $oauthRoot.'/v1/';
+        $this->apiRoot = $oauthRoot.'/v1';
         $this->client_id = $client_id;
         $this->client_secret=$client_secret;
         $this->callback = $callback;
