@@ -36,19 +36,6 @@ class Mgd {
         $this->client_secret=$client_secret;
         $this->callback = $callback;
 
-        // Entités métiers
-        $this->category = new \Mgd\Route\Category($this);
-        $this->customer = new \Mgd\Route\Customer($this);
-        $this->operation = new \Mgd\Route\Operation($this);
-        $this->product = new \Mgd\Route\Product($this);
-        $this->purchase = new \Mgd\Route\Purchase($this);
-        $this->sale = new \Mgd\Route\Sale($this);
-        $this->supplier = new \Mgd\Route\Supplier($this);
-        $this->user = new \Mgd\Route\User($this);
-        $this->zone = new \Mgd\Route\Zone($this);
-        $this->stat = new \Mgd\Route\Stat($this);
-
-
         $this->parser = new Parser();
         $this->serializer = new Serializer();
     }
@@ -65,6 +52,18 @@ class Mgd {
         $this->client->setAccessToken($response['result']['access_token']);
         $this->refresh_token = $response['result']['refresh_token'];
         $this->me();
+
+        // Générations des routes non-anonnymes
+        $this->category = new \Mgd\Route\Category($this);
+        $this->customer = new \Mgd\Route\Customer($this);
+        $this->operation = new \Mgd\Route\Operation($this);
+        $this->product = new \Mgd\Route\Product($this);
+        $this->purchase = new \Mgd\Route\Purchase($this);
+        $this->sale = new \Mgd\Route\Sale($this);
+        $this->supplier = new \Mgd\Route\Supplier($this);
+        $this->user = new \Mgd\Route\User($this);
+        $this->zone = new \Mgd\Route\Zone($this);
+        $this->stat = new \Mgd\Route\Stat($this);
     }
 
     public function accessClientCredential()
@@ -72,6 +71,9 @@ class Mgd {
         $this->client = new \OAuth2\Client($this->client_id,$this->client_secret);
         $response = $this->client->getAccessToken($this->oauthRoot.self::TOKEN_ENDPOINT, 'client_credentials',array());
         $this->client->setAccessToken($response['result']['access_token']);
+
+        // Générations des routes anonymes
+        $this->prospect = new \Mgd\Route\Prospect($this);
     }
 
     public function me()
