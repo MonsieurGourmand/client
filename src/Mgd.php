@@ -4,7 +4,7 @@ namespace Mgd;
 
 class Mgd {
     const TOKEN_ENDPOINT = '/oauth/v2/token';
-    const MOTHER_ROAD = 'groups/';
+    const GROUPS_ROAD = 'groups/';
 
     private $oauthRoot;
     private $apiRoot;
@@ -16,6 +16,7 @@ class Mgd {
     const FORMAT_JSON = "json";
     const FORMAT_PDF = "pdf";
 
+    /** @var \OAuth2\Client */
     public $client;
     /**
      * @var \Mgd\Entity\User $user
@@ -80,7 +81,7 @@ class Mgd {
     }
 
     public function getAll($url, $entityClass ,$params=array(),$format) {
-        $response = $this->client->fetch($this->apiRoot .self::MOTHER_ROAD.$this->me->getFirm()->getIdFirm(). $url . '.json',$params);
+        $response = $this->client->fetch($this->apiRoot . $url . '.json',$params);
         if(self::getError($response))
             return self::getAll($url, $entityClass ,$params,$format);
         if($format == self::FORMAT_OBJECT)
@@ -94,9 +95,9 @@ class Mgd {
     public function get($url, $id, $entityClass,$format) {
         $format == self::FORMAT_PDF ? $dot = ".pdf" : $dot = ".json";
         if($id != null)
-            $response = $this->client->fetch($this->apiRoot .self::MOTHER_ROAD.$this->me->getFirm()->getIdFirm(). $url .'/'.$id. $dot);
+            $response = $this->client->fetch($this->apiRoot . $url .'/'.$id. $dot);
         else
-            $response = $this->client->fetch($this->apiRoot .self::MOTHER_ROAD.$this->me->getFirm()->getIdFirm(). $url. $dot);
+            $response = $this->client->fetch($this->apiRoot . $url. $dot);
         if(self::getError($response))
             return self::get($url, $id, $entityClass,$format);
         if($format == self::FORMAT_OBJECT)
@@ -108,7 +109,7 @@ class Mgd {
     }
 
     public function post($url, $object, $entityClass,$format) {
-        $response = $this->client->fetch($this->apiRoot.self::MOTHER_ROAD.$this->me->getFirm()->getIdFirm() . $url . '.json',$this->serializer->serialize($object),\OAuth2\Client::HTTP_METHOD_POST,array('Content-Type' => 'application/x-www-form-urlencoded'),\OAuth2\Client::HTTP_FORM_CONTENT_TYPE_APPLICATION);
+        $response = $this->client->fetch($this->apiRoot. $url . '.json',$this->serializer->serialize($object),\OAuth2\Client::HTTP_METHOD_POST,array('Content-Type' => 'application/x-www-form-urlencoded'),\OAuth2\Client::HTTP_FORM_CONTENT_TYPE_APPLICATION);
         if(self::getError($response))
             return self::post($url, $object, $entityClass,$format);
         if($format == self::FORMAT_OBJECT)
@@ -119,7 +120,7 @@ class Mgd {
             return $response['result'];    }
 
     public function put($url, $id, $object, $entityClass,$format) {
-        $response = $this->client->fetch($this->apiRoot .self::MOTHER_ROAD.$this->me->getFirm()->getIdFirm(). $url .'/'.$id. '.json',$this->serializer->serialize($object),\OAuth2\Client::HTTP_METHOD_PUT,array('Content-Type' => 'application/x-www-form-urlencoded'),\OAuth2\Client::HTTP_FORM_CONTENT_TYPE_APPLICATION);
+        $response = $this->client->fetch($this->apiRoot . $url .'/'.$id. '.json',$this->serializer->serialize($object),\OAuth2\Client::HTTP_METHOD_PUT,array('Content-Type' => 'application/x-www-form-urlencoded'),\OAuth2\Client::HTTP_FORM_CONTENT_TYPE_APPLICATION);
         if(self::getError($response))
             return self::put($url, $id, $object, $entityClass,$format);
         if($format == self::FORMAT_OBJECT)
@@ -130,7 +131,7 @@ class Mgd {
             return $response['result'];    }
 
     public function remove($url, $id) {
-        $response = $this->client->fetch($this->apiRoot.self::MOTHER_ROAD.$this->me->getFirm()->getIdFirm() . $url .'/'.$id. '.json',array(),\OAuth2\Client::HTTP_METHOD_DELETE);
+        $response = $this->client->fetch($this->apiRoot. $url .'/'.$id. '.json',array(),\OAuth2\Client::HTTP_METHOD_DELETE);
         if(self::getError($response))
             return self::remove($url, $id);
         return $response;
@@ -153,7 +154,6 @@ class Mgd {
                 $this->accessClientCredential();
                 return true;
             }
-
         }
         // Gestion de l'accessToken expired
         if(floor($response['code'] / 100) == 4) {

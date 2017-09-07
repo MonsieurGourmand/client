@@ -9,15 +9,15 @@
 namespace Mgd\Route;
 
 
+use Mgd\Mgd;
+
 class Customer
 {
-    /** @var string */
-    protected $url = "/customers";
-
     public function __construct(\Mgd\Mgd $master)
     {
         $this->master = $master;
         $this->entity = \Mgd\Entity\Firm::class;
+        $this->url = Mgd::GROUPS_ROAD.$master->me->getFirm()->getIdFirm().'/customers';
     }
 
     public function getAll($format=\Mgd\Mgd::FORMAT_OBJECT)

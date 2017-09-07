@@ -9,16 +9,15 @@
 namespace Mgd\Route;
 
 
+use Mgd\Mgd;
+
 class Product
 {
-    /** @var string */
-    protected $url = "/products";
-
-
     public function __construct(\Mgd\Mgd $master)
     {
         $this->master = $master;
         $this->entity = \Mgd\Entity\Product::class;
+        $this->url = Mgd::GROUPS_ROAD.$master->me->getFirm()->getIdFirm().'/products';
     }
 
     public function getAll($format=\Mgd\Mgd::FORMAT_OBJECT)

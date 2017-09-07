@@ -9,6 +9,7 @@
 namespace Mgd\Route\Operation;
 
 use Mgd\Entity\Operation;
+use Mgd\Mgd;
 
 class Task
 {
@@ -16,7 +17,7 @@ class Task
     {
         $this->master = $operation->getMaster();
         $this->entity = \Mgd\Entity\Task::class;
-        $this->url = "/operations/".$operation->getIdOperation()."/tasks";
+        $this->url = Mgd::GROUPS_ROAD.$this->master->me->getFirm()->getIdFirm()."/operations/".$operation->getIdOperation()."/tasks";
     }
 
     public function getAll($format=\Mgd\Mgd::FORMAT_OBJECT)

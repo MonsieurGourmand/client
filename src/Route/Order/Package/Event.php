@@ -9,6 +9,7 @@
 namespace Mgd\Route\Package;
 
 use Mgd\Entity\Order;
+use Mgd\Mgd;
 
 class Event
 {
@@ -16,7 +17,8 @@ class Event
     {
         $this->master = $package->getMaster();
         $this->entity = \Mgd\Entity\Event::class;
-        $this->url = "/orders/".$package->getOrder()->getIdOrder()."/packages/".$package->getIdPackage()."/events";
+        $this->url =
+        $this->url = Mgd::GROUPS_ROAD.$this->master->me->getFirm()->getIdFirm()."/orders/".$package->getOrder()->getIdOrder()."/packages/".$package->getIdPackage()."/events";
     }
 
     public function getAll($format=\Mgd\Mgd::FORMAT_OBJECT)

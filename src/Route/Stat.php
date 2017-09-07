@@ -9,11 +9,10 @@
 namespace Mgd\Route;
 
 
+use Mgd\Mgd;
+
 class Stat
 {
-    /** @var string */
-    protected $url = "/stats";
-
     /** @var \DateTime $startDate */
     protected $startDate;
 
@@ -23,6 +22,7 @@ class Stat
     public function __construct(\Mgd\Mgd $master)
     {
         $this->master = $master;
+        $this->url = Mgd::GROUPS_ROAD.$master->me->getFirm()->getIdFirm().'/stats';
         $this->startDate = new \DateTime("last month");
         $this->endDate = new \DateTime();
     }

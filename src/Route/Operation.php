@@ -9,15 +9,15 @@
 namespace Mgd\Route;
 
 
+use Mgd\Mgd;
+
 class Operation
 {
-    /** @var string */
-    protected $url = "/operations";
-
     public function __construct(\Mgd\Mgd $master)
     {
         $this->master = $master;
         $this->entity = \Mgd\Entity\Operation::class;
+        $this->url = Mgd::GROUPS_ROAD.$master->me->getFirm()->getIdFirm().'/operations';
     }
 
     public function getAll($format=\Mgd\Mgd::FORMAT_OBJECT)

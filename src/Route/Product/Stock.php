@@ -10,6 +10,7 @@ namespace Mgd\Route\Product;
 
 use Mgd\Entity\Firm;
 use Mgd\Entity\Product;
+use Mgd\Mgd;
 
 class Stock
 {
@@ -17,7 +18,7 @@ class Stock
     {
         $this->master = $product->getMaster();
         $this->entity = \Mgd\Entity\Stock::class;
-        $this->url = "/products/" . $product->getIdProduct() . "/stocks";
+        $this->url = Mgd::GROUPS_ROAD.$this->master->me->getFirm()->getIdFirm()."/products/" . $product->getIdProduct() . "/stocks";
     }
 
     public function getAll($format = \Mgd\Mgd::FORMAT_OBJECT)

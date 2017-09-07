@@ -9,15 +9,15 @@
 namespace Mgd\Route;
 
 
+use Mgd\Mgd;
+
 class Category
 {
-    /** @var string */
-    protected $url = "/categories";
-
     public function __construct(\Mgd\Mgd $master)
     {
         $this->master = $master;
         $this->entity = \Mgd\Entity\Category::class;
+        $this->url = Mgd::GROUPS_ROAD.$master->me->getFirm()->getIdFirm().'/categories';
     }
 
     public function getAll($format=\Mgd\Mgd::FORMAT_OBJECT)
