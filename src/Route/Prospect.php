@@ -17,6 +17,11 @@ class Prospect
     /** @var string */
     protected $email;
 
+    const FIRM_ALL = "ALL";
+
+    /** @var string */
+    protected $firm = null;
+
     public function __construct(\Mgd\Mgd $master)
     {
         $this->master = $master;
@@ -25,7 +30,7 @@ class Prospect
 
     public function getAll($format=\Mgd\Mgd::FORMAT_OBJECT)
     {
-        $params = array();
+        $params = array("firm" => $this->firm);
         if(!empty($this->email))
             $params['email'] = $this->email;
         return $this->master->getAll($this->url, $this->entity,$params,$format);
@@ -61,6 +66,24 @@ class Prospect
     public function setEmail($email)
     {
         $this->email = $email;
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getFirm()
+    {
+        return $this->firm;
+    }
+
+    /**
+     * @param string $firm
+     * @return Prospect
+     */
+    public function setFirm($firm)
+    {
+        $this->firm = $firm;
         return $this;
     }
 }
