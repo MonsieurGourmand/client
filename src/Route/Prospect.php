@@ -25,7 +25,7 @@ class Prospect
     public function __construct(\Mgd\Mgd $master)
     {
         $this->master = $master;
-        $this->entity = \Mgd\Entity\User::class;
+        $this->entity = \Mgd\Entity\Prospect::class;
     }
 
     public function getAll($format=\Mgd\Mgd::FORMAT_OBJECT)

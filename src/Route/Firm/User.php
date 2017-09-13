@@ -8,12 +8,11 @@
 
 namespace Mgd\Route\Firm;
 
-use Mgd\Entity\Firm;
 use Mgd\Mgd;
 
 class User
 {
-    public function __construct(Firm $firm)
+    public function __construct(\Mgd\Entity\Firm $firm)
     {
         $this->master = $firm->getMaster();
         $this->entity = \Mgd\Entity\User::class;

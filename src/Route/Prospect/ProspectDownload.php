@@ -8,16 +8,15 @@
 
 namespace Mgd\Route\Prospect;
 
-use Mgd\Entity\User;
-use Mgd\Mgd;
+use Mgd\Entity\Prospect;
 
 class ProspectDownload
 {
-    public function __construct(User $user)
+    public function __construct(Prospect $prospect)
     {
-        $this->master = $user->getMaster();
+        $this->master = $prospect->getMaster();
         $this->entity = \Mgd\Entity\ProspectDownload::class;
-        $this->url = "/prospects/" . $user->getId() . "/downloads";
+        $this->url = "/prospects/" . $prospect->getId() . "/downloads";
     }
 
     public function getAll($format=\Mgd\Mgd::FORMAT_OBJECT)
