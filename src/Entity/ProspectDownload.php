@@ -2,6 +2,8 @@
 
 namespace Mgd\Entity;
 
+use Mgd\Mgd;
+
 class ProspectDownload extends Master
 {
     /**
@@ -20,9 +22,9 @@ class ProspectDownload extends Master
     private $date;
 
     /**
-     * @var User
+     * @var Prospect
      */
-    private $user;
+    private $prospect;
 
     /**
      * @return int
@@ -79,20 +81,20 @@ class ProspectDownload extends Master
     }
 
     /**
-     * @return mixed
+     * @return Mgd
      */
-    public function getUser()
+    public function getMaster()
     {
-        return $this->user;
+        return $this->master;
     }
 
     /**
-     * @param mixed $user
+     * @param Mgd $master
      * @return ProspectDownload
      */
-    public function setUser($user)
+    public function setMaster($master)
     {
-        $this->user = $user;
+        $this->master = $master;
         return $this;
     }
 }

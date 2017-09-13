@@ -21,9 +21,9 @@ class ProspectMessage extends Master
 
 
     /**
-     * @var User
+     * @var Prospect
      */
-    private $user;
+    private $prospect;
 
     /**
      * @return int
@@ -80,20 +80,18 @@ class ProspectMessage extends Master
     }
 
     /**
-     * @return mixed
+     * @return Prospect
      */
-    public function getUser()
+    public function getProspect()
     {
-        return $this->user;
+        return $this->prospect;
     }
 
     /**
-     * @param mixed $user
-     * @return ProspectMessage
+     * @param Prospect $prospect
      */
-    public function setUser($user)
+    public function setProspect($prospect)
     {
-        $this->user = $user;
-        return $this;
+        $this->prospect = $prospect;
     }
 }
