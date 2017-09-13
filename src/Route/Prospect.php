@@ -41,14 +41,14 @@ class Prospect
         return $this->master->get($this->url,$id,$this->entity,$format);
     }
 
-    public function post(\Mgd\Entity\User $user,$format=\Mgd\Mgd::FORMAT_OBJECT)
+    public function post(\Mgd\Entity\Prospect $prospect,$format=\Mgd\Mgd::FORMAT_OBJECT)
     {
-        return $this->master->post($this->url,$user,$this->entity,$format);
+        return $this->master->post($this->url,$prospect,$this->entity,$format);
     }
 
-    public function put(\Mgd\Entity\User $user,$format=\Mgd\Mgd::FORMAT_OBJECT)
+    public function put(\Mgd\Entity\Prospect $prospect,$format=\Mgd\Mgd::FORMAT_OBJECT)
     {
-        return $this->master->put($this->url,$user->getId(),$user,$this->entity,$format);
+        return $this->master->put($this->url,$prospect->getId(),$prospect,$this->entity,$format);
     }
 
     /**
