@@ -18,43 +18,44 @@ class Price
     {
         $this->master = $product->getMaster();
         $this->entity = \Mgd\Entity\Price::class;
-        $this->url = Mgd::GROUPS_ROAD.$this->master->me->getFirm()->getIdFirm(). "/products/" . $product->getIdProduct() . "/prices";
+        $this->baseUrl = Mgd::GROUPS_ROAD . $this->master->me->getFirm()->getIdFirm();
+        $this->url = "/products/" . $product->getIdProduct() . "/prices";
     }
 
-    public function getAll( Firm $firm = null,$format = \Mgd\Mgd::FORMAT_OBJECT)
+    public function getAll(Firm $firm = null, $format = \Mgd\Mgd::FORMAT_OBJECT)
     {
         if ($firm)
-            $url = "/firms/" . $firm->getIdFirm() . $this->url;
+            $url = $this->baseUrl . "/firms/" . $firm->getIdFirm() . $this->url;
         else
-            $url = $this->url;
+            $url = $this->baseUrl . $this->url;
         $params = array();
         return $this->master->getAll($url, $this->entity, $params, $format);
     }
 
-    public function get($id, Firm $firm = null,$format = \Mgd\Mgd::FORMAT_OBJECT)
+    public function get($id, Firm $firm = null, $format = \Mgd\Mgd::FORMAT_OBJECT)
     {
         if ($firm)
-            $url = "/firms/" . $firm->getIdFirm() . $this->url;
+            $url = $this->baseUrl . "/firms/" . $firm->getIdFirm() . $this->url;
         else
-            $url = $this->url;
+            $url = $this->baseUrl . $this->url;
         return $this->master->get($url, $id, $this->entity, $format);
     }
 
     public function post(\Mgd\Entity\Price $price, Firm $firm = null, $format = \Mgd\Mgd::FORMAT_OBJECT)
     {
         if ($firm)
-            $url = "/firms/" . $firm->getIdFirm() . $this->url;
+            $url = $this->baseUrl . "/firms/" . $firm->getIdFirm() . $this->url;
         else
-            $url = $this->url;
+            $url = $this->baseUrl . $this->url;
         return $this->master->post($url, $price, $this->entity, $format);
     }
 
-    public function put(\Mgd\Entity\Price $price,Firm $firm = null, $format = \Mgd\Mgd::FORMAT_OBJECT)
+    public function put(\Mgd\Entity\Price $price, Firm $firm = null, $format = \Mgd\Mgd::FORMAT_OBJECT)
     {
         if ($firm)
-            $url = "/firms/" . $firm->getIdFirm() . $this->url;
+            $url = $this->baseUrl . "/firms/" . $firm->getIdFirm() . $this->url;
         else
-            $url = $this->url;
+            $url = $this->baseUrl . $this->url;
         return $this->master->put($url, $price->getIdPrice(), $price, $this->entity, $format);
     }
 }
