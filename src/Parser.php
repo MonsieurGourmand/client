@@ -1,4 +1,5 @@
 <?php
+
 namespace Mgd;
 
 /**
@@ -9,21 +10,18 @@ namespace Mgd;
  */
 class Parser
 {
-    public function parse($response,$destination,$master,$format)
+    public function parse($response, $destination, $master, $format)
     {
-        if(!empty($response))
-        {
-            switch ($format){
+        if (!empty($response)) {
+            switch ($format) {
                 case "json":
                     return $this->toJson($response);
                     break;
                 default:
-                    return $this->toObject($response,$destination,$master);
+                    return $this->toObject($response, $destination, $master);
             }
-        }
-        else
-        {
-            switch ($format){
+        } else {
+            switch ($format) {
                 case "json":
                     return $this->toJson($response);
                     break;
@@ -34,20 +32,19 @@ class Parser
 
     }
 
-    public function toObject($response,$destination,$master)
+    public function toObject($response, $destination, $master)
     {
-        if(isset($response[0]))
-        {
-            foreach($response as &$item)
-                $item = self::object($item,$destination,$master);
-        }
-        else
-            $response = self::object($response,$destination,$master);
+        if (isset($response[0])) {
+            foreach ($response as &$item)
+                $item = self::object($item, $destination, $master);
+        } else
+            $response = self::object($response, $destination, $master);
         return $response;
     }
 
-    public function object($arraySource, $destination,$master) {
-        if(!isset($arraySource)) return;
+    public function object($arraySource, $destination, $master)
+    {
+        if (!isset($arraySource)) return;
         $destination = new $destination();
         $destinationReflection = new \ReflectionObject($destination);
 
@@ -61,30 +58,24 @@ class Parser
                 $propDest = $destinationReflection->getProperty($key);
                 $propDest->setAccessible(true);
                 if (is_array($value)) {
-                    if(isset($value[0])) {
+                    if (isset($value[0])) {
                         if (preg_match('/@var\s+(\w+)/', $propDest->getDocComment(), $matches)) {
                             list(, $type) = $matches;
                         }
-                        if(strstr($type,'array'))
-                        {
-                            $propDest->setValue($destination,$value);
-                        }
-                        else
-                        {
+                        if (strstr($type, 'array')) {
+                            $propDest->setValue($destination, $value);
+                        } else {
                             foreach ($value as &$item)
-                                $item = self::object($item, "\\Mgd\\Entity\\" . $type,$master);
+                                $item = self::object($item, "\\Mgd\\Entity\\" . $type, $master);
                         }
-                    }
-                    else{
+                    } else {
                         if (preg_match('/@var\s+(\w+)/', $propDest->getDocComment(), $matches)) {
                             list(, $type) = $matches;
                         }
-                        if(strstr($type,'array'))
-                        {
-                            $propDest->setValue($destination,$value);
-                        }
-                        else
-                            $value = self::object($value, "\\Mgd\\Entity\\" . $type,$master);
+                        if (strstr($type, 'array')) {
+                            $propDest->setValue($destination, $value);
+                        } else
+                            $value = self::object($value, "\\Mgd\\Entity\\" . $type, $master);
                     }
                 }
                 $propDest->setValue($destination, $value);
@@ -94,14 +85,14 @@ class Parser
         }
 
         // Création des routes secondaires
-        foreach ($destinationReflection->getProperties() as $property)
-        {
-            preg_match('/\\\\Mgd\\\\Route\\\\(.*)/', $property->getDocComment(), $matches);
-            if(count($matches) > 0)
-            {
-                $class = trim($matches[0]);
-                $property->setAccessible(true);
-                $property->setValue($destination,new $class($destination));
+        if ($master->me !== null) {
+            foreach ($destinationReflection->getProperties() as $property) {
+                preg_match('/\\\\Mgd\\\\Route\\\\(.*)/', $property->getDocComment(), $matches);
+                if (count($matches) > 0) {
+                    $class = trim($matches[0]);
+                    $property->setAccessible(true);
+                    $property->setValue($destination, new $class($destination));
+                }
             }
         }
 

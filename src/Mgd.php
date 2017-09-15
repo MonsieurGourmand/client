@@ -78,7 +78,7 @@ class Mgd {
 
     public function me()
     {
-        $response = $this->client->fetch($this->apiRoot.'me');
+        $response = $this->client->fetch($this->apiRoot.'/me');
         $this->me = $this->parser->parse($response['result'],\Mgd\Entity\User::class,$this,self::FORMAT_OBJECT);
     }
 
