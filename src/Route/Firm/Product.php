@@ -16,7 +16,7 @@ class Product
     {
         $this->master = $firm->getMaster();
         $this->entity = \Mgd\Entity\Product::class;
-        $this->url = Mgd::GROUPS_ROAD.$this->master->me->getFirm()->getIdFirm()."/firms/".$firm->getIdFirm()."/products";
+        $this->url = Mgd::GROUPS_ROAD.$this->master->idFirm."/firms/".$firm->getIdFirm()."/products";
     }
 
     public function getAll($format=\Mgd\Mgd::FORMAT_OBJECT)

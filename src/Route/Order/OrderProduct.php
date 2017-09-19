@@ -17,7 +17,7 @@ class OrderProduct
     {
         $this->master = $order->getMaster();
         $this->entity = \Mgd\Entity\OrderProduct::class;
-        $this->url = Mgd::GROUPS_ROAD.$this->master->me->getFirm()->getIdFirm()."/orders/".$order->getIdOrder()."/products";
+        $this->url = Mgd::GROUPS_ROAD.$this->master->idFirm."/orders/".$order->getIdOrder()."/products";
     }
 
     public function getAll($format=\Mgd\Mgd::FORMAT_OBJECT)

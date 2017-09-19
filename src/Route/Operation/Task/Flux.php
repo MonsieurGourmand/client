@@ -18,7 +18,7 @@ class Flux
     {
         $this->master = $task->getMaster();
         $this->entity = \Mgd\Entity\Flux::class;
-        $this->url = Mgd::GROUPS_ROAD.$this->master->me->getFirm()->getIdFirm()."/operations/".$task->getOperation()->getIdOperation()."/tasks/".$task->getIdTask()."/fluxes";
+        $this->url = Mgd::GROUPS_ROAD.$this->master->idFirm."/operations/".$task->getOperation()->getIdOperation()."/tasks/".$task->getIdTask()."/fluxes";
     }
 
     public function getAll($format=\Mgd\Mgd::FORMAT_OBJECT)

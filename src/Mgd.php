@@ -28,6 +28,7 @@ class Mgd {
     private $client_id;
     private $client_secret;
     private $callback;
+    public $idFirm;
 
     public function __construct($client_id,$client_secret,$callback,$oauthRoot) {
         $this->oauthRoot = $oauthRoot;
@@ -79,6 +80,7 @@ class Mgd {
     public function me()
     {
         $response = $this->client->fetch($this->apiRoot.'/me');
+        $this->idFirm = $response['result']['firm']['idFirm'];
         $this->me = $this->parser->parse($response['result'],\Mgd\Entity\User::class,$this,self::FORMAT_OBJECT);
     }
 

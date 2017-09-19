@@ -17,7 +17,7 @@ class AlEvent
     {
         $this->master = $order->getMaster();
         $this->entity = \Mgd\Entity\AlEvent::class;
-        $this->url = Mgd::GROUPS_ROAD.$this->master->me->getFirm()->getIdFirm()."/orders/".$order->getIdOrder()."/alevents";
+        $this->url = Mgd::GROUPS_ROAD.$this->master->idFirm."/orders/".$order->getIdOrder()."/alevents";
     }
 
     public function getAll($format=\Mgd\Mgd::FORMAT_OBJECT)

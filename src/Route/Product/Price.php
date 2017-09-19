@@ -18,7 +18,7 @@ class Price
     {
         $this->master = $product->getMaster();
         $this->entity = \Mgd\Entity\Price::class;
-        $this->baseUrl = Mgd::GROUPS_ROAD . $this->master->me->getFirm()->getIdFirm();
+        $this->baseUrl = Mgd::GROUPS_ROAD . $this->master->idFirm;
         $this->url = "/products/" . $product->getIdProduct() . "/prices";
     }
 

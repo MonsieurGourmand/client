@@ -85,14 +85,12 @@ class Parser
         }
 
         // Création des routes secondaires
-        if ($master->me !== null) {
-            foreach ($destinationReflection->getProperties() as $property) {
-                preg_match('/\\\\Mgd\\\\Route\\\\(.*)/', $property->getDocComment(), $matches);
-                if (count($matches) > 0) {
-                    $class = trim($matches[0]);
-                    $property->setAccessible(true);
-                    $property->setValue($destination, new $class($destination));
-                }
+        foreach ($destinationReflection->getProperties() as $property) {
+            preg_match('/\\\\Mgd\\\\Route\\\\(.*)/', $property->getDocComment(), $matches);
+            if (count($matches) > 0) {
+                $class = trim($matches[0]);
+                $property->setAccessible(true);
+                $property->setValue($destination, new $class($destination));
             }
         }
 
