@@ -10,6 +10,22 @@ class OrderProduct extends Master
     private $order;
 
     /**
+     * @return int
+     */
+    public function getDiscount()
+    {
+        return $this->discount;
+    }
+
+    /**
+     * @param int $discount
+     */
+    public function setDiscount($discount)
+    {
+        $this->discount = $discount;
+    }
+
+    /**
      * @var Product
      */
     private $product;
@@ -19,6 +35,12 @@ class OrderProduct extends Master
      *
      */
     private $quantity;
+
+    /**
+     * @var integer
+     *
+     */
+    private $discount;
 
     /**
      * @var float
