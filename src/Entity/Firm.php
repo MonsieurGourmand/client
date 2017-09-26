@@ -45,7 +45,7 @@ class Firm extends Master
     private $idFirm;
 
     /**
-     * @var integer
+     * @var float
      */
     private $postagePaid;
 
@@ -53,6 +53,90 @@ class Firm extends Master
      * @var string
      */
     private $comment;
+
+    /**
+     * @var float
+     */
+    private $billingCosts;
+
+    /**
+     * @var string
+     */
+    private $deliveryDays;
+
+    /**
+     * @var string
+     */
+    private $deliveryTime;
+
+    /**
+     * @var string
+     */
+    private $paymentCondition;
+
+    /**
+     * @return float
+     */
+    public function getBillingCosts()
+    {
+        return $this->billingCosts;
+    }
+
+    /**
+     * @param float $billingCosts
+     */
+    public function setBillingCosts($billingCosts)
+    {
+        $this->billingCosts = $billingCosts;
+    }
+
+    /**
+     * @return string
+     */
+    public function getDeliveryDays()
+    {
+        return $this->deliveryDays;
+    }
+
+    /**
+     * @param string $deliveryDays
+     */
+    public function setDeliveryDays($deliveryDays)
+    {
+        $this->deliveryDays = $deliveryDays;
+    }
+
+    /**
+     * @return string
+     */
+    public function getDeliveryTime()
+    {
+        return $this->deliveryTime;
+    }
+
+    /**
+     * @param string $deliveryTime
+     */
+    public function setDeliveryTime($deliveryTime)
+    {
+        $this->deliveryTime = $deliveryTime;
+    }
+
+    /**
+     * @return string
+     */
+    public function getPaymentCondition()
+    {
+        return $this->paymentCondition;
+    }
+
+    /**
+     * @param string $paymentCondition
+     */
+    public function setPaymentCondition($paymentCondition)
+    {
+        $this->paymentCondition = $paymentCondition;
+    }
 
     /**
      * @return string
