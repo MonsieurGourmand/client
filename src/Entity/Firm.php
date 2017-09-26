@@ -58,6 +58,27 @@ class Firm extends Master
      * @var float
      */
     private $billingCosts;
+    /**
+     * @var float
+     */
+    private $deliveryCharge;
+
+    /**
+     * @return float
+     */
+    public function getDeliveryCharge()
+    {
+        return $this->deliveryCharge;
+    }
+
+    /**
+     * @param float $deliveryCharge
+     */
+    public function setDeliveryCharge($deliveryCharge)
+    {
+        $this->deliveryCharge = $deliveryCharge;
+    }
+
 
     /**
      * @var string
