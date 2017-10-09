@@ -68,6 +68,27 @@ class Order extends Master
     private $zipCode;
 
     /**
+     * @var string
+     */
+    private $reservationNumber;
+
+    /**
+     * @return string
+     */
+    public function getReservationNumber()
+    {
+        return $this->reservationNumber;
+    }
+
+    /**
+     * @param string $reservationNumber
+     */
+    public function setReservationNumber($reservationNumber)
+    {
+        $this->reservationNumber = $reservationNumber;
+    }
+
+    /**
      * @return string
      */
     public function getEventPhone()
