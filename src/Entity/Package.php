@@ -4,12 +4,6 @@ namespace Mgd\Entity;
 
 class Package extends Master
 {
-
-    /**
-     * @var \Mgd\Route\Package\Event
-     */
-    public $trackingEvents;
-
     /**
      * @var integer
      *
