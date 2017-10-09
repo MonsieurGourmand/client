@@ -70,6 +70,27 @@ class Order extends Master
     /**
      * @return string
      */
+    public function getEventPhone()
+    {
+        return $this->eventPhone;
+    }
+
+    /**
+     * @param string $eventPhone
+     */
+    public function setEventPhone($eventPhone)
+    {
+        $this->eventPhone = $eventPhone;
+    }
+
+    /**
+     * @var string
+     */
+    private $eventPhone;
+
+    /**
+     * @return string
+     */
     public function getEventName()
     {
         return $this->eventName;
