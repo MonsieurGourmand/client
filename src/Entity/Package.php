@@ -34,6 +34,27 @@ class Package extends Master
     private $order;
 
     /**
+     * @var float
+     */
+    private $weight;
+
+    /**
+     * @return mixed
+     */
+    public function getWeight()
+    {
+        return $this->weight;
+    }
+
+    /**
+     * @param mixed $weight
+     */
+    public function setWeight($weight)
+    {
+        $this->weight = $weight;
+    }
+
+    /**
      * @return Event
      */
     public function getActiveEvent()
