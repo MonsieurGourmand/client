@@ -8,7 +8,7 @@ class Package extends Master
     /**
      * @var \Mgd\Route\Package\Event
      */
-    public $events;
+    public $trackingEvents;
 
     /**
      * @var integer

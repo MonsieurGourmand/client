@@ -68,6 +68,27 @@ class Order extends Master
     private $zipCode;
 
     /**
+     * @return string
+     */
+    public function getEventName()
+    {
+        return $this->eventName;
+    }
+
+    /**
+     * @param string $eventName
+     */
+    public function setEventName($eventName)
+    {
+        $this->eventName = $eventName;
+    }
+
+    /**
+     * @var string
+     */
+    private $eventName;
+
+    /**
      * @var string
      */
     private $city;
