@@ -5,7 +5,7 @@ namespace Mgd\Entity;
 class Task extends Master
 {
     /**
-     * @var \Mgd\Route\Task\Flux
+     * @var \Mgd\Route\Operation\Task\Flux
      */
     public $fluxes;
 
