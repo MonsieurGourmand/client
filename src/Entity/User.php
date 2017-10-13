@@ -56,6 +56,11 @@ class User extends Master
     private $notification;
 
     /**
+     * @var bool $activation
+     */
+    private $activation;
+
+    /**
      * @var Firm
      */
     private $firm;
@@ -232,4 +237,22 @@ class User extends Master
     {
         $this->roles = $roles;
     }
+
+    /**
+     * @return bool
+     */
+    public function isActivation()
+    {
+        return $this->activation;
+    }
+
+    /**
+     * @param bool $activation
+     */
+    public function setActivation($activation)
+    {
+        $this->activation = $activation;
+    }
+
+
 }
