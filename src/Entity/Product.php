@@ -27,6 +27,19 @@ class Product extends Master
     /**
      * @var integer
      */
+    private $quantityExpired;
+
+    /**
+     * @return int
+     */
+    public function getQuantityExpired()
+    {
+        return $this->quantityExpired;
+    }
+
+    /**
+     * @var integer
+     */
     private $alert;
 
     /**
