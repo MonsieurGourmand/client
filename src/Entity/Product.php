@@ -30,6 +30,19 @@ class Product extends Master
     private $alert;
 
     /**
+     * @return bool
+     */
+    public function isInAlert()
+    {
+        return $this->inAlert;
+    }
+
+    /**
+     * @var boolean
+     */
+    private $inAlert;
+
+    /**
      * @return mixed
      */
     public function getAlert()

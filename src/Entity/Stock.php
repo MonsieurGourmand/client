@@ -26,6 +26,19 @@ class Stock extends Master
     private $quantity;
 
     /**
+     * @return bool
+     */
+    public function isAlert()
+    {
+        return $this->alert;
+    }
+
+    /**
+     * @var boolean
+     */
+    private $alert;
+
+    /**
      * @return int
      */
     public function getQuantity()
