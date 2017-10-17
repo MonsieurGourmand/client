@@ -423,6 +423,27 @@ class Product extends Master
      * @var integer
      */
     private $baseWeight;
+
+    /**
+     * @return int
+     */
+    public function getStopped()
+    {
+        return $this->stopped;
+    }
+
+    /**
+     * @param int $stopped
+     */
+    public function setStopped($stopped)
+    {
+        $this->stopped = $stopped;
+    }
+
+    /**
+     * @var integer
+     */
+    private $stopped;
     /**
      * @var integer
      */
