@@ -22,7 +22,7 @@ class Stat
     public function __construct(\Mgd\Mgd $master)
     {
         $this->master = $master;
-        $this->url = Mgd::GROUPS_ROAD.$master->me->getFirm()->getIdFirm().'/stats';
+        $this->url = '/stats';
         $this->startDate = new \DateTime("last month");
         $this->endDate = new \DateTime();
     }

@@ -16,8 +16,8 @@ class Purchase
     public function __construct(\Mgd\Mgd $master)
     {
         $this->master = $master;
-        $this->entity = \Mgd\Entity\Order::class;
-        $this->url = Mgd::GROUPS_ROAD.$master->me->getFirm()->getIdFirm().'/purchases';
+        $this->entity = \Mgd\Entity\Purchase::class;
+        $this->url = '/purchases';
     }
 
     public function getAll($startDate=null,$endDate=null,$format=\Mgd\Mgd::FORMAT_OBJECT)

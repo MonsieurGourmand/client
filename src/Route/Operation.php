@@ -17,7 +17,7 @@ class Operation
     {
         $this->master = $master;
         $this->entity = \Mgd\Entity\Operation::class;
-        $this->url = Mgd::GROUPS_ROAD.$master->me->getFirm()->getIdFirm().'/operations';
+        $this->url = '/operations';
     }
 
     public function getAll($format=\Mgd\Mgd::FORMAT_OBJECT)

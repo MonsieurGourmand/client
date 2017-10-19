@@ -4,9 +4,6 @@ namespace Mgd\Entity;
 
 class Event extends Master
 {
-
-
-
     /**
      * @var integer
      *
@@ -20,10 +17,10 @@ class Event extends Master
     private $package;
 
     /**
-     * @var Order
+     * @var OpeEvent
      *
      */
-    private $order;
+    private $opeEvent;
 
     /**
      * @var string
@@ -79,22 +76,6 @@ class Event extends Master
     public function setPackage($package)
     {
         $this->package = $package;
-    }
-
-    /**
-     * @return Order
-     */
-    public function getOrder()
-    {
-        return $this->order;
-    }
-
-    /**
-     * @param Order $order
-     */
-    public function setOrder($order)
-    {
-        $this->order = $order;
     }
 
     /**
@@ -160,4 +141,22 @@ class Event extends Master
     {
         $this->active = $active;
     }
+
+    /**
+     * @return OpeEvent
+     */
+    public function getOpeEvent()
+    {
+        return $this->opeEvent;
+    }
+
+    /**
+     * @param OpeEvent $opeEvent
+     */
+    public function setOpeEvent($opeEvent)
+    {
+        $this->opeEvent = $opeEvent;
+    }
+
+
 }

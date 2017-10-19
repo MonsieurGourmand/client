@@ -11,13 +11,13 @@ namespace Mgd\Route;
 
 use Mgd\Mgd;
 
-class Sale
+class Ope
 {
     public function __construct(\Mgd\Mgd $master)
     {
         $this->master = $master;
-        $this->entity = \Mgd\Entity\Order::class;
-        $this->url = Mgd::GROUPS_ROAD.$master->me->getFirm()->getIdFirm().'/sales';
+        $this->entity = \Mgd\Entity\Ope::class;
+        $this->url = '/ope';
     }
 
     public function getAll($format=\Mgd\Mgd::FORMAT_OBJECT)

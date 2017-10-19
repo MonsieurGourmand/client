@@ -4,7 +4,6 @@ namespace Mgd;
 
 class Mgd {
     const TOKEN_ENDPOINT = '/oauth/v2/token';
-    const GROUPS_ROAD = '/groups/';
 
     private $oauthRoot;
     private $apiRoot;
@@ -28,7 +27,6 @@ class Mgd {
     private $client_id;
     private $client_secret;
     private $callback;
-    public $idFirm;
 
     public function __construct($client_id,$client_secret,$callback,$oauthRoot) {
         $this->oauthRoot = $oauthRoot;
@@ -60,7 +58,7 @@ class Mgd {
         $this->operation = new \Mgd\Route\Operation($this);
         $this->product = new \Mgd\Route\Product($this);
         $this->purchase = new \Mgd\Route\Purchase($this);
-        $this->sale = new \Mgd\Route\Sale($this);
+        $this->sale = new \Mgd\Route\Ope($this);
         $this->supplier = new \Mgd\Route\Supplier($this);
         $this->user = new \Mgd\Route\User($this);
         $this->zone = new \Mgd\Route\Zone($this);
@@ -80,7 +78,6 @@ class Mgd {
     public function me()
     {
         $response = $this->client->fetch($this->apiRoot.'/me');
-        $this->idFirm = $response['result']['firm']['idFirm'];
         $this->me = $this->parser->parse($response['result'],\Mgd\Entity\User::class,$this,self::FORMAT_OBJECT);
     }
 

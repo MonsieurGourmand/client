@@ -6,68 +6,39 @@ class Package extends Master
 {
     /**
      * @var integer
-     *
      */
     private $idPackage;
 
     /**
-     * @var string
-     *
+     * @var integer
      */
     private $trackingNumber;
 
     /**
-     * @var string
-     *
+     * @var \DateTime
      */
     private $shippingDate;
 
     /**
-     * @var Order
+     * @var integer
      */
-    private $order;
+    private $type;
+
 
     /**
-     * @var float
+     * @var OpeEvent
+     */
+    private $opeEvent;
+
+    /**
+     * @var integer
+     */
+    private $status;
+
+    /**
+     * @var integer
      */
     private $weight;
-
-    /**
-     * @return mixed
-     */
-    public function getWeight()
-    {
-        return $this->weight;
-    }
-
-    /**
-     * @param mixed $weight
-     */
-    public function setWeight($weight)
-    {
-        $this->weight = $weight;
-    }
-
-    /**
-     * @return Event
-     */
-    public function getActiveEvent()
-    {
-        return $this->activeEvent;
-    }
-
-    /**
-     * @param Event $activeEvent
-     */
-    public function setActiveEvent($activeEvent)
-    {
-        $this->activeEvent = $activeEvent;
-    }
-
-    /**
-     * @var Event
-     */
-    private $activeEvent;
 
     /**
      * @return int
@@ -78,15 +49,7 @@ class Package extends Master
     }
 
     /**
-     * @param int $idPackage
-     */
-    public function setIdPackage($idPackage)
-    {
-        $this->idPackage = $idPackage;
-    }
-
-    /**
-     * @return string
+     * @return int
      */
     public function getTrackingNumber()
     {
@@ -94,7 +57,7 @@ class Package extends Master
     }
 
     /**
-     * @param string $trackingNumber
+     * @param int $trackingNumber
      */
     public function setTrackingNumber($trackingNumber)
     {
@@ -102,7 +65,7 @@ class Package extends Master
     }
 
     /**
-     * @return string
+     * @return \DateTime
      */
     public function getShippingDate()
     {
@@ -110,27 +73,11 @@ class Package extends Master
     }
 
     /**
-     * @param string $shippingDate
+     * @param \DateTime $shippingDate
      */
     public function setShippingDate($shippingDate)
     {
         $this->shippingDate = $shippingDate;
-    }
-
-    /**
-     * @return Order
-     */
-    public function getOrder()
-    {
-        return $this->order;
-    }
-
-    /**
-     * @param Order $order
-     */
-    public function setOrder($order)
-    {
-        $this->order = $order;
     }
 
     /**
@@ -150,8 +97,50 @@ class Package extends Master
     }
 
     /**
-     * @var integer
-     *
+     * @return mixed
      */
-    private $type;
+    public function getOpeEvent()
+    {
+        return $this->opeEvent;
+    }
+
+    /**
+     * @param mixed $opeEvent
+     */
+    public function setOpeEvent($opeEvent)
+    {
+        $this->opeEvent = $opeEvent;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getStatus()
+    {
+        return $this->status;
+    }
+
+    /**
+     * @param mixed $status
+     */
+    public function setStatus($status)
+    {
+        $this->status = $status;
+    }
+
+    /**
+     * @return int
+     */
+    public function getWeight()
+    {
+        return $this->weight;
+    }
+
+    /**
+     * @param int $weight
+     */
+    public function setWeight($weight)
+    {
+        $this->weight = $weight;
+    }
 }

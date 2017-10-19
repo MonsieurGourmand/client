@@ -17,7 +17,7 @@ class User
     {
         $this->master = $master;
         $this->entity = \Mgd\Entity\User::class;
-        $this->url = Mgd::GROUPS_ROAD.$master->me->getFirm()->getIdFirm().'/users';
+        $this->url = '/users';
     }
 
     public function getAll($format=\Mgd\Mgd::FORMAT_OBJECT)

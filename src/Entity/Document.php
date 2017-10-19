@@ -7,7 +7,7 @@ class Document extends Master
     /**
      * @var integer
      */
-    private $iddocument;
+    private $idDocument;
 
     /**
      * @var string
@@ -17,9 +17,9 @@ class Document extends Master
     /**
      * @return int
      */
-    public function getIddocument()
+    public function getIdDocument()
     {
-        return $this->iddocument;
+        return $this->idDocument;
     }
 
     /**
@@ -37,4 +37,6 @@ class Document extends Master
     {
         $this->url = $url;
     }
+
+
 }

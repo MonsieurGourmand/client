@@ -17,7 +17,7 @@ class Category
     {
         $this->master = $master;
         $this->entity = \Mgd\Entity\Category::class;
-        $this->url = Mgd::GROUPS_ROAD.$master->me->getFirm()->getIdFirm().'/categories';
+        $this->url = '/categories';
     }
 
     public function getAll($format=\Mgd\Mgd::FORMAT_OBJECT)

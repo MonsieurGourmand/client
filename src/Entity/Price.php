@@ -46,14 +46,6 @@ class Price extends Master
     }
 
     /**
-     * @param int $idPrice
-     */
-    public function setIdPrice($idPrice)
-    {
-        $this->idPrice = $idPrice;
-    }
-
-    /**
      * @return bool
      */
     public function isActive()
@@ -63,10 +55,12 @@ class Price extends Master
 
     /**
      * @param bool $active
+     * @return Price
      */
     public function setActive($active)
     {
         $this->active = $active;
+        return $this;
     }
 
     /**
@@ -79,10 +73,12 @@ class Price extends Master
 
     /**
      * @param int $cost
+     * @return Price
      */
     public function setCost($cost)
     {
         $this->cost = $cost;
+        return $this;
     }
 
     /**
@@ -95,10 +91,12 @@ class Price extends Master
 
     /**
      * @param int $baseCost
+     * @return Price
      */
     public function setBaseCost($baseCost)
     {
         $this->baseCost = $baseCost;
+        return $this;
     }
 
     /**
@@ -111,10 +109,12 @@ class Price extends Master
 
     /**
      * @param int $negotiate
+     * @return Price
      */
     public function setNegotiate($negotiate)
     {
         $this->negotiate = $negotiate;
+        return $this;
     }
 
     /**
@@ -127,10 +127,12 @@ class Price extends Master
 
     /**
      * @param int $baseNegotiate
+     * @return Price
      */
     public function setBaseNegotiate($baseNegotiate)
     {
         $this->baseNegotiate = $baseNegotiate;
+        return $this;
     }
 
     /**
@@ -143,10 +145,11 @@ class Price extends Master
 
     /**
      * @param int $vat
+     * @return Price
      */
     public function setVat($vat)
     {
         $this->vat = $vat;
+        return $this;
     }
-
 }

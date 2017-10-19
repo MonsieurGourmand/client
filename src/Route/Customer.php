@@ -16,8 +16,8 @@ class Customer
     public function __construct(\Mgd\Mgd $master)
     {
         $this->master = $master;
-        $this->entity = \Mgd\Entity\Firm::class;
-        $this->url = Mgd::GROUPS_ROAD.$master->me->getFirm()->getIdFirm().'/customers';
+        $this->entity = \Mgd\Entity\Customer::class;
+        $this->url = '/customers';
     }
 
     public function getAll($format=\Mgd\Mgd::FORMAT_OBJECT)
