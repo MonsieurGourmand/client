@@ -6,17 +6,17 @@
  * Time: 6:10 PM
  */
 
-namespace Mgd\Route\Firm;
+namespace Mgd\Route\Supplier;
 
 use Mgd\Mgd;
 
 class Product
 {
-    public function __construct(\Mgd\Entity\Firm $firm)
+    public function __construct(\Mgd\Entity\Supplier $supplier)
     {
-        $this->master = $firm->getMaster();
+        $this->master = $supplier->getMaster();
         $this->entity = \Mgd\Entity\Product::class;
-        $this->url = Mgd::GROUPS_ROAD . $this->master->idFirm . "/firms/" . $firm->getIdFirm() . "/products";
+        $this->url =  "/products";
     }
 
     public function getAll($format = \Mgd\Mgd::FORMAT_OBJECT)
@@ -42,11 +42,4 @@ class Product
     {
         return $this->master->put($this->url, $product->getIdProduct(), $product, $this->entity, $format);
     }
-
-    public function remove(\Mgd\Entity\Product $product)
-    {
-        return $this->master->remove($this->url, $product->getIdProduct());
-    }
-
-
 }

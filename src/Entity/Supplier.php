@@ -67,6 +67,11 @@ class Supplier extends Master
      */
     public $users;
 
+    /**
+     * @var \Mgd\Route\Supplier\Product
+     */
+    public $products;
+
 
     /**
      * @return int
