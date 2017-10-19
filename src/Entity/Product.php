@@ -60,7 +60,6 @@ class Product extends Master
      */
     private $purchaseProduct;
 
-
     /**
      * @var Supplier
      */
@@ -141,6 +140,11 @@ class Product extends Master
      * @var Price
      */
     private $activePrice;
+
+    /**
+     * @var Product
+     */
+    private $salesProducts;
 
     /**
      * @return int
@@ -616,6 +620,20 @@ class Product extends Master
     {
         $this->activePrice = $activePrice;
         return $this;
+    }
+
+    /**
+     * @return Product
+     */
+    public function getSalesProducts()
+    {
+        return $this->salesProducts;
+    }
+
+
+    public function setSalesProducts($salesProducts)
+    {
+        $this->salesProducts = $salesProducts;
     }
 
 
