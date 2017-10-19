@@ -5,6 +5,7 @@ namespace Mgd\Entity;
 
 class Supplier extends Master
 {
+
     /**
      * @var integer
      */
@@ -60,6 +61,12 @@ class Supplier extends Master
      * @var string
      */
     private $customerReference;
+
+    /**
+     * @var \Mgd\Route\Supplier\User
+     */
+    public $users;
+
 
     /**
      * @return int

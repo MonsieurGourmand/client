@@ -6,7 +6,7 @@
  * Time: 6:10 PM
  */
 
-namespace Mgd\Route\Firm;
+namespace Mgd\Route\Supplier;
 
 use Mgd\Mgd;
 
