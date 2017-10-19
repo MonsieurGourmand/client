@@ -57,6 +57,11 @@ class Supplier extends Master
     private $paymentCondition;
 
     /**
+     * @var string
+     */
+    private $customerReference;
+
+    /**
      * @return int
      */
     public function getIdSupplier()
@@ -223,6 +228,24 @@ class Supplier extends Master
     public function setPaymentCondition($paymentCondition)
     {
         $this->paymentCondition = $paymentCondition;
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getCustomerReference()
+    {
+        return $this->customerReference;
+    }
+
+    /**
+     * @param string $customerReference
+     * @return Supplier
+     */
+    public function setCustomerReference($customerReference)
+    {
+        $this->customerReference = $customerReference;
         return $this;
     }
 

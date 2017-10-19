@@ -31,20 +31,13 @@ class Ope
         return $this->master->get($this->url,$id,$this->entity,$format);
     }
 
-    public function post(\Mgd\Entity\Order $sale,$format=\Mgd\Mgd::FORMAT_OBJECT)
+    public function post(\Mgd\Entity\Ope $ope,$format=\Mgd\Mgd::FORMAT_OBJECT)
     {
-        return $this->master->post($this->url,$sale,$this->entity,$format);
+        return $this->master->post($this->url,$ope,$this->entity,$format);
     }
 
-    public function put(\Mgd\Entity\Order $sale,$format=\Mgd\Mgd::FORMAT_OBJECT)
+    public function put(\Mgd\Entity\Ope $ope,$format=\Mgd\Mgd::FORMAT_OBJECT)
     {
-        return $this->master->put($this->url,$sale->getIdOrder(),$sale,$this->entity,$format);
+        return $this->master->put($this->url,$ope->getIdOpe(),$ope,$this->entity,$format);
     }
-
-    public function remove(\Mgd\Entity\Order $sale)
-    {
-        return $this->master->remove($this->url,$sale->getIdOrder());
-    }
-
-
 }

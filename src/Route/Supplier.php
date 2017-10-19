@@ -31,20 +31,13 @@ class Supplier
         return $this->master->get($this->url,$id,$this->entity,$format);
     }
 
-    public function post(\Mgd\Entity\Firm $firm,$format=\Mgd\Mgd::FORMAT_OBJECT)
+    public function post(\Mgd\Entity\Supplier $supplier,$format=\Mgd\Mgd::FORMAT_OBJECT)
     {
-        return $this->master->post($this->url,$firm,$this->entity,$format);
+        return $this->master->post($this->url,$supplier,$this->entity,$format);
     }
 
-    public function put(\Mgd\Entity\Firm $firm,$format=\Mgd\Mgd::FORMAT_OBJECT)
+    public function put(\Mgd\Entity\Supplier $supplier,$format=\Mgd\Mgd::FORMAT_OBJECT)
     {
-        return $this->master->put($this->url,$firm->getIdFirm(),$firm,$this->entity,$format);
+        return $this->master->put($this->url,$supplier->getIdSupplier(),$supplier,$this->entity,$format);
     }
-
-    public function remove(\Mgd\Entity\Firm $firm)
-    {
-        return $this->master->remove($this->url,$firm->getIdFirm());
-    }
-
-
 }

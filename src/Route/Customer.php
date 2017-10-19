@@ -20,31 +20,24 @@ class Customer
         $this->url = '/customers';
     }
 
-    public function getAll($format=\Mgd\Mgd::FORMAT_OBJECT)
+    public function getAll($format = \Mgd\Mgd::FORMAT_OBJECT)
     {
         $params = array();
-        return $this->master->getAll($this->url, $this->entity,$params,$format);
+        return $this->master->getAll($this->url, $this->entity, $params, $format);
     }
 
-    public function get($id,$format=\Mgd\Mgd::FORMAT_OBJECT)
+    public function get($id, $format = \Mgd\Mgd::FORMAT_OBJECT)
     {
-        return $this->master->get($this->url,$id,$this->entity,$format);
+        return $this->master->get($this->url, $id, $this->entity, $format);
     }
 
-    public function post(\Mgd\Entity\Firm $firm,$format=\Mgd\Mgd::FORMAT_OBJECT)
+    public function post(\Mgd\Entity\Customer $customer, $format = \Mgd\Mgd::FORMAT_OBJECT)
     {
-        return $this->master->post($this->url,$firm,$this->entity,$format);
+        return $this->master->post($this->url, $customer, $this->entity, $format);
     }
 
-    public function put(\Mgd\Entity\Firm $firm,$format=\Mgd\Mgd::FORMAT_OBJECT)
+    public function put(\Mgd\Entity\Customer $customer, $format = \Mgd\Mgd::FORMAT_OBJECT)
     {
-        return $this->master->put($this->url,$firm->getIdFirm(),$firm,$this->entity,$format);
+        return $this->master->put($this->url, $customer->getIdCustomer(), $customer, $this->entity, $format);
     }
-
-    public function remove(\Mgd\Entity\Firm $firm)
-    {
-        return $this->master->remove($this->url,$firm->getIdFirm());
-    }
-
-
 }
