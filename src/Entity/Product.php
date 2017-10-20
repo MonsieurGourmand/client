@@ -56,7 +56,7 @@ class Product extends Master
     private $quantityPurchase;
 
     /**
-     * @var PurchaseProduct
+     * @var Product
      */
     private $purchaseProduct;
 

@@ -16,7 +16,7 @@ class Product
     {
         $this->master = $supplier->getMaster();
         $this->entity = \Mgd\Entity\Product::class;
-        $this->url =  "/products";
+        $this->url = "/suppliers/" . $supplier->getIdSupplier() . "/products";
     }
 
     public function getAll($format = \Mgd\Mgd::FORMAT_OBJECT)
