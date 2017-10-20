@@ -10,6 +10,7 @@ namespace Mgd\Route\Product;
 
 use Mgd\Entity\Firm;
 use Mgd\Entity\Product;
+use Mgd\Entity\Supplier;
 use Mgd\Mgd;
 
 class Price
@@ -18,44 +19,43 @@ class Price
     {
         $this->master = $product->getMaster();
         $this->entity = \Mgd\Entity\Price::class;
-        $this->baseUrl = Mgd::GROUPS_ROAD . $this->master->idFirm;
         $this->url = "/products/" . $product->getIdProduct() . "/prices";
     }
 
-    public function getAll(Firm $firm = null, $format = \Mgd\Mgd::FORMAT_OBJECT)
+    public function getAll(Supplier $supplier = null, $format = \Mgd\Mgd::FORMAT_OBJECT)
     {
-        if ($firm)
-            $url = $this->baseUrl . "/firms/" . $firm->getIdFirm() . $this->url;
+        if ($supplier)
+            $url = "/suppliers/" . $supplier->getIdSupplier() . $this->url;
         else
-            $url = $this->baseUrl . $this->url;
+            $url = $this->url;
         $params = array();
         return $this->master->getAll($url, $this->entity, $params, $format);
     }
 
-    public function get($id, Firm $firm = null, $format = \Mgd\Mgd::FORMAT_OBJECT)
+    public function get($id, Supplier $supplier = null, $format = \Mgd\Mgd::FORMAT_OBJECT)
     {
-        if ($firm)
-            $url = $this->baseUrl . "/firms/" . $firm->getIdFirm() . $this->url;
+        if ($supplier)
+            $url = "/suppliers/" . $supplier->getIdSupplier() . $this->url;
         else
-            $url = $this->baseUrl . $this->url;
+            $url = $this->url;
         return $this->master->get($url, $id, $this->entity, $format);
     }
 
-    public function post(\Mgd\Entity\Price $price, Firm $firm = null, $format = \Mgd\Mgd::FORMAT_OBJECT)
+    public function post(\Mgd\Entity\Price $price, Supplier $supplier = null, $format = \Mgd\Mgd::FORMAT_OBJECT)
     {
-        if ($firm)
-            $url = $this->baseUrl . "/firms/" . $firm->getIdFirm() . $this->url;
+        if ($supplier)
+            $url = "/suppliers/" . $supplier->getIdSupplier() . $this->url;
         else
-            $url = $this->baseUrl . $this->url;
+            $url = $this->url;
         return $this->master->post($url, $price, $this->entity, $format);
     }
 
-    public function put(\Mgd\Entity\Price $price, Firm $firm = null, $format = \Mgd\Mgd::FORMAT_OBJECT)
+    public function put(\Mgd\Entity\Price $price, Supplier $supplier = null, $format = \Mgd\Mgd::FORMAT_OBJECT)
     {
-        if ($firm)
-            $url = $this->baseUrl . "/firms/" . $firm->getIdFirm() . $this->url;
+        if ($supplier)
+            $url = "/suppliers/" . $supplier->getIdSupplier() . $this->url;
         else
-            $url = $this->baseUrl . $this->url;
+            $url = $this->url;
         return $this->master->put($url, $price->getIdPrice(), $price, $this->entity, $format);
     }
 }

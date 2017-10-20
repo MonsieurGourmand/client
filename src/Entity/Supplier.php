@@ -21,7 +21,6 @@ class Supplier extends Master
      */
     private $comment;
 
-
     /**
      * @var float
      */
@@ -71,7 +70,6 @@ class Supplier extends Master
      * @var \Mgd\Route\Supplier\Product
      */
     public $products;
-
 
     /**
      * @return int
@@ -260,6 +258,4 @@ class Supplier extends Master
         $this->customerReference = $customerReference;
         return $this;
     }
-
-
 }

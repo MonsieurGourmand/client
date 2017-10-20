@@ -147,6 +147,12 @@ class Product extends Master
     private $salesProducts;
 
     /**
+     * @var \Mgd\Route\Product\Price
+     */
+    public $prices;
+
+
+    /**
      * @return int
      */
     public function getIdProduct()
