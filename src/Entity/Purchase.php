@@ -129,6 +129,11 @@ class Purchase extends Master
     private $leadUser;
 
     /**
+     * @var \Mgd\Route\Purchase\PurchaseProduct
+     */
+    public $purchaseProducts;
+
+    /**
      * @return int
      */
     public function getIdPurchase()

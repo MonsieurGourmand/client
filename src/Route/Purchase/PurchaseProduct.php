@@ -6,7 +6,7 @@
  * Time: 6:10 PM
  */
 
-namespace Mgd\Route\Order;
+namespace Mgd\Route\Purchase;
 
 use Mgd\Entity\Order;
 use Mgd\Entity\Purchase;
@@ -18,7 +18,7 @@ class PurchaseProduct
     {
         $this->master = $purchase->getMaster();
         $this->entity = \Mgd\Entity\PurchaseProduct::class;
-        $this->url = "/purchases/".$purchase->getIdOrder()."/products";
+        $this->url = "/purchases/".$purchase->getIdPurchase()."/products";
     }
 
     public function getAll($format=\Mgd\Mgd::FORMAT_OBJECT)
@@ -32,19 +32,19 @@ class PurchaseProduct
         return $this->master->get($this->url,$id,$this->entity,$format);
     }
 
-    public function post(\Mgd\Entity\OrderProduct $orderProduct,$format=\Mgd\Mgd::FORMAT_OBJECT)
+    public function post(\Mgd\Entity\PurchaseProduct $purchaseProduct,$format=\Mgd\Mgd::FORMAT_OBJECT)
     {
-        return $this->master->post($this->url,$orderProduct,$this->entity,$format);
+        return $this->master->post($this->url,$purchaseProduct,$this->entity,$format);
     }
 
-    public function put(\Mgd\Entity\OrderProduct $orderProduct,$format=\Mgd\Mgd::FORMAT_OBJECT)
+    public function put(\Mgd\Entity\PurchaseProduct $purchaseProduct,$format=\Mgd\Mgd::FORMAT_OBJECT)
     {
-        return $this->master->put($this->url,$orderProduct->getIdOrderProduct(),$orderProduct,$this->entity,$format);
+        return $this->master->put($this->url,$purchaseProduct->getIdPurchaseProduct(),$purchaseProduct,$this->entity,$format);
     }
 
-    public function remove(\Mgd\Entity\OrderProduct $orderProduct)
+    public function remove(\Mgd\Entity\PurchaseProduct $purchaseProduct)
     {
-        return $this->master->remove($this->url,$orderProduct->getIdOrderProduct());
+        return $this->master->remove($this->url,$purchaseProduct->getIdPurchaseProduct());
     }
 
 
