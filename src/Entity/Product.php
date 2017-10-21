@@ -151,6 +151,11 @@ class Product extends Master
      */
     public $prices;
 
+    /**
+     * @var \Mgd\Route\Product\Stock
+     */
+    public $stocks;
+
 
     /**
      * @return int
