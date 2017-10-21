@@ -61,11 +61,6 @@ class User extends Master
     private $activation;
 
     /**
-     * @var Firm
-     */
-    private $firm;
-
-    /**
      * @var array
      */
     private $roles;
@@ -143,14 +138,6 @@ class User extends Master
     }
 
     /**
-     * @return Firm
-     */
-    public function getFirm()
-    {
-        return $this->firm;
-    }
-
-    /**
      * @return array
      */
     public function getRoles()
@@ -220,14 +207,6 @@ class User extends Master
     public function setNotification($notification)
     {
         $this->notification = $notification;
-    }
-
-    /**
-     * @param Firm $firm
-     */
-    public function setFirm($firm)
-    {
-        $this->firm = $firm;
     }
 
     /**

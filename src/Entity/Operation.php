@@ -15,6 +15,11 @@ class Operation extends Master
     private $name;
 
     /**
+     * @var \Mgd\Route\Operation\Task
+     */
+    public $tasks;
+
+    /**
      * @return int
      */
     public function getIdOperation()

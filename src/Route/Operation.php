@@ -41,8 +41,4 @@ class Operation
         return $this->master->put($this->url,$operation->getIdOperation(),$operation,$this->entity,$format);
     }
 
-    public function remove(\Mgd\Entity\Operation $operation)
-    {
-        return $this->master->remove($this->url,$operation->getIdOperation());
-    }
 }
