@@ -17,7 +17,7 @@ class Task
     {
         $this->master = $operation->getMaster();
         $this->entity = \Mgd\Entity\Task::class;
-        $this->url = Mgd::GROUPS_ROAD.$this->master->idFirm."/operations/".$operation->getIdOperation()."/tasks";
+        $this->url = "/operations/".$operation->getIdOperation()."/tasks";
     }
 
     public function getAll($format=\Mgd\Mgd::FORMAT_OBJECT)
