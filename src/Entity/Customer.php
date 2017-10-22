@@ -21,6 +21,11 @@ class Customer extends Master
     private $reference;
 
     /**
+     * @var \Mgd\Route\Customer\User
+     */
+    public $users;
+
+    /**
      * @return int
      */
     public function getIdCustomer()
