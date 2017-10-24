@@ -8,9 +8,7 @@
 
 namespace Mgd\Route\Purchase;
 
-use Mgd\Entity\Order;
 use Mgd\Entity\Purchase;
-use Mgd\Mgd;
 
 class PurchaseProduct
 {

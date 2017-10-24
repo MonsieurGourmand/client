@@ -6,11 +6,9 @@
  * Time: 6:10 PM
  */
 
-namespace Mgd\Route\Operation\Task;
+namespace Mgd\Route\Action\Task;
 
-use Mgd\Entity\Operation;
 use Mgd\Entity\Task;
-use Mgd\Mgd;
 
 class Flux
 {
@@ -18,7 +16,7 @@ class Flux
     {
         $this->master = $task->getMaster();
         $this->entity = \Mgd\Entity\Flux::class;
-        $this->url = "/operations/".$task->getOperation()->getIdOperation()."/tasks/".$task->getIdTask()."/fluxes";
+        $this->url = "/actions/".$task->getAction()->getIdAction()."/tasks/".$task->getIdTask()."/fluxes";
     }
 
     public function getAll($format=\Mgd\Mgd::FORMAT_OBJECT)

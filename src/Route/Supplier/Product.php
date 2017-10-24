@@ -8,8 +8,6 @@
 
 namespace Mgd\Route\Supplier;
 
-use Mgd\Mgd;
-
 class Product
 {
     public function __construct(\Mgd\Entity\Supplier $supplier)

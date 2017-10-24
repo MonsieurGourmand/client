@@ -10,14 +10,21 @@ class Operation extends Master
     private $idOperation;
 
     /**
-     * @var string
+     * @var Customer
+     *
      */
-    private $name;
+    private $customer;
 
     /**
-     * @var \Mgd\Route\Operation\Task
+     * @var User
      */
-    public $tasks;
+    private $leadUser;
+
+    /**
+     * @var \Mgd\Route\Operation\Event
+     */
+    public $events;
+
 
     /**
      * @return int
@@ -28,19 +35,39 @@ class Operation extends Master
     }
 
     /**
-     * @return string
+     * @return Customer
      */
-    public function getName()
+    public function getCustomer()
     {
-        return $this->name;
+        return $this->customer;
     }
 
     /**
-     * @param string $name
+     * @param Customer $customer
+     * @return Operation
      */
-    public function setName($name)
+    public function setCustomer($customer)
     {
-        $this->name = $name;
+        $this->customer = $customer;
+        return $this;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getLeadUser()
+    {
+        return $this->leadUser;
+    }
+
+    /**
+     * @param mixed $leadUser
+     * @return Operation
+     */
+    public function setLeadUser($leadUser)
+    {
+        $this->leadUser = $leadUser;
+        return $this;
     }
 
 

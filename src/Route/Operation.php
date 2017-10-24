@@ -40,5 +40,4 @@ class Operation
     {
         return $this->master->put($this->url,$operation->getIdOperation(),$operation,$this->entity,$format);
     }
-
 }

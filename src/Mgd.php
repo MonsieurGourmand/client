@@ -55,10 +55,10 @@ class Mgd {
         // Générations des routes non-anonnymes
         $this->category = new \Mgd\Route\Category($this);
         $this->customer = new \Mgd\Route\Customer($this);
-        $this->operation = new \Mgd\Route\Operation($this);
+        $this->action = new \Mgd\Route\Action($this);
         $this->product = new \Mgd\Route\Product($this);
         $this->purchase = new \Mgd\Route\Purchase($this);
-        $this->sale = new \Mgd\Route\Ope($this);
+        $this->operation = new \Mgd\Route\Operation($this);
         $this->supplier = new \Mgd\Route\Supplier($this);
         $this->user = new \Mgd\Route\User($this);
         $this->zone = new \Mgd\Route\Zone($this);

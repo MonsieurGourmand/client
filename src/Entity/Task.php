@@ -5,7 +5,7 @@ namespace Mgd\Entity;
 class Task extends Master
 {
     /**
-     * @var \Mgd\Route\Operation\Task\Flux
+     * @var \Mgd\Route\Action\Task\Flux
      */
     public $fluxes;
 
@@ -33,24 +33,24 @@ class Task extends Master
     private $user;
 
     /**
-     * @var Operation
+     * @var Action
      */
-    private $operation;
+    private $action;
 
     /**
-     * @return Operation
+     * @return Action
      */
-    public function getOperation()
+    public function getAction()
     {
-        return $this->operation;
+        return $this->action;
     }
 
     /**
-     * @param Operation $operation
+     * @param Action $action
      */
-    public function setOperation($operation)
+    public function setAction($action)
     {
-        $this->operation = $operation;
+        $this->action = $action;
     }
 
     /**

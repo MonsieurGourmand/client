@@ -11,13 +11,13 @@ namespace Mgd\Route;
 
 use Mgd\Mgd;
 
-class Ope
+class Action
 {
     public function __construct(\Mgd\Mgd $master)
     {
         $this->master = $master;
-        $this->entity = \Mgd\Entity\Ope::class;
-        $this->url = '/ope';
+        $this->entity = \Mgd\Entity\Action::class;
+        $this->url = '/actions';
     }
 
     public function getAll($format=\Mgd\Mgd::FORMAT_OBJECT)
@@ -31,13 +31,14 @@ class Ope
         return $this->master->get($this->url,$id,$this->entity,$format);
     }
 
-    public function post(\Mgd\Entity\Ope $ope,$format=\Mgd\Mgd::FORMAT_OBJECT)
+    public function post(\Mgd\Entity\Action $action,$format=\Mgd\Mgd::FORMAT_OBJECT)
     {
-        return $this->master->post($this->url,$ope,$this->entity,$format);
+        return $this->master->post($this->url,$action,$this->entity,$format);
     }
 
-    public function put(\Mgd\Entity\Ope $ope,$format=\Mgd\Mgd::FORMAT_OBJECT)
+    public function put(\Mgd\Entity\Action $action,$format=\Mgd\Mgd::FORMAT_OBJECT)
     {
-        return $this->master->put($this->url,$ope->getIdOpe(),$ope,$this->entity,$format);
+        return $this->master->put($this->url,$action->getIdAction(),$action,$this->entity,$format);
     }
+
 }

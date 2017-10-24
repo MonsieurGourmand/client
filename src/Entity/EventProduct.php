@@ -2,17 +2,17 @@
 
 namespace Mgd\Entity;
 
-class OpeEventProduct extends Master
+class EventProduct extends Master
 {
     /**
      * @var integer
      */
-    private $idOpeEvent;
+    private $idEventProduct;
 
     /**
-     * @var OpeEvent
+     * @var Event
      */
-    private $opeEvent;
+    private $event;
 
     /**
      * @var Product
@@ -27,26 +27,26 @@ class OpeEventProduct extends Master
     /**
      * @return int
      */
-    public function getIdOpeEvent()
+    public function getIdEventProduct()
     {
-        return $this->idOpeEvent;
+        return $this->idEventProduct;
     }
 
     /**
-     * @return OpeEvent
+     * @return Event
      */
-    public function getOpeEvent()
+    public function getEvent()
     {
-        return $this->opeEvent;
+        return $this->event;
     }
 
     /**
-     * @param OpeEvent $opeEvent
-     * @return OpeEventProduct
+     * @param Event $event
+     * @return EventProduct
      */
-    public function setOpeEvent($opeEvent)
+    public function setEvent($event)
     {
-        $this->opeEvent = $opeEvent;
+        $this->event = $event;
         return $this;
     }
 
@@ -60,7 +60,7 @@ class OpeEventProduct extends Master
 
     /**
      * @param Product $product
-     * @return OpeEventProduct
+     * @return EventProduct
      */
     public function setProduct($product)
     {
@@ -78,7 +78,7 @@ class OpeEventProduct extends Master
 
     /**
      * @param int $quantity
-     * @return OpeEventProduct
+     * @return EventProduct
      */
     public function setQuantity($quantity)
     {

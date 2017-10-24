@@ -8,16 +8,16 @@
 
 namespace Mgd\Route\Operation;
 
-use Mgd\Entity\Operation;
-use Mgd\Mgd;
 
-class Task
+use Mgd\Entity\Operation;
+
+class Event
 {
     public function __construct(Operation $operation)
     {
         $this->master = $operation->getMaster();
-        $this->entity = \Mgd\Entity\Task::class;
-        $this->url = "/operations/".$operation->getIdOperation()."/tasks";
+        $this->entity = \Mgd\Entity\Event::class;
+        $this->url = "/operations/".$operation->getIdOperation()."/events";
     }
 
     public function getAll($format=\Mgd\Mgd::FORMAT_OBJECT)
@@ -31,20 +31,13 @@ class Task
         return $this->master->get($this->url,$id,$this->entity,$format);
     }
 
-    public function post(\Mgd\Entity\Task $task,$format=\Mgd\Mgd::FORMAT_OBJECT)
+    public function post(\Mgd\Entity\Event $event,$format=\Mgd\Mgd::FORMAT_OBJECT)
     {
-        return $this->master->post($this->url,$task,$this->entity,$format);
+        return $this->master->post($this->url,$event,$this->entity,$format);
     }
 
-    public function put(\Mgd\Entity\Task $task,$format=\Mgd\Mgd::FORMAT_OBJECT)
+    public function put(\Mgd\Entity\Event $event,$format=\Mgd\Mgd::FORMAT_OBJECT)
     {
-        return $this->master->put($this->url,$task->getIdTask(),$task,$this->entity,$format);
+        return $this->master->put($this->url,$event->getIdEvent(),$event,$this->entity,$format);
     }
-
-    public function remove(\Mgd\Entity\Task $task)
-    {
-        return $this->master->remove($this->url,$task->getIdTask());
-    }
-
-
 }
