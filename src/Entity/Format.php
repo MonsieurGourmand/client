@@ -30,6 +30,11 @@ class Format extends Master
     private $pax;
 
     /**
+     * @var Customer[]
+     */
+    private $customers;
+
+    /**
      * @return int
      */
     public function getIdFormat()
@@ -91,5 +96,21 @@ class Format extends Master
         return $this;
     }
 
+    /**
+     * @return mixed
+     */
+    public function getCustomers()
+    {
+        return $this->customers;
+    }
 
+    /**
+     * @param mixed $customers
+     * @return Format
+     */
+    public function setCustomers($customers)
+    {
+        $this->customers = $customers;
+        return $this;
+    }
 }
