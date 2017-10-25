@@ -10,14 +10,24 @@ class Format extends Master
     private $idFormat;
 
     /**
-     * @var Customer
-     */
-    private $customer;
-
-    /**
      * @var \Mgd\Route\Format\FormatProduct
      */
     public $formatProducts;
+
+    /**
+     * @var string
+     */
+    private $intitule;
+
+    /**
+     * @var string
+     */
+    private $prestation;
+
+    /**
+     * @var integer
+     */
+    private $pax;
 
     /**
      * @return int
@@ -28,19 +38,58 @@ class Format extends Master
     }
 
     /**
-     * @return Customer
+     * @return mixed
      */
-    public function getCustomer()
+    public function getIntitule()
     {
-        return $this->customer;
+        return $this->intitule;
     }
 
     /**
-     * @param Customer $customer
+     * @param mixed $intitule
+     * @return Format
      */
-    public function setCustomer($customer)
+    public function setIntitule($intitule)
     {
-        $this->customer = $customer;
+        $this->intitule = $intitule;
+        return $this;
     }
+
+    /**
+     * @return mixed
+     */
+    public function getPrestation()
+    {
+        return $this->prestation;
+    }
+
+    /**
+     * @param mixed $prestation
+     * @return Format
+     */
+    public function setPrestation($prestation)
+    {
+        $this->prestation = $prestation;
+        return $this;
+    }
+
+    /**
+     * @return int
+     */
+    public function getPax()
+    {
+        return $this->pax;
+    }
+
+    /**
+     * @param int $pax
+     * @return Format
+     */
+    public function setPax($pax)
+    {
+        $this->pax = $pax;
+        return $this;
+    }
+
 
 }
