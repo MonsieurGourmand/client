@@ -16,7 +16,7 @@ class FormatProduct
     {
         $this->master = $format->getMaster();
         $this->entity = \Mgd\Entity\FormatProduct::class;
-        $this->url = "/customers/" . $format->getCustomer()->getIdCustomer() . "/formats/" . $format->getIdFormat() . "/products";
+        $this->url = "/formats/" . $format->getIdFormat() . "/products";
     }
 
     public function getAll($format = \Mgd\Mgd::FORMAT_OBJECT)

@@ -12,11 +12,11 @@ use Mgd\Mgd;
 
 class Format
 {
-    public function __construct(\Mgd\Entity\Customer $customer)
+    public function __construct(\Mgd\Mgd $master)
     {
-        $this->master = $customer->getMaster();
+        $this->master = $master;
         $this->entity = \Mgd\Entity\Format::class;
-        $this->url = "/customers/" . $customer->getIdCustomer() . "/formats";
+        $this->url = "/formats";
     }
 
     public function getAll($format = \Mgd\Mgd::FORMAT_OBJECT)
