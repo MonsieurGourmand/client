@@ -6,7 +6,7 @@
  * Time: 6:10 PM
  */
 
-namespace Mgd\Route\Customer;
+namespace Mgd\Route;
 
 use Mgd\Mgd;
 

@@ -63,6 +63,7 @@ class Mgd {
         $this->user = new \Mgd\Route\User($this);
         $this->zone = new \Mgd\Route\Zone($this);
         $this->stat = new \Mgd\Route\Stat($this);
+        $this->format = new \Mgd\Route\Format($this);
     }
 
     public function accessClientCredential()
