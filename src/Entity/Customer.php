@@ -26,6 +26,11 @@ class Customer extends Master
     public $users;
 
     /**
+     * @var \Mgd\Route\Customer\Format
+     */
+    public $formats;
+
+    /**
      * @return int
      */
     public function getIdCustomer()
