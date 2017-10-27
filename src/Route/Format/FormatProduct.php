@@ -39,4 +39,10 @@ class FormatProduct
     {
         return $this->master->put($this->url, $formatProduct->getIdFormatProduct(), $formatProduct, $this->entity, $format);
     }
+
+    public function remove(\Mgd\Entity\FormatProduct $formatProduct)
+    {
+        return $this->master->remove($this->url, $formatProduct->getIdFormatProduct());
+    }
+
 }

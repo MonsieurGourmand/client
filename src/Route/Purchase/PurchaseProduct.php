@@ -44,6 +44,4 @@ class PurchaseProduct
     {
         return $this->master->remove($this->url,$purchaseProduct->getIdPurchaseProduct());
     }
-
-
 }
