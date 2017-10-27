@@ -25,6 +25,46 @@ class Operation extends Master
      */
     public $events;
 
+    /**
+     * @var \DateTime
+     */
+    private $operationDate;
+
+    /**
+     * @var string
+     */
+    private $name;
+
+    /**
+     * @var integer
+     */
+    private $transport;
+
+    /**
+     * @var integer
+     */
+    private $service;
+
+    /**
+     * @var integer
+     */
+    private $documents;
+
+    /**
+     * @var integer
+     */
+    private $tPreparation;
+
+    /**
+     * @var integer
+     */
+    private $tTransport;
+
+    /**
+     * @var integer
+     */
+    private $tDefrost;
+
 
     /**
      * @return int
@@ -69,6 +109,151 @@ class Operation extends Master
         $this->leadUser = $leadUser;
         return $this;
     }
+
+    /**
+     * @return \DateTime
+     */
+    public function getOperationDate()
+    {
+        return $this->operationDate;
+    }
+
+    /**
+     * @param \DateTime $operationDate
+     * @return Operation
+     */
+    public function setOperationDate($operationDate)
+    {
+        $this->operationDate = $operationDate;
+        return $this;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getName()
+    {
+        return $this->name;
+    }
+
+    /**
+     * @param mixed $name
+     * @return Operation
+     */
+    public function setName($name)
+    {
+        $this->name = $name;
+        return $this;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getTransport()
+    {
+        return $this->transport;
+    }
+
+    /**
+     * @param mixed $transport
+     * @return Operation
+     */
+    public function setTransport($transport)
+    {
+        $this->transport = $transport;
+        return $this;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getService()
+    {
+        return $this->service;
+    }
+
+    /**
+     * @param mixed $service
+     * @return Operation
+     */
+    public function setService($service)
+    {
+        $this->service = $service;
+        return $this;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getDocuments()
+    {
+        return $this->documents;
+    }
+
+    /**
+     * @param mixed $documents
+     * @return Operation
+     */
+    public function setDocuments($documents)
+    {
+        $this->documents = $documents;
+        return $this;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getTPreparation()
+    {
+        return $this->tPreparation;
+    }
+
+    /**
+     * @param mixed $tPreparation
+     * @return Operation
+     */
+    public function setTPreparation($tPreparation)
+    {
+        $this->tPreparation = $tPreparation;
+        return $this;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getTTransport()
+    {
+        return $this->tTransport;
+    }
+
+    /**
+     * @param mixed $tTransport
+     * @return Operation
+     */
+    public function setTTransport($tTransport)
+    {
+        $this->tTransport = $tTransport;
+        return $this;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getTDefrost()
+    {
+        return $this->tDefrost;
+    }
+
+    /**
+     * @param mixed $tDefrost
+     * @return Operation
+     */
+    public function setTDefrost($tDefrost)
+    {
+        $this->tDefrost = $tDefrost;
+        return $this;
+    }
+
 
 
 }
