@@ -2,6 +2,18 @@
 
 namespace Mgd;
 
+use Mgd\Route\Action;
+use Mgd\Route\Category;
+use Mgd\Route\Customer;
+use Mgd\Route\Format;
+use Mgd\Route\Operation;
+use Mgd\Route\Product;
+use Mgd\Route\Purchase;
+use Mgd\Route\Stat;
+use Mgd\Route\Supplier;
+use Mgd\Route\User;
+use Mgd\Route\Zone;
+
 class Mgd
 {
     const TOKEN_ENDPOINT = '/oauth/v2/token';
@@ -29,16 +41,59 @@ class Mgd
     private $client_secret;
     private $callback;
 
+    /**
+     * @var Category
+     */
     public $category;
+
+    /**
+     * @var Customer
+     */
     public $customer;
+
+    /**
+     * @var Action
+     */
     public $action;
+
+    /**
+     * @var Product
+     */
     public $product;
+
+    /**
+     * @var Purchase
+     */
     public $purchase;
+
+    /**
+     * @var Operation
+     */
     public $operation;
+
+    /**
+     * @var Supplier
+     */
     public $supplier;
+
+    /**
+     * @var User
+     */
     public $user;
+
+    /**
+     * @var Zone
+     */
     public $zone;
+
+    /**
+     * @var Stat
+     */
     public $stat;
+
+    /**
+     * @var Format
+     */
     public $format;
 
     public function __construct($client_id, $client_secret, $callback, $oauthRoot)
