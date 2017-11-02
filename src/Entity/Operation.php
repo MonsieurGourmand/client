@@ -253,7 +253,4 @@ class Operation extends Master
         $this->tDefrost = $tDefrost;
         return $this;
     }
-
-
-
 }
