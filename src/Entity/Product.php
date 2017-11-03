@@ -102,6 +102,11 @@ class Product extends Master
     private $baseAlert;
 
     /**
+     * @var integer
+     */
+    private $type;
+
+    /**
      * @var float
      */
     private $productWeight;
@@ -647,5 +652,22 @@ class Product extends Master
         $this->salesProducts = $salesProducts;
     }
 
+    /**
+     * @return int
+     */
+    public function getType()
+    {
+        return $this->type;
+    }
+
+    /**
+     * @param int $type
+     * @return Product
+     */
+    public function setType($type)
+    {
+        $this->type = $type;
+        return $this;
+    }
 
 }
