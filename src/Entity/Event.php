@@ -136,6 +136,11 @@ class Event extends Master
     public $eventProducts;
 
     /**
+     * @var Format
+     */
+    private $format;
+
+    /**
      * @return int
      */
     public function getIdEvent()
@@ -575,5 +580,21 @@ class Event extends Master
         return $this;
     }
 
+    /**
+     * @return Format
+     */
+    public function getFormat()
+    {
+        return $this->format;
+    }
 
+    /**
+     * @param Format $format
+     * @return Event
+     */
+    public function setFormat($format)
+    {
+        $this->format = $format;
+        return $this;
+    }
 }
