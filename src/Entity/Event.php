@@ -95,6 +95,36 @@ class Event extends Master
     private $lastEvent;
 
     /**
+     * @var integer
+     */
+    private $transport;
+
+    /**
+     * @var integer
+     */
+    private $service;
+
+    /**
+     * @var integer
+     */
+    private $documents;
+
+    /**
+     * @var integer
+     */
+    private $tPreparation;
+
+    /**
+     * @var integer
+     */
+    private $tTransport;
+
+    /**
+     * @var integer
+     */
+    private $tDefrost;
+
+    /**
      * @return int
      */
     public function getIdEvent()
@@ -407,4 +437,114 @@ class Event extends Master
         $this->lastEvent = $lastEvent;
         return $this;
     }
+
+    /**
+     * @return int
+     */
+    public function getTransport()
+    {
+        return $this->transport;
+    }
+
+    /**
+     * @param int $transport
+     * @return Event
+     */
+    public function setTransport($transport)
+    {
+        $this->transport = $transport;
+        return $this;
+    }
+
+    /**
+     * @return int
+     */
+    public function getService()
+    {
+        return $this->service;
+    }
+
+    /**
+     * @param int $service
+     * @return Event
+     */
+    public function setService($service)
+    {
+        $this->service = $service;
+        return $this;
+    }
+
+    /**
+     * @return int
+     */
+    public function getDocuments()
+    {
+        return $this->documents;
+    }
+
+    /**
+     * @param int $documents
+     * @return Event
+     */
+    public function setDocuments($documents)
+    {
+        $this->documents = $documents;
+        return $this;
+    }
+
+    /**
+     * @return int
+     */
+    public function getTPreparation()
+    {
+        return $this->tPreparation;
+    }
+
+    /**
+     * @param int $tPreparation
+     * @return Event
+     */
+    public function setTPreparation($tPreparation)
+    {
+        $this->tPreparation = $tPreparation;
+        return $this;
+    }
+
+    /**
+     * @return int
+     */
+    public function getTTransport()
+    {
+        return $this->tTransport;
+    }
+
+    /**
+     * @param int $tTransport
+     * @return Event
+     */
+    public function setTTransport($tTransport)
+    {
+        $this->tTransport = $tTransport;
+        return $this;
+    }
+
+    /**
+     * @return int
+     */
+    public function getTDefrost()
+    {
+        return $this->tDefrost;
+    }
+
+    /**
+     * @param int $tDefrost
+     * @return Event
+     */
+    public function setTDefrost($tDefrost)
+    {
+        $this->tDefrost = $tDefrost;
+        return $this;
+    }
+
+
 }
