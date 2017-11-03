@@ -369,7 +369,7 @@ class Product extends Master
     }
 
     /**
-     * @return mixed
+     * @return Category
      */
     public function getCategory()
     {
