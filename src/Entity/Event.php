@@ -383,7 +383,7 @@ class Event extends Master
     }
 
     /**
-     * @return mixed
+     * @return Operation
      */
     public function getOperation()
     {
