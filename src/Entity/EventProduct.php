@@ -20,6 +20,11 @@ class EventProduct extends Master
     private $quantity;
 
     /**
+     * @var Event
+     */
+    private $event;
+
+    /**
      * @return int
      */
     public function getIdEventProduct()
@@ -62,4 +67,23 @@ class EventProduct extends Master
         $this->quantity = $quantity;
         return $this;
     }
+
+    /**
+     * @return Event
+     */
+    public function getEvent()
+    {
+        return $this->event;
+    }
+
+    /**
+     * @param Event $event
+     * @return EventProduct
+     */
+    public function setEvent($event)
+    {
+        $this->event = $event;
+        return $this;
+    }
+
 }
