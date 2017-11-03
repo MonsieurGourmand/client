@@ -131,6 +131,11 @@ class Event extends Master
     private $tDefrost;
 
     /**
+     * @var \Mgd\Route\Event\EventProduct
+     */
+    public $eventProducts;
+
+    /**
      * @return int
      */
     public function getIdEvent()
