@@ -61,6 +61,12 @@ class Event extends Master
      * @var string
      *
      */
+    private $country;
+
+    /**
+     * @var string
+     *
+     */
     private $mail;
 
     /**
@@ -543,6 +549,24 @@ class Event extends Master
     public function setTDefrost($tDefrost)
     {
         $this->tDefrost = $tDefrost;
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getCountry()
+    {
+        return $this->country;
+    }
+
+    /**
+     * @param string $country
+     * @return Event
+     */
+    public function setCountry($country)
+    {
+        $this->country = $country;
         return $this;
     }
 
