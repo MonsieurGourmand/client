@@ -145,6 +145,11 @@ class Event extends Master
      */
     private $recipient;
 
+    /**
+     * @var User
+     */
+    private $contact;
+
 
     /**
      * @return int
@@ -621,4 +626,24 @@ class Event extends Master
         $this->recipient = $recipient;
         return $this;
     }
+
+    /**
+     * @return User
+     */
+    public function getContact()
+    {
+        return $this->contact;
+    }
+
+    /**
+     * @param User $contact
+     * @return Event
+     */
+    public function setContact($contact)
+    {
+        $this->contact = $contact;
+        return $this;
+    }
+
+
 }
