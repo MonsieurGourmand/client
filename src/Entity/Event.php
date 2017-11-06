@@ -141,6 +141,12 @@ class Event extends Master
     private $format;
 
     /**
+     * @var string
+     */
+    private $recipient;
+
+
+    /**
      * @return int
      */
     public function getIdEvent()
@@ -595,6 +601,24 @@ class Event extends Master
     public function setFormat($format)
     {
         $this->format = $format;
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getRecipient()
+    {
+        return $this->recipient;
+    }
+
+    /**
+     * @param string $recipient
+     * @return Event
+     */
+    public function setRecipient($recipient)
+    {
+        $this->recipient = $recipient;
         return $this;
     }
 }
