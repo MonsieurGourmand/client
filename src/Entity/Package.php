@@ -26,9 +26,9 @@ class Package extends Master
 
 
     /**
-     * @var OpeEvent
+     * @var Event
      */
-    private $opeEvent;
+    private $event;
 
     /**
      * @var integer
@@ -99,22 +99,6 @@ class Package extends Master
     /**
      * @return mixed
      */
-    public function getOpeEvent()
-    {
-        return $this->opeEvent;
-    }
-
-    /**
-     * @param mixed $opeEvent
-     */
-    public function setOpeEvent($opeEvent)
-    {
-        $this->opeEvent = $opeEvent;
-    }
-
-    /**
-     * @return mixed
-     */
     public function getStatus()
     {
         return $this->status;
@@ -142,5 +126,23 @@ class Package extends Master
     public function setWeight($weight)
     {
         $this->weight = $weight;
+    }
+
+    /**
+     * @return Event
+     */
+    public function getEvent()
+    {
+        return $this->event;
+    }
+
+    /**
+     * @param Event $event
+     * @return Package
+     */
+    public function setEvent($event)
+    {
+        $this->event = $event;
+        return $this;
     }
 }

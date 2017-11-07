@@ -136,6 +136,11 @@ class Event extends Master
     public $eventProducts;
 
     /**
+     * @var \Mgd\Route\Event\Package
+     */
+    public $packages;
+
+    /**
      * @var Format
      */
     private $format;
