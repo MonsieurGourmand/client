@@ -65,6 +65,11 @@ class Operation extends Master
      */
     private $tDefrost;
 
+    /**
+     * @var Document
+     */
+    private $document;
+
 
     /**
      * @return int
@@ -253,4 +258,24 @@ class Operation extends Master
         $this->tDefrost = $tDefrost;
         return $this;
     }
+
+    /**
+     * @return Document
+     */
+    public function getDocument()
+    {
+        return $this->document;
+    }
+
+    /**
+     * @param Document $document
+     * @return Operation
+     */
+    public function setDocument($document)
+    {
+        $this->document = $document;
+        return $this;
+    }
+
+
 }
