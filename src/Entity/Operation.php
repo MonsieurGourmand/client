@@ -26,6 +26,11 @@ class Operation extends Master
     public $events;
 
     /**
+     * @var \Mgd\Route\Operation\Activity
+     */
+    public $activities;
+
+    /**
      * @var \DateTime
      */
     private $operationDate;
