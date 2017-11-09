@@ -30,21 +30,30 @@ class Activity extends Master
 
     /**
      * @var string
-     *
      */
-    private $activityLabel;
+    private $title;
 
     /**
      * @var string
-     *
      */
-    private $code;
+    private $contentType;
+
+    /**
+     * @var string
+     */
+    private $content;
 
     /**
      * @var integer
      *
      */
-    private $active;
+    private $activityType;
+
+    /**
+     * @var integer
+     *
+     */
+    private $creatorType;
 
     /**
      * @var Document
@@ -203,4 +212,96 @@ class Activity extends Master
         $this->operation = $operation;
         return $this;
     }
+
+    /**
+     * @return string
+     */
+    public function getTitle()
+    {
+        return $this->title;
+    }
+
+    /**
+     * @param string $title
+     * @return Activity
+     */
+    public function setTitle($title)
+    {
+        $this->title = $title;
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getContentType()
+    {
+        return $this->contentType;
+    }
+
+    /**
+     * @param string $contentType
+     * @return Activity
+     */
+    public function setContentType($contentType)
+    {
+        $this->contentType = $contentType;
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getContent()
+    {
+        return $this->content;
+    }
+
+    /**
+     * @param string $content
+     * @return Activity
+     */
+    public function setContent($content)
+    {
+        $this->content = $content;
+        return $this;
+    }
+
+    /**
+     * @return int
+     */
+    public function getActivityType()
+    {
+        return $this->activityType;
+    }
+
+    /**
+     * @param int $activityType
+     * @return Activity
+     */
+    public function setActivityType($activityType)
+    {
+        $this->activityType = $activityType;
+        return $this;
+    }
+
+    /**
+     * @return int
+     */
+    public function getCreatorType()
+    {
+        return $this->creatorType;
+    }
+
+    /**
+     * @param int $creatorType
+     * @return Activity
+     */
+    public function setCreatorType($creatorType)
+    {
+        $this->creatorType = $creatorType;
+        return $this;
+    }
+
+
 }
