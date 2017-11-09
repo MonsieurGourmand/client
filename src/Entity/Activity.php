@@ -52,6 +52,11 @@ class Activity extends Master
     private $document;
 
     /**
+     * @var Operation
+     */
+    private $operation;
+
+    /**
      * @return int
      */
     public function getIdActivity()
@@ -178,6 +183,24 @@ class Activity extends Master
     public function setDocument($document)
     {
         $this->document = $document;
+        return $this;
+    }
+
+    /**
+     * @return Operation
+     */
+    public function getOperation()
+    {
+        return $this->operation;
+    }
+
+    /**
+     * @param Operation $operation
+     * @return Activity
+     */
+    public function setOperation($operation)
+    {
+        $this->operation = $operation;
         return $this;
     }
 }
