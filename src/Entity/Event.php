@@ -15,7 +15,6 @@ class Event extends Master
      */
     private $place;
 
-
     /**
      * @var string
      */

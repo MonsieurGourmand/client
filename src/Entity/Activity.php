@@ -47,6 +47,11 @@ class Activity extends Master
     private $active;
 
     /**
+     * @var Document
+     */
+    private $document;
+
+    /**
      * @return int
      */
     public function getIdActivity()
@@ -156,5 +161,23 @@ class Activity extends Master
     public function setActive($active)
     {
         $this->active = $active;
+    }
+
+    /**
+     * @return Document
+     */
+    public function getDocument()
+    {
+        return $this->document;
+    }
+
+    /**
+     * @param Document $document
+     * @return Activity
+     */
+    public function setDocument($document)
+    {
+        $this->document = $document;
+        return $this;
     }
 }
