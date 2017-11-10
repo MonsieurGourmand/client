@@ -18,6 +18,11 @@ class Customer extends Master
     /**
      * @var string
      */
+    private $slideShare;
+
+    /**
+     * @var string
+     */
     private $reference;
 
     /**
@@ -64,4 +69,24 @@ class Customer extends Master
     {
         $this->reference = $reference;
     }
+
+    /**
+     * @return string
+     */
+    public function getSlideShare()
+    {
+        return $this->slideShare;
+    }
+
+    /**
+     * @param string $slideShare
+     * @return Customer
+     */
+    public function setSlideShare($slideShare)
+    {
+        $this->slideShare = $slideShare;
+        return $this;
+    }
+
+
 }
