@@ -40,4 +40,10 @@ class Activity
     {
         return $this->master->put($this->url, $activity->getIdActivity(), $activity, $this->entity, $format);
     }
+
+    public function remove(\Mgd\Entity\Activity $activity)
+    {
+        return $this->master->remove($this->url, $activity->getIdActivity());
+    }
+
 }
