@@ -68,22 +68,4 @@ class Prospect
         $this->email = $email;
         return $this;
     }
-
-    /**
-     * @return string
-     */
-    public function getFirm()
-    {
-        return $this->firm;
-    }
-
-    /**
-     * @param string $firm
-     * @return Prospect
-     */
-    public function setFirm($firm)
-    {
-        $this->firm = $firm;
-        return $this;
-    }
 }
