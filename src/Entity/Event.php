@@ -135,11 +135,6 @@ class Event extends Master
     public $eventProducts;
 
     /**
-     * @var Package[]
-     */
-    private $packages;
-
-    /**
      * @var \Mgd\Route\Event\Package
      */
     public $package;
@@ -653,24 +648,4 @@ class Event extends Master
         $this->contact = $contact;
         return $this;
     }
-
-    /**
-     * @return Package[]
-     */
-    public function getPackages()
-    {
-        return $this->packages;
-    }
-
-    /**
-     * @param Package[] $packages
-     * @return Event
-     */
-    public function setPackages($packages)
-    {
-        $this->packages = $packages;
-        return $this;
-    }
-
-
 }
