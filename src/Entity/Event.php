@@ -52,9 +52,13 @@ class Event extends Master
 
     /**
      * @var string
-     *
      */
     private $name;
+
+    /**
+     * @var string
+     */
+    private $corporateName;
 
     /**
      * @var string
@@ -646,6 +650,24 @@ class Event extends Master
     public function setContact($contact)
     {
         $this->contact = $contact;
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getCorporateName()
+    {
+        return $this->corporateName;
+    }
+
+    /**
+     * @param string $corporateName
+     * @return Event
+     */
+    public function setCorporateName($corporateName)
+    {
+        $this->corporateName = $corporateName;
         return $this;
     }
 }
