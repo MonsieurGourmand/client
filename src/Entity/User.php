@@ -36,6 +36,11 @@ class User extends Master
     private $lastName;
 
     /**
+     * @var string
+     */
+    private $job;
+
+    /**
      * @var string $phone
      */
     private $phone;
@@ -231,6 +236,24 @@ class User extends Master
     public function setActivation($activation)
     {
         $this->activation = $activation;
+    }
+
+    /**
+     * @return string
+     */
+    public function getJob()
+    {
+        return $this->job;
+    }
+
+    /**
+     * @param string $job
+     * @return User
+     */
+    public function setJob($job)
+    {
+        $this->job = $job;
+        return $this;
     }
 
 
