@@ -62,6 +62,10 @@ class Purchase extends Master
      */
     private $discountType;
 
+    /**
+     * @var integer
+     */
+    private $minTva;
 
     /**
      * @var string
@@ -552,6 +556,24 @@ class Purchase extends Master
     public function setLeadUser($leadUser)
     {
         $this->leadUser = $leadUser;
+        return $this;
+    }
+
+    /**
+     * @return int
+     */
+    public function getMinTva()
+    {
+        return $this->minTva;
+    }
+
+    /**
+     * @param int $minTva
+     * @return Purchase
+     */
+    public function setMinTva($minTva)
+    {
+        $this->minTva = $minTva;
         return $this;
     }
 }
