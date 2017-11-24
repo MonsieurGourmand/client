@@ -39,6 +39,11 @@ class Stock extends Master
     private $alert;
 
     /**
+     * @var boolean
+     */
+    private $sleeping;
+
+    /**
      * @return int
      */
     public function getQuantity()
@@ -100,6 +105,24 @@ class Stock extends Master
     public function setIdStock($idStock)
     {
         $this->idStock = $idStock;
+    }
+
+    /**
+     * @return bool
+     */
+    public function isSleeping()
+    {
+        return $this->sleeping;
+    }
+
+    /**
+     * @param bool $sleeping
+     * @return Stock
+     */
+    public function setSleeping($sleeping)
+    {
+        $this->sleeping = $sleeping;
+        return $this;
     }
 
 

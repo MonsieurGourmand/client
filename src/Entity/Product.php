@@ -132,6 +132,11 @@ class Product extends Master
     private $inAlert;
 
     /**
+     * @var boolean
+     */
+    private $sleeping;
+
+    /**
      * @var integer
      */
     private $quantityExpired;
@@ -670,4 +675,21 @@ class Product extends Master
         return $this;
     }
 
+    /**
+     * @return bool
+     */
+    public function isSleeping()
+    {
+        return $this->sleeping;
+    }
+
+    /**
+     * @param bool $sleeping
+     * @return Product
+     */
+    public function setSleeping($sleeping)
+    {
+        $this->sleeping = $sleeping;
+        return $this;
+    }
 }
