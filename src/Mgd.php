@@ -115,6 +115,7 @@ class Mgd
                 break;
             }
         }
+
     }
 
     public function login()
