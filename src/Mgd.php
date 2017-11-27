@@ -96,6 +96,8 @@ class Mgd
      */
     public $format;
 
+    public $version;
+
     public function __construct($client_id, $client_secret, $callback, $oauthRoot)
     {
         $this->oauthRoot = $oauthRoot;
@@ -106,6 +108,12 @@ class Mgd
 
         $this->parser = new Parser();
         $this->serializer = new Serializer();
+        $data = array();
+        $packages = json_decode(file_get_contents('../vendor/composer/installed.json'));
+        foreach ($packages as $package) {
+            $data[$package['name']] = $package['version_normalized'];
+        }
+        $this->version = $data['monsieurgourmand/client'];
     }
 
     public function login()
