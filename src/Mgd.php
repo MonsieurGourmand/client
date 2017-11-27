@@ -109,7 +109,7 @@ class Mgd
         $this->parser = new Parser();
         $this->serializer = new Serializer();
         $data = array();
-        $packages = json_decode(file_get_contents('../vendor/composer/installed.json'));
+        $packages = json_decode(file_get_contents('../vendor/composer/installed.json'), true);
         foreach ($packages as $package) {
             $data[$package['name']] = $package['version_normalized'];
         }
