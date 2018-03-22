@@ -21,9 +21,8 @@ class Product
         $this->entity = \Mgd\Entity\Product::class;
     }
 
-    public function getAll($format=\Mgd\Mgd::FORMAT_OBJECT)
+    public function getAll($params = array(),$format=\Mgd\Mgd::FORMAT_OBJECT)
     {
-        $params = array();
         return $this->master->getAll($this->url, $this->entity,$params,$format);
     }
 
